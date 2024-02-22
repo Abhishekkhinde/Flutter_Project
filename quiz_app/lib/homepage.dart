@@ -165,7 +165,7 @@ class _HomePageState extends State {
           backgroundColor: const Color.fromRGBO(47, 132, 139, 0.729),
           foregroundColor: Colors.white,
           title: const Text(
-            "App Bar",
+            "QUIZ APP",
             style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
           ),
           centerTitle: true,
@@ -378,7 +378,7 @@ class _HomePageState extends State {
           backgroundColor: const Color.fromRGBO(47, 132, 139, 0.729),
           foregroundColor: Colors.white,
           title: const Text(
-            "App Bar",
+            "QUIZ APP",
             style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
           ),
           centerTitle: true,
