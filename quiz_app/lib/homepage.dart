@@ -382,6 +382,17 @@ class _HomePageState extends State {
             style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
           ),
           centerTitle: true,
+          leading: IconButton(
+            onPressed: () {
+              homeScreen = true;
+              questionindex = 0;
+              selectedAnswerIndex = -1;
+              noOfCorrectAnswer = 0;
+              setState(() {});
+            },
+            icon: const Icon(Icons.home),
+            iconSize: 40,
+          ),
         ),
         body: Column(
           children: [
@@ -393,7 +404,7 @@ class _HomePageState extends State {
                     child: Column(
                     children: [
                       const SizedBox(
-                        height: 30,
+                        height: 20,
                       ),
                       Text(
                         "Correct Questions $noOfCorrectAnswer/${allQuestions.length}",
@@ -404,7 +415,7 @@ class _HomePageState extends State {
                         ),
                       ),
                       const SizedBox(
-                        height: 20,
+                        height: 15,
                       ),
                       Image.network(
                         "https://img.freepik.com/premium-vector/winner-trophy-cup-with-ribbon-confetti_51486-122.jpg",
@@ -413,7 +424,7 @@ class _HomePageState extends State {
                         alignment: Alignment.centerLeft,
                       ),
                       const SizedBox(
-                        height: 20,
+                        height: 15,
                       ),
                       const Text("Congratulations!!!",
                           style: TextStyle(
@@ -421,7 +432,7 @@ class _HomePageState extends State {
                               fontWeight: FontWeight.w700,
                               color: Colors.white)),
                       const SizedBox(
-                        height: 15,
+                        height: 10,
                       ),
                       Text(
                         "${_nameEditingController.text} : Your Percentage : ${noOfCorrectAnswer * 100 / allQuestions.length}%",
@@ -432,7 +443,7 @@ class _HomePageState extends State {
                         ),
                       ),
                       const SizedBox(
-                        height: 15,
+                        height: 10,
                       ),
                       const Text("You have completed the Quiz",
                           style: TextStyle(
@@ -500,6 +511,7 @@ class _HomePageState extends State {
                             fontWeight: FontWeight.w500,
                             color: Colors.white,
                           ),
+                          textAlign: TextAlign.right,
                         ),
                         const SizedBox(
                           height: 15,
@@ -516,72 +528,18 @@ class _HomePageState extends State {
                     ),
                   )
                 : const SizedBox(),
-
-            Row(
-              children: [
-                Container(
-                  margin: const EdgeInsets.all(30),
-                  padding: const EdgeInsets.all(30),
-                  child: ElevatedButton(
-                    style: const ButtonStyle(
-                      shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.elliptical(15, 15),
-                            bottomRight: Radius.elliptical(15, 15),
-                          ),
-                        ),
-                      ),
-                    ),
-                    onPressed: () {
-                      homeScreen = true;
-                      questionindex = 0;
-                      selectedAnswerIndex = -1;
-                      noOfCorrectAnswer = 0;
-                      setState(() {});
-                    },
-                    child: const Text(
-                      "Home",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 23,
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.all(10),
-                  padding: const EdgeInsets.all(10),
-                  child: ElevatedButton(
-                    style: const ButtonStyle(
-                      shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.elliptical(15, 15),
-                            bottomRight: Radius.elliptical(15, 15),
-                          ),
-                        ),
-                      ),
-                    ),
-                    onPressed: () {
-                      allQuestionscreen = true;
-                      questionindex = 0;
-                      selectedAnswerIndex = -1;
-                      noOfCorrectAnswer = 0;
-                      setState(() {});
-                    },
-                    child: const Text(
-                      "Restart",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 23,
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            )
           ],
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            allQuestionscreen = true;
+            questionindex = 0;
+            selectedAnswerIndex = -1;
+            noOfCorrectAnswer = 0;
+            setState(() {});
+          },
+          backgroundColor: Colors.white,
+          child: const Icon(Icons.repeat),
         ),
       );
     }
