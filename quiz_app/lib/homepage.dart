@@ -7,36 +7,44 @@ class HomePage extends StatefulWidget {
   State createState() => _HomePageState();
 }
 
+class SingleModelView {
+  final String? question;
+  final List? options;
+  final int? answerIndex;
+
+  const SingleModelView({this.question, this.options, this.answerIndex});
+}
+
 class _HomePageState extends State {
   List allQuestions = [
-    {
-      "question":
+    (
+      question:
           "Who developed the Flutter Framework and continues to maintain it today?",
-      "options": ["Facebook", "Microsoft", "Google", "Oracle"],
-      "answerIndex": 2,
-    },
-    {
-      "question":
+      options: ["Facebook", "Microsoft", "Google", "Oracle"],
+      answerIndex: 2,
+    ),
+    (
+      question:
           "Which programming language is used to build Flutter applications?",
-      "options": ["Kotlin", "Dart", "Java", "Go"],
-      "answerIndex": 1,
-    },
-    {
-      "question": "How many types of widgets are there in Flutter?",
-      "options": ["2", "4", "6", "8+"],
-      "answerIndex": 0,
-    },
-    {
-      "question":
+      options: ["Kotlin", "Dart", "Java", "Go"],
+      answerIndex: 1,
+    ),
+    (
+      question: "How many types of widgets are there in Flutter?",
+      options: ["2", "4", "6", "8+"],
+      answerIndex: 0,
+    ),
+    (
+      question:
           "What language is Flutter's rendering engine primarily written in?",
-      "options": ["Kotlin", "C++", "Dart", "Java"],
-      "answerIndex": 1,
-    },
-    {
-      "question": "What widget would you use for repeating content in Flutter?",
-      "options": ["ArrayView", "Stack", "ExpandedView", "ListView"],
-      "answerIndex": 3,
-    },
+      options: ["Kotlin", "C++", "Dart", "Java"],
+      answerIndex: 1,
+    ),
+    (
+      question: "What widget would you use for repeating content in Flutter?",
+      options: ["ArrayView", "Stack", "ExpandedView", "ListView"],
+      answerIndex: 3,
+    ),
   ];
 
   int questionindex = 0;
@@ -48,7 +56,7 @@ class _HomePageState extends State {
 
   MaterialStateProperty<Color?> checkAnswer(int buttonIndex) {
     if (selectedAnswerIndex != -1) {
-      if (buttonIndex == allQuestions[questionindex]["answerIndex"]) {
+      if (buttonIndex == allQuestions[questionindex].answerIndex) {
         return const MaterialStatePropertyAll(Colors.green);
       } else if (buttonIndex == selectedAnswerIndex) {
         return const MaterialStatePropertyAll(Colors.red);
@@ -65,7 +73,7 @@ class _HomePageState extends State {
       return;
     }
 
-    if (selectedAnswerIndex == allQuestions[questionindex]["answerIndex"]) {
+    if (selectedAnswerIndex == allQuestions[questionindex].answerIndex) {
       noOfCorrectAnswer += 1;
     }
 
@@ -223,7 +231,7 @@ class _HomePageState extends State {
                 children: [
                   SizedBox(
                     child: Text(
-                      allQuestions[questionindex]["question"],
+                      allQuestions[questionindex].question,
                       style: const TextStyle(
                           fontSize: 25, fontWeight: FontWeight.w600),
                     ),
@@ -258,7 +266,7 @@ class _HomePageState extends State {
                 }
               },
               child: Text(
-                "A. ${allQuestions[questionindex]["options"][0]} ",
+                "A. ${allQuestions[questionindex].options[0]} ",
                 style: const TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.w400,
@@ -292,7 +300,7 @@ class _HomePageState extends State {
                   }
                 },
                 child: Text(
-                  "B. ${allQuestions[questionindex]["options"][1]} ",
+                  "B. ${allQuestions[questionindex].options[1]} ",
                   style: const TextStyle(fontSize: 25),
                 )),
             const SizedBox(
@@ -322,7 +330,7 @@ class _HomePageState extends State {
                   }
                 },
                 child: Text(
-                  "C. ${allQuestions[questionindex]["options"][2]} ",
+                  "C. ${allQuestions[questionindex].options[2]} ",
                   style: const TextStyle(fontSize: 25),
                 )),
             const SizedBox(
@@ -352,7 +360,7 @@ class _HomePageState extends State {
                   }
                 },
                 child: Text(
-                  "D. ${allQuestions[questionindex]["options"][3]} ",
+                  "D. ${allQuestions[questionindex].options[3]} ",
                   style: const TextStyle(fontSize: 25),
                 )),
             const SizedBox(
