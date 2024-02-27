@@ -38,7 +38,7 @@ class _ToDoListState extends State {
   TextEditingController descriptionController = TextEditingController();
   TextEditingController dateController = TextEditingController();
 
-  void showBottomSheet() {
+  void showBottomSheet(int index) {
     if (isEdit == true) {
       showModalBottomSheet(
           isScrollControlled: true,
@@ -92,6 +92,7 @@ class _ToDoListState extends State {
                       TextField(
                         controller: titleController,
                         decoration: InputDecoration(
+                          hintText: data[index].title,
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
                             borderSide: const BorderSide(
@@ -123,6 +124,7 @@ class _ToDoListState extends State {
                         controller: descriptionController,
                         maxLines: 4,
                         decoration: InputDecoration(
+                          hintText: data[index].description,
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
                             borderSide: const BorderSide(
@@ -151,6 +153,7 @@ class _ToDoListState extends State {
                         controller: dateController,
                         readOnly: true,
                         decoration: InputDecoration(
+                          hintText: "${data[index].date}",
                           suffix: const Icon(Icons.date_range_rounded),
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
@@ -199,7 +202,12 @@ class _ToDoListState extends State {
                       ),
                       onPressed: () {
                         setState(() {
-                          data.add(
+                          isEdit = false;
+
+                          data.removeAt(index);
+
+                          data.insert(
+                            index,
                             CardList(
                                 title: titleController.text,
                                 description: descriptionController.text,
@@ -276,6 +284,7 @@ class _ToDoListState extends State {
                       TextField(
                         controller: titleController,
                         decoration: InputDecoration(
+                          hintText: "enter list title",
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
                             borderSide: const BorderSide(
@@ -307,6 +316,7 @@ class _ToDoListState extends State {
                         controller: descriptionController,
                         maxLines: 4,
                         decoration: InputDecoration(
+                          hintText: "Add description",
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
                             borderSide: const BorderSide(
@@ -335,6 +345,7 @@ class _ToDoListState extends State {
                         controller: dateController,
                         readOnly: true,
                         decoration: InputDecoration(
+                          hintText: "select date",
                           suffix: const Icon(Icons.date_range_rounded),
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
@@ -390,6 +401,8 @@ class _ToDoListState extends State {
                                 date: dateController.text),
                           );
                         });
+                        //   isEdit = false;
+
                         Navigator.of(context)
                             .pop(); // off navigotor screen bottomsheet
                       },
@@ -535,7 +548,9 @@ class _ToDoListState extends State {
                                 ),
                               ),
                               onTap: () {
-                                showBottomSheet();
+                                isEdit = true;
+
+                                showBottomSheet(index);
                               },
                             ),
                             const SizedBox(
@@ -570,7 +585,7 @@ class _ToDoListState extends State {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          showBottomSheet();
+          showBottomSheet(0);
         },
         backgroundColor: const Color.fromRGBO(0, 139, 148, 1),
         foregroundColor: const Color.fromRGBO(255, 255, 255, 1),
