@@ -39,189 +39,375 @@ class _ToDoListState extends State {
   TextEditingController dateController = TextEditingController();
 
   void showBottomSheet() {
-    showModalBottomSheet(
-        isScrollControlled: true,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(30),
-            topRight: Radius.circular(30),
+    if (isEdit == true) {
+      showModalBottomSheet(
+          isScrollControlled: true,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(30),
+              topRight: Radius.circular(30),
+            ),
           ),
-        ),
-        isDismissible: true,
-        context: context,
-        builder: (context) {
-          return Padding(
-            padding: EdgeInsets.only(
-                left: 15,
-                right: 15,
-                bottom: MediaQuery.of(context)
-                    .viewInsets
-                    .bottom), // to avoid the keyboard overlap the screen
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  "Create Task",
-                  style: GoogleFonts.quicksand(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 22,
+          isDismissible: true,
+          context: context,
+          builder: (context) {
+            return Padding(
+              padding: EdgeInsets.only(
+                  left: 15,
+                  right: 15,
+                  bottom: MediaQuery.of(context)
+                      .viewInsets
+                      .bottom), // to avoid the keyboard overlap the screen
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const SizedBox(
+                    height: 10,
                   ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Title",
-                      style: GoogleFonts.quicksand(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 11,
-                        color: const Color.fromRGBO(0, 139, 148, 1),
-                      ),
+                  Text(
+                    "Edit Task",
+                    style: GoogleFonts.quicksand(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 22,
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    TextField(
-                      controller: titleController,
-                      decoration: InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(
-                            color: Color.fromRGBO(0, 139, 148, 1),
-                          ),
-                        ),
-                        border: OutlineInputBorder(
-                          borderSide:
-                              const BorderSide(color: Colors.purpleAccent),
-                          borderRadius: BorderRadius.circular(12),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Title",
+                        style: GoogleFonts.quicksand(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 11,
+                          color: const Color.fromRGBO(0, 139, 148, 1),
                         ),
                       ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      "Description",
-                      style: GoogleFonts.quicksand(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 11,
-                        color: const Color.fromRGBO(0, 139, 148, 1),
+                      const SizedBox(
+                        height: 10,
                       ),
-                    ),
-                    const SizedBox(
-                      height: 3,
-                    ),
-                    TextField(
-                      controller: descriptionController,
-                      maxLines: 4,
-                      decoration: InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(
-                            color: Color.fromRGBO(0, 139, 148, 1),
-                          ),
-                        ),
-                        border: OutlineInputBorder(
-                          borderSide:
-                              const BorderSide(color: Colors.purpleAccent),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      "Date",
-                      style: GoogleFonts.quicksand(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 11,
-                        color: const Color.fromRGBO(0, 139, 148, 1),
-                      ),
-                    ),
-                    TextField(
-                      controller: dateController,
-                      readOnly: true,
-                      decoration: InputDecoration(
-                        suffix: const Icon(Icons.date_range_rounded),
-                        focusedBorder: OutlineInputBorder(
+                      TextField(
+                        controller: titleController,
+                        decoration: InputDecoration(
+                          focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
                             borderSide: const BorderSide(
                               color: Color.fromRGBO(0, 139, 148, 1),
-                            )),
-                        border: const OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.purpleAccent),
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(10),
+                            ),
+                          ),
+                          border: OutlineInputBorder(
+                            borderSide:
+                                const BorderSide(color: Colors.purpleAccent),
+                            borderRadius: BorderRadius.circular(12),
                           ),
                         ),
                       ),
-                      onTap: () async {
-                        DateTime? pickedDate = await showDatePicker(
-                          context: context,
-                          initialDate: DateTime.now(),
-                          firstDate: DateTime(2015),
-                          lastDate: DateTime(2027),
-                        );
-
-                        String formateDate =
-                            DateFormat.yMMMd().format(pickedDate!);
-                        setState(() {
-                          dateController.text = formateDate;
-                        });
-                      },
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 50,
-                  width: 300,
-                ),
-                Container(
-                  height: 50,
-                  width: 300,
-                  decoration:
-                      BoxDecoration(borderRadius: BorderRadius.circular(30)),
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromRGBO(0, 139, 148, 1),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
+                      const SizedBox(
+                        height: 10,
                       ),
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        data.add(
-                          CardList(
-                              title: titleController.text,
-                              description: descriptionController.text,
-                              date: dateController.text),
-                        );
-                      });
-                      Navigator.of(context)
-                          .pop(); // off navigotor screen bottomsheet
-                    },
-                    child: Text("Submit",
-                        style: GoogleFonts.inter(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w700,
-                            fontSize: 22)),
+                      Text(
+                        "Description",
+                        style: GoogleFonts.quicksand(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 11,
+                          color: const Color.fromRGBO(0, 139, 148, 1),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 3,
+                      ),
+                      TextField(
+                        controller: descriptionController,
+                        maxLines: 4,
+                        decoration: InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            borderSide: const BorderSide(
+                              color: Color.fromRGBO(0, 139, 148, 1),
+                            ),
+                          ),
+                          border: OutlineInputBorder(
+                            borderSide:
+                                const BorderSide(color: Colors.purpleAccent),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        "Date",
+                        style: GoogleFonts.quicksand(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 11,
+                          color: const Color.fromRGBO(0, 139, 148, 1),
+                        ),
+                      ),
+                      TextField(
+                        controller: dateController,
+                        readOnly: true,
+                        decoration: InputDecoration(
+                          suffix: const Icon(Icons.date_range_rounded),
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                              borderSide: const BorderSide(
+                                color: Color.fromRGBO(0, 139, 148, 1),
+                              )),
+                          border: const OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.purpleAccent),
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10),
+                            ),
+                          ),
+                        ),
+                        onTap: () async {
+                          DateTime? pickedDate = await showDatePicker(
+                            context: context,
+                            initialDate: DateTime.now(),
+                            firstDate: DateTime(2015),
+                            lastDate: DateTime(2027),
+                          );
+
+                          String formateDate =
+                              DateFormat.yMMMd().format(pickedDate!);
+                          setState(() {
+                            dateController.text = formateDate;
+                          });
+                        },
+                      )
+                    ],
                   ),
-                ),
-                const SizedBox(
-                  height: 30,
-                )
-              ],
+                  const SizedBox(
+                    height: 50,
+                    width: 300,
+                  ),
+                  Container(
+                    height: 50,
+                    width: 300,
+                    decoration:
+                        BoxDecoration(borderRadius: BorderRadius.circular(30)),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color.fromRGBO(0, 139, 148, 1),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          data.add(
+                            CardList(
+                                title: titleController.text,
+                                description: descriptionController.text,
+                                date: dateController.text),
+                          );
+                        });
+                        Navigator.of(context)
+                            .pop(); // off navigotor screen bottomsheet
+                      },
+                      child: Text("Submit",
+                          style: GoogleFonts.inter(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 22)),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  )
+                ],
+              ),
+            );
+          });
+    } else {
+      showModalBottomSheet(
+          isScrollControlled: true,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(30),
+              topRight: Radius.circular(30),
             ),
-          );
-        });
+          ),
+          isDismissible: true,
+          context: context,
+          builder: (context) {
+            return Padding(
+              padding: EdgeInsets.only(
+                  left: 15,
+                  right: 15,
+                  bottom: MediaQuery.of(context)
+                      .viewInsets
+                      .bottom), // to avoid the keyboard overlap the screen
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    "Create Task",
+                    style: GoogleFonts.quicksand(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 22,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Title",
+                        style: GoogleFonts.quicksand(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 11,
+                          color: const Color.fromRGBO(0, 139, 148, 1),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      TextField(
+                        controller: titleController,
+                        decoration: InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            borderSide: const BorderSide(
+                              color: Color.fromRGBO(0, 139, 148, 1),
+                            ),
+                          ),
+                          border: OutlineInputBorder(
+                            borderSide:
+                                const BorderSide(color: Colors.purpleAccent),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        "Description",
+                        style: GoogleFonts.quicksand(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 11,
+                          color: const Color.fromRGBO(0, 139, 148, 1),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 3,
+                      ),
+                      TextField(
+                        controller: descriptionController,
+                        maxLines: 4,
+                        decoration: InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            borderSide: const BorderSide(
+                              color: Color.fromRGBO(0, 139, 148, 1),
+                            ),
+                          ),
+                          border: OutlineInputBorder(
+                            borderSide:
+                                const BorderSide(color: Colors.purpleAccent),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        "Date",
+                        style: GoogleFonts.quicksand(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 11,
+                          color: const Color.fromRGBO(0, 139, 148, 1),
+                        ),
+                      ),
+                      TextField(
+                        controller: dateController,
+                        readOnly: true,
+                        decoration: InputDecoration(
+                          suffix: const Icon(Icons.date_range_rounded),
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12),
+                              borderSide: const BorderSide(
+                                color: Color.fromRGBO(0, 139, 148, 1),
+                              )),
+                          border: const OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.purpleAccent),
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10),
+                            ),
+                          ),
+                        ),
+                        onTap: () async {
+                          DateTime? pickedDate = await showDatePicker(
+                            context: context,
+                            initialDate: DateTime.now(),
+                            firstDate: DateTime(2015),
+                            lastDate: DateTime(2027),
+                          );
+
+                          String formateDate =
+                              DateFormat.yMMMd().format(pickedDate!);
+                          setState(() {
+                            dateController.text = formateDate;
+                          });
+                        },
+                      )
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 50,
+                    width: 300,
+                  ),
+                  Container(
+                    height: 50,
+                    width: 300,
+                    decoration:
+                        BoxDecoration(borderRadius: BorderRadius.circular(30)),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color.fromRGBO(0, 139, 148, 1),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          data.add(
+                            CardList(
+                                title: titleController.text,
+                                description: descriptionController.text,
+                                date: dateController.text),
+                          );
+                        });
+                        Navigator.of(context)
+                            .pop(); // off navigotor screen bottomsheet
+                      },
+                      child: Text("Submit",
+                          style: GoogleFonts.inter(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 22)),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  )
+                ],
+              ),
+            );
+          });
+    }
   }
 
   var listOfColor = [
@@ -232,6 +418,7 @@ class _ToDoListState extends State {
     const Color.fromRGBO(240, 215, 260, 1),
   ];
   List data = [];
+  bool isEdit = false;
 
   @override
   Widget build(BuildContext context) {
@@ -347,7 +534,9 @@ class _ToDoListState extends State {
                                   1,
                                 ),
                               ),
-                              onDoubleTap: () {},
+                              onTap: () {
+                                showBottomSheet();
+                              },
                             ),
                             const SizedBox(
                               width: 10,
@@ -362,7 +551,11 @@ class _ToDoListState extends State {
                                   1,
                                 ),
                               ),
-                              onDoubleTap: () {},
+                              onTap: () {
+                                setState(() {
+                                  data.removeAt(index);
+                                });
+                              },
                             ),
                           ],
                         )
