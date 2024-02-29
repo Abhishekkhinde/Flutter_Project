@@ -585,7 +585,6 @@ class _ToDoListState extends State {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          showBottomSheet(0);
         },
         backgroundColor: const Color.fromRGBO(0, 139, 148, 1),
         foregroundColor: const Color.fromRGBO(255, 255, 255, 1),
