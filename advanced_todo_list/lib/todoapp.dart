@@ -332,7 +332,7 @@ class _ToDoAppState extends State {
                             color: const Color.fromRGBO(255, 255, 255, 1),
                           ),
                         ),
-                      ), ,
+                      ),
                     )
                   ],
                 ),
