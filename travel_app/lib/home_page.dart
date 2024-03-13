@@ -43,7 +43,7 @@ class _HomePageState extends State {
                   ),
                 ],
               ),
-              Spacer(),
+            const  Spacer(),
               Container(
                 padding: const EdgeInsets.only(),
                 decoration: const BoxDecoration(

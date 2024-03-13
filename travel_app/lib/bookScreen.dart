@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -28,7 +29,7 @@ class _BookScreenState extends State {
               ),
             ),
             Container(
-              padding: EdgeInsets.all(20),
+              padding: const EdgeInsets.all(20),
               child: Column(
                 children: [
                   Row(
@@ -54,6 +55,45 @@ class _BookScreenState extends State {
                       const Spacer(),
                     ],
                   ),
+                  Row(
+                    children: [
+                      Container(
+                        child: Icon(
+                          Icons.star,
+                          size: 40,
+                          color: Colors.yellow,
+                        ),
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            "Ratting",
+                          ),
+                          Text(
+                            "5/5",
+                          )
+                        ],
+                      ),
+                      Spacer(),
+                      Container(
+                        child: Icon(
+                          Icons.home,
+                          size: 40,
+                          color: Colors.red,
+                        ),
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            "Restaurant",
+                          ),
+                          Text(
+                            "5/5",
+                          )
+                        ],
+                      ),
+                    ],
+                  )
                 ],
               ),
             ),
