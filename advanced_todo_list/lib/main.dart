@@ -282,16 +282,17 @@ class _ToDoAppState extends State {
     clearController();
   }
 
-  void editTask(toDoModelClassobj) {
+  void editTask(toDoModelClassobj) async {
     titleController.text = toDoModelClassobj.title;
     descriptionController.text = toDoModelClassobj.description;
     dateController.text = toDoModelClassobj.date;
-
-    showBottomSheet(true, toDoModelClassobj);
+    await showBottomSheet(true, toDoModelClassobj);
+    setState(() {});
   }
 
   void removeTask(ToDoModelClass toDoModelClassobj) async {
     await detelelist(toDoModelClassobj);
+    todolist = await getListData();
     setState(() {});
   }
 
@@ -302,8 +303,9 @@ class _ToDoAppState extends State {
     descriptionController.dispose();
   }
 
-  void showBottomSheet(bool doedit, [ToDoModelClass? toDoModelClassobj]) {
-    showModalBottomSheet(
+  Future<void> showBottomSheet(bool doedit,
+      [ToDoModelClass? toDoModelClassobj]) async {
+    await showModalBottomSheet(
       isScrollControlled: true,
       isDismissible: true,
       context: context,
@@ -508,10 +510,10 @@ class ToDoModelClass {
   }
 }
 
-Future insertTodoData(ToDoModelClass obj) async {
+Future<void> insertTodoData(ToDoModelClass obj) async {
   final localDB = await databases;
 
-  localDB.insert(
+  await localDB.insert(
     'Tasklist',
     obj.todolistMap(),
     conflictAlgorithm: ConflictAlgorithm.replace,
@@ -533,25 +535,25 @@ Future<List<ToDoModelClass>> getListData() async {
   });
 }
 
-Future<void> detelelist(ToDoModelClass data) async {
+Future<void> detelelist(ToDoModelClass obj) async {
   final localDB = await databases;
 
-  await localDB.delete(
-    'Tasklist',
-    where: 'listNo = ?',
-    whereArgs: [data.listNo],
-  );
+  await localDB
+      .delete('Tasklist', where: 'listNo = ?', whereArgs: [obj.listNo]);
   todolist = await getListData();
+  print(await getListData());
 }
 
 Future<void> updatelist(ToDoModelClass obj) async {
-  final localDB = databases;
+  final localDB = await databases;
 
   await localDB.update(
     'Tasklist',
     obj.todolistMap(),
-    where: 'lisNo',
+    where: 'listNo = ?',
+    whereArgs: [obj.listNo],
   );
+  todolist = await getListData();
 }
 
 dynamic databases;
@@ -559,16 +561,15 @@ void main() async {
   runApp(const MainApp());
 
   databases = openDatabase(
-    path.join(await getDatabasesPath(), "toListdatabaseDB.db"),
+    path.join(await getDatabasesPath(), "tododata.db"),
     version: 1,
     onCreate: (db, version) {
       db.execute('''CREATE TABLE Tasklist(
-      listNo INT PRIMARY KEY,
+      listNo INTEGER PRIMARY KEY,
       title TEXT ,
       description TEXT,
       date TEXT
-    )
-''');
+    )''');
     },
   );
   todolist = await getListData();
