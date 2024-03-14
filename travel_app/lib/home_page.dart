@@ -43,7 +43,7 @@ class _HomePageState extends State {
                   ),
                 ],
               ),
-            const  Spacer(),
+              const Spacer(),
               Container(
                 padding: const EdgeInsets.only(),
                 decoration: const BoxDecoration(
@@ -89,6 +89,13 @@ class _HomePageState extends State {
                           height: 200,
                           width: 250,
                           decoration: const BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color.fromRGBO(131, 189, 243, 1),
+                                blurRadius: 10,
+                                offset: Offset(5, 5),
+                              ),
+                            ],
                             borderRadius: BorderRadius.all(
                               Radius.circular(20),
                             ),
@@ -125,6 +132,12 @@ class _HomePageState extends State {
                           height: 200,
                           width: 250,
                           decoration: const BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Color.fromRGBO(131, 189, 243, 1),
+                                  blurRadius: 10,
+                                  blurStyle: BlurStyle.outer),
+                            ],
                             borderRadius: BorderRadius.all(
                               Radius.circular(20),
                             ),
@@ -161,6 +174,12 @@ class _HomePageState extends State {
                           height: 200,
                           width: 250,
                           decoration: const BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Color.fromARGB(255, 25, 131, 212),
+                                  blurRadius: 20,
+                                  blurStyle: BlurStyle.outer),
+                            ],
                             borderRadius: BorderRadius.all(
                               Radius.circular(20),
                             ),
@@ -216,6 +235,12 @@ class _HomePageState extends State {
                           height: 250,
                           width: 300,
                           decoration: const BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Color.fromRGBO(131, 189, 243, 1),
+                                  blurRadius: 10,
+                                  blurStyle: BlurStyle.outer),
+                            ],
                             borderRadius: BorderRadius.all(
                               Radius.circular(20),
                             ),
@@ -251,6 +276,12 @@ class _HomePageState extends State {
                           height: 250,
                           width: 300,
                           decoration: const BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Color.fromRGBO(131, 189, 243, 1),
+                                  blurRadius: 10,
+                                  blurStyle: BlurStyle.outer),
+                            ],
                             borderRadius: BorderRadius.all(
                               Radius.circular(20),
                             ),
@@ -286,6 +317,12 @@ class _HomePageState extends State {
                           height: 250,
                           width: 300,
                           decoration: const BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Color.fromRGBO(131, 189, 243, 1),
+                                  blurRadius: 10,
+                                  blurStyle: BlurStyle.outer),
+                            ],
                             borderRadius: BorderRadius.all(
                               Radius.circular(20),
                             ),
