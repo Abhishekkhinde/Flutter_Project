@@ -1,8 +1,11 @@
 import "package:flutter/material.dart";
 import 'package:google_fonts/google_fonts.dart';
+import 'package:travel_app/main.dart';
+import 'bookScreen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
   @override
   State createState() => _HomePageState();
 }
@@ -10,6 +13,21 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State {
   Scaffold isHomeScreen() {
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Container(
+          padding: const EdgeInsets.only(),
+          decoration: const BoxDecoration(
+            shape: BoxShape.circle,
+            color: Color.fromRGBO(255, 255, 255, 1),
+          ),
+          child: const Icon(
+            Icons.history,
+            size: 30,
+          ),
+        ),
+      ),
       backgroundColor: const Color.fromRGBO(225, 246, 254, 1),
       body: ListView(
         children: [
@@ -25,7 +43,7 @@ class _HomePageState extends State {
                   Container(
                     padding: const EdgeInsets.only(left: 15),
                     child: Text(
-                      "Vivek",
+                      "Abhishek",
                       style: GoogleFonts.quicksand(
                         textStyle: const TextStyle(
                             fontSize: 25, fontWeight: FontWeight.w500),
@@ -43,18 +61,6 @@ class _HomePageState extends State {
                   ),
                 ],
               ),
-              const Spacer(),
-              Container(
-                padding: const EdgeInsets.only(),
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Color.fromRGBO(255, 255, 255, 1),
-                ),
-                child: const Icon(
-                  Icons.history,
-                  size: 30,
-                ),
-              ),
             ],
           ),
           const SizedBox(
@@ -69,13 +75,19 @@ class _HomePageState extends State {
                       fontSize: 25, fontWeight: FontWeight.w600)),
             ),
           ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
+          // SingleChildScrollView(
+          //   scrollDirection: Axis.horizontal,
+          //   child: Row(
+          //     mainAxisAlignment: MainAxisAlignment.start,
+          //     crossAxisAlignment: CrossAxisAlignment.start,
+          //     children: [
+          Container(
+            height: 260,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: trendingDestination.length,
+              itemBuilder: (context, index) {
+                return Container(
                   margin: const EdgeInsets.only(
                       left: 10, right: 10, top: 10, bottom: 10),
 
@@ -88,31 +100,38 @@ class _HomePageState extends State {
                         child: Container(
                           height: 200,
                           width: 250,
-                          decoration: const BoxDecoration(
-                            boxShadow: [
+                          decoration: BoxDecoration(
+                            boxShadow: const [
                               BoxShadow(
                                 color: Color.fromRGBO(131, 189, 243, 1),
                                 blurRadius: 10,
                                 offset: Offset(5, 5),
                               ),
                             ],
-                            borderRadius: BorderRadius.all(
+                            borderRadius: const BorderRadius.all(
                               Radius.circular(20),
                             ),
                             image: DecorationImage(
                                 image: AssetImage(
-                                  "assets/1.jpg",
+                                  trendingDestination[index].image,
                                 ),
                                 fit: BoxFit.fill),
                           ),
                         ),
-                        onTap: () {},
+                        onTap: () {
+                          inde = index;
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const BookScreen()),
+                          );
+                        },
                       ),
                       const SizedBox(
                         height: 10,
                       ),
                       Text(
-                        "location 1",
+                        trendingDestination[index].locationName,
                         style: GoogleFonts.quicksand(
                           textStyle: const TextStyle(
                               fontSize: 18, fontWeight: FontWeight.w600),
@@ -120,238 +139,345 @@ class _HomePageState extends State {
                       ),
                     ],
                   ),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(right: 10, top: 10, bottom: 10),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      GestureDetector(
-                        child: Container(
-                          height: 200,
-                          width: 250,
-                          decoration: const BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Color.fromRGBO(131, 189, 243, 1),
-                                  blurRadius: 10,
-                                  blurStyle: BlurStyle.outer),
-                            ],
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(20),
-                            ),
-                            image: DecorationImage(
-                                image: AssetImage(
-                                  "assets/2.jpg",
-                                ),
-                                fit: BoxFit.fill),
-                          ),
-                        ),
-                        onTap: () {},
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "location 2",
-                        style: GoogleFonts.quicksand(
-                          textStyle: const TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.w600),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(right: 10, top: 10, bottom: 10),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      GestureDetector(
-                        child: Container(
-                          height: 200,
-                          width: 250,
-                          decoration: const BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Color.fromARGB(255, 25, 131, 212),
-                                  blurRadius: 20,
-                                  blurStyle: BlurStyle.outer),
-                            ],
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(20),
-                            ),
-                            image: DecorationImage(
-                                image: AssetImage(
-                                  "assets/3.jpg",
-                                ),
-                                fit: BoxFit.fill),
-                          ),
-                        ),
-                        onTap: () {},
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "location 3",
-                        style: GoogleFonts.quicksand(
-                          textStyle: const TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.w600),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+                );
+              },
             ),
           ),
+          // Container(
+          //   margin: const EdgeInsets.only(
+          //       left: 10, right: 10, top: 10, bottom: 10),
+
+          //   //  padding: const EdgeInsets.only(left: 15),
+          //   child: Column(
+          //     mainAxisAlignment: MainAxisAlignment.start,
+          //     crossAxisAlignment: CrossAxisAlignment.start,
+          //     children: [
+          //       GestureDetector(
+          //         child: Container(
+          //           height: 200,
+          //           width: 250,
+          //           decoration: const BoxDecoration(
+          //             boxShadow: [
+          //               BoxShadow(
+          //                 color: Color.fromRGBO(131, 189, 243, 1),
+          //                 blurRadius: 10,
+          //                 offset: Offset(5, 5),
+          //               ),
+          //             ],
+          //             borderRadius: BorderRadius.all(
+          //               Radius.circular(20),
+          //             ),
+          //             image: DecorationImage(
+          //                 image: AssetImage(
+          //                   "assets/1.jpg",
+          //                 ),
+          //                 fit: BoxFit.fill),
+          //           ),
+          //         ),
+          //         onTap: () {},
+          //       ),
+          //       const SizedBox(
+          //         height: 10,
+          //       ),
+          //       Text(
+          //         "location 1",
+          //         style: GoogleFonts.quicksand(
+          //           textStyle: const TextStyle(
+          //               fontSize: 18, fontWeight: FontWeight.w600),
+          //         ),
+          //       ),
+          //     ],
+          //   ),
+          // ),
+          // Container(
+          //   margin: const EdgeInsets.only(right: 10, top: 10, bottom: 10),
+          //   child: Column(
+          //     mainAxisAlignment: MainAxisAlignment.start,
+          //     crossAxisAlignment: CrossAxisAlignment.start,
+          //     children: [
+          //       GestureDetector(
+          //         child: Container(
+          //           height: 200,
+          //           width: 250,
+          //           decoration: const BoxDecoration(
+          //             boxShadow: [
+          //               BoxShadow(
+          //                   color: Color.fromRGBO(131, 189, 243, 1),
+          //                   blurRadius: 10,
+          //                   blurStyle: BlurStyle.outer),
+          //             ],
+          //             borderRadius: BorderRadius.all(
+          //               Radius.circular(20),
+          //             ),
+          //             image: DecorationImage(
+          //                 image: AssetImage(
+          //                   "assets/2.jpg",
+          //                 ),
+          //                 fit: BoxFit.fill),
+          //           ),
+          //         ),
+          //         onTap: () {},
+          //       ),
+          //       const SizedBox(
+          //         height: 10,
+          //       ),
+          //       Text(
+          //         "location 2",
+          //         style: GoogleFonts.quicksand(
+          //           textStyle: const TextStyle(
+          //               fontSize: 18, fontWeight: FontWeight.w600),
+          //         ),
+          //       ),
+          //     ],
+          //   ),
+          // ),
+          // Container(
+          //   margin: const EdgeInsets.only(right: 10, top: 10, bottom: 10),
+          //   child: Column(
+          //     mainAxisAlignment: MainAxisAlignment.start,
+          //     crossAxisAlignment: CrossAxisAlignment.start,
+          //     children: [
+          //       GestureDetector(
+          //         child: Container(
+          //           height: 200,
+          //           width: 250,
+          //           decoration: const BoxDecoration(
+          //             boxShadow: [
+          //               BoxShadow(
+          //                   color: Color.fromARGB(255, 25, 131, 212),
+          //                   blurRadius: 20,
+          //                   blurStyle: BlurStyle.outer),
+          //             ],
+          //             borderRadius: BorderRadius.all(
+          //               Radius.circular(20),
+          //             ),
+          //             image: DecorationImage(
+          //                 image: AssetImage(
+          //                   "assets/3.jpg",
+          //                 ),
+          //                 fit: BoxFit.fill),
+          //           ),
+          //         ),
+          //         onTap: () {},
+          //       ),
+          //       const SizedBox(
+          //         height: 10,
+          //       ),
+          //       Text(
+          //         "location 3",
+          //         style: GoogleFonts.quicksand(
+          //           textStyle: const TextStyle(
+          //               fontSize: 18, fontWeight: FontWeight.w600),
+          //         ),
+          //       ),
+          //     ],
+          //   ),
+          // ),
+          //     ],
+          //   ),
+          // ),
           Container(
             padding: const EdgeInsets.only(left: 20),
             child: Text(
-              "Trending Destinations",
+              "Popular Destinations",
               style: GoogleFonts.quicksand(
                   textStyle: const TextStyle(
                       fontSize: 25, fontWeight: FontWeight.w600)),
             ),
           ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  margin: const EdgeInsets.only(
-                      left: 10, right: 10, top: 10, bottom: 10),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      GestureDetector(
-                        child: Container(
-                          height: 250,
-                          width: 300,
-                          decoration: const BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Color.fromRGBO(131, 189, 243, 1),
-                                  blurRadius: 10,
-                                  blurStyle: BlurStyle.outer),
-                            ],
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(20),
+          // SingleChildScrollView(
+          //   scrollDirection: Axis.horizontal,
+          //   child: Row(
+          //     mainAxisAlignment: MainAxisAlignment.start,
+          //     crossAxisAlignment: CrossAxisAlignment.start,
+          //     children: [
+
+          Container(
+            height: 325,
+            child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: popularDestination.length,
+                itemBuilder: (context, index) {
+                  return Container(
+                    margin: const EdgeInsets.only(
+                        left: 10, right: 10, top: 10, bottom: 10),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        GestureDetector(
+                          child: Container(
+                            height: 250,
+                            width: 300,
+                            decoration: BoxDecoration(
+                              boxShadow: const [
+                                BoxShadow(
+                                    color: Color.fromRGBO(131, 189, 243, 1),
+                                    blurRadius: 10,
+                                    blurStyle: BlurStyle.outer),
+                              ],
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(20),
+                              ),
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                    popularDestination[index].image,
+                                  ),
+                                  fit: BoxFit.fill),
                             ),
-                            image: DecorationImage(
-                                image: AssetImage(
-                                  "assets/5.png",
-                                ),
-                                fit: BoxFit.fill),
                           ),
+                          onTap: () {
+                            inde = index;
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const BookScreen()),
+                            );
+                          },
                         ),
-                        onTap: () {},
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "location name 4",
-                        style: GoogleFonts.quicksand(
-                            textStyle: const TextStyle(
-                                fontSize: 25, fontWeight: FontWeight.w600)),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(right: 10, top: 10, bottom: 10),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      GestureDetector(
-                        child: Container(
-                          height: 250,
-                          width: 300,
-                          decoration: const BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Color.fromRGBO(131, 189, 243, 1),
-                                  blurRadius: 10,
-                                  blurStyle: BlurStyle.outer),
-                            ],
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(20),
-                            ),
-                            image: DecorationImage(
-                                image: AssetImage(
-                                  "assets/6.png",
-                                ),
-                                fit: BoxFit.fill),
-                          ),
+                        const SizedBox(
+                          height: 10,
                         ),
-                        onTap: () {},
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "location name 5",
-                        style: GoogleFonts.quicksand(
-                            textStyle: const TextStyle(
-                                fontSize: 25, fontWeight: FontWeight.w600)),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(right: 10, top: 10, bottom: 10),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      GestureDetector(
-                        child: Container(
-                          height: 250,
-                          width: 300,
-                          decoration: const BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Color.fromRGBO(131, 189, 243, 1),
-                                  blurRadius: 10,
-                                  blurStyle: BlurStyle.outer),
-                            ],
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(20),
-                            ),
-                            image: DecorationImage(
-                                image: AssetImage(
-                                  "assets/9.jpg",
-                                ),
-                                fit: BoxFit.fill),
-                          ),
+                        Text(
+                          popularDestination[index].locationName,
+                          style: GoogleFonts.quicksand(
+                              textStyle: const TextStyle(
+                                  fontSize: 25, fontWeight: FontWeight.w600)),
                         ),
-                        onTap: () {},
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "location 6",
-                        style: GoogleFonts.quicksand(
-                            textStyle: const TextStyle(
-                                fontSize: 25, fontWeight: FontWeight.w600)),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+                      ],
+                    ),
+                  );
+                }),
           ),
+          // Container(
+          //   margin:
+          //       const EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 10),
+          //   child: Column(
+          //     mainAxisAlignment: MainAxisAlignment.start,
+          //     crossAxisAlignment: CrossAxisAlignment.start,
+          //     children: [
+          //       GestureDetector(
+          //         child: Container(
+          //           height: 250,
+          //           width: 300,
+          //           decoration: const BoxDecoration(
+          //             boxShadow: [
+          //               BoxShadow(
+          //                   color: Color.fromRGBO(131, 189, 243, 1),
+          //                   blurRadius: 10,
+          //                   blurStyle: BlurStyle.outer),
+          //             ],
+          //             borderRadius: BorderRadius.all(
+          //               Radius.circular(20),
+          //             ),
+          //             image: DecorationImage(
+          //                 image: AssetImage(
+          //                   "assets/5.png",
+          //                 ),
+          //                 fit: BoxFit.fill),
+          //           ),
+          //         ),
+          //         onTap: () {},
+          //       ),
+          //       const SizedBox(
+          //         height: 10,
+          //       ),
+          //       Text(
+          //         "location name 4",
+          //         style: GoogleFonts.quicksand(
+          //             textStyle: const TextStyle(
+          //                 fontSize: 25, fontWeight: FontWeight.w600)),
+          //       ),
+          //     ],
+          //   ),
+          // ),
+          // Container(
+          //   margin: const EdgeInsets.only(right: 10, top: 10, bottom: 10),
+          //   child: Column(
+          //     mainAxisAlignment: MainAxisAlignment.start,
+          //     crossAxisAlignment: CrossAxisAlignment.start,
+          //     children: [
+          //       GestureDetector(
+          //         child: Container(
+          //           height: 250,
+          //           width: 300,
+          //           decoration: const BoxDecoration(
+          //             boxShadow: [
+          //               BoxShadow(
+          //                   color: Color.fromRGBO(131, 189, 243, 1),
+          //                   blurRadius: 10,
+          //                   blurStyle: BlurStyle.outer),
+          //             ],
+          //             borderRadius: BorderRadius.all(
+          //               Radius.circular(20),
+          //             ),
+          //             image: DecorationImage(
+          //                 image: AssetImage(
+          //                   "assets/6.png",
+          //                 ),
+          //                 fit: BoxFit.fill),
+          //           ),
+          //         ),
+          //         onTap: () {},
+          //       ),
+          //       const SizedBox(
+          //         height: 10,
+          //       ),
+          //       Text(
+          //         "location name 5",
+          //         style: GoogleFonts.quicksand(
+          //             textStyle: const TextStyle(
+          //                 fontSize: 25, fontWeight: FontWeight.w600)),
+          //       ),
+          //     ],
+          //   ),
+          // ),
+          // Container(
+          //   margin: const EdgeInsets.only(right: 10, top: 10, bottom: 10),
+          //   child: Column(
+          //     mainAxisAlignment: MainAxisAlignment.start,
+          //     crossAxisAlignment: CrossAxisAlignment.start,
+          //     children: [
+          //       GestureDetector(
+          //         child: Container(
+          //           height: 250,
+          //           width: 300,
+          //           decoration: const BoxDecoration(
+          //             boxShadow: [
+          //               BoxShadow(
+          //                   color: Color.fromRGBO(131, 189, 243, 1),
+          //                   blurRadius: 10,
+          //                   blurStyle: BlurStyle.outer),
+          //             ],
+          //             borderRadius: BorderRadius.all(
+          //               Radius.circular(20),
+          //             ),
+          //             image: DecorationImage(
+          //                 image: AssetImage(
+          //                   "assets/9.jpg",
+          //                 ),
+          //                 fit: BoxFit.fill),
+          //           ),
+          //         ),
+          //         onTap: () {},
+          //       ),
+          //       const SizedBox(
+          //         height: 10,
+          //       ),
+          //       Text(
+          //         "location 6",
+          //         style: GoogleFonts.quicksand(
+          //             textStyle: const TextStyle(
+          //                 fontSize: 25, fontWeight: FontWeight.w600)),
+          //       ),
+          //     ],
+          //   ),
+          // ),
         ],
       ),
+      // ),
+      //   ],
+      // ),
     );
   }
 

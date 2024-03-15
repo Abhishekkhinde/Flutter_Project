@@ -1,9 +1,7 @@
-import 'dart:math';
-
-import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:travel_app/main.dart';
+import 'package:travel_app/paymentScreen.dart';
 
 class BookScreen extends StatefulWidget {
   const BookScreen({super.key});
@@ -13,7 +11,6 @@ class BookScreen extends StatefulWidget {
 
 class _BookScreenState extends State {
   int seat = 0;
-
   Scaffold destinationBook() {
     return Scaffold(
         backgroundColor: const Color.fromRGBO(225, 246, 254, 1),
@@ -26,21 +23,46 @@ class _BookScreenState extends State {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Container(
+                padding: const EdgeInsets.only(left: 20, right: 10, top: 20),
                 height: 425,
                 width: double.infinity,
                 alignment: Alignment.topCenter,
-                decoration: const BoxDecoration(
-                  boxShadow: [
+                decoration: BoxDecoration(
+                  boxShadow: const [
                     BoxShadow(
                         color: Color.fromARGB(255, 25, 131, 212),
                         blurRadius: 20,
                         blurStyle: BlurStyle.outer),
                   ],
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(20),
                       bottomRight: Radius.circular(20)),
                   image: DecorationImage(
-                      image: AssetImage("assets/2.jpg"), fit: BoxFit.fill),
+                      image: AssetImage(popularDestination[inde].image),
+                      fit: BoxFit.fill),
+                ),
+                child: Row(
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: const Icon(
+                        Icons.arrow_back,
+                        color: Color.fromARGB(255, 225, 217, 217),
+                        size: 30,
+                      ),
+                    ),
+                    const Spacer(),
+                    IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.favorite,
+                        color: Color.fromARGB(255, 255, 255, 255),
+                        size: 35,
+                      ),
+                    )
+                  ],
                 ),
               ),
               Container(
@@ -50,7 +72,7 @@ class _BookScreenState extends State {
                     Row(
                       children: [
                         Text(
-                          "location 1",
+                          popularDestination[inde].locationName,
                           style: GoogleFonts.quicksand(
                             textStyle: const TextStyle(
                               fontSize: 25,
@@ -60,7 +82,7 @@ class _BookScreenState extends State {
                         ),
                         const Spacer(),
                         Text(
-                          "ammount300",
+                          "${popularDestination[inde].ticketAmmount}",
                           style: GoogleFonts.quicksand(
                             textStyle: const TextStyle(
                               fontSize: 18,
@@ -76,7 +98,7 @@ class _BookScreenState extends State {
                           Icons.location_on,
                         ),
                         Text(
-                          "country name",
+                          "${popularDestination[inde].contryName}",
                           style: GoogleFonts.quicksand(
                             textStyle: const TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.w500),
@@ -105,7 +127,7 @@ class _BookScreenState extends State {
                               ),
                             ),
                             Text(
-                              "5/5",
+                              "${popularDestination[inde].ratting}/5",
                               style: GoogleFonts.quicksand(
                                 textStyle: const TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.w500),
@@ -129,7 +151,7 @@ class _BookScreenState extends State {
                               ),
                             ),
                             Text(
-                              "120 Awail.",
+                              "${popularDestination[inde].restaurantAwail} Awail.",
                               style: GoogleFonts.quicksand(
                                 textStyle: const TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.w500),
@@ -144,12 +166,12 @@ class _BookScreenState extends State {
               ),
               Container(
                 height: 250,
-                padding: EdgeInsets.only(left: 20, right: 20, top: 10),
+                padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
                 child: SingleChildScrollView(
                     child: Column(
                   children: [
                     Text(
-                      "dat a  msdovidoi riogjioewiwojgi tihoj toihj oi oh  jii ijt ojo io hituhish hs gdugi   d u  rhitguhgiuu whu h gi uhtiguuhtruhgt htu hturh tr hittuuhghutgrutiugiukjgj jfgdjsfvkndfsg  ndgsjdfsj gndfsjgsdgn dsjfgvd vin difd jxnjldsn jn jikfdgsnijdsnfigkj u njds bnjdkngiujksdj njdkff sjknsdiuczg  ",
+                      '${popularDestination[inde].description}',
                       style: GoogleFonts.quicksand(
                         textStyle: const TextStyle(
                             fontSize: 20, fontWeight: FontWeight.w500),
@@ -173,7 +195,7 @@ class _BookScreenState extends State {
                         children: [
                           IconButton(
                             onPressed: () {
-                              if (seat >= 0) {
+                              if (seat > 0) {
                                 --seat;
                               }
                               setState(() {});
@@ -191,9 +213,9 @@ class _BookScreenState extends State {
                         ],
                       ),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Container(
-                      padding: EdgeInsets.only(
+                      padding: const EdgeInsets.only(
                         right: 20,
                       ),
                       child: ElevatedButton(
@@ -202,8 +224,15 @@ class _BookScreenState extends State {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20),
                             ),
-                            backgroundColor: Color.fromRGBO(23, 192, 193, 1)),
-                        onPressed: () {},
+                            backgroundColor:
+                                const Color.fromRGBO(23, 192, 193, 1)),
+                        onPressed: () {
+                          totalseat = seat;
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Payment()));
+                        },
                         child: Text(
                           "Book Now",
                           style: GoogleFonts.quicksand(
