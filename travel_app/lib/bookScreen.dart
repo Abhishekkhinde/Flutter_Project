@@ -2,6 +2,8 @@ import "package:flutter/material.dart";
 import 'package:google_fonts/google_fonts.dart';
 import 'package:travel_app/main.dart';
 import 'package:travel_app/paymentScreen.dart';
+import 'destinationDetail.dart';
+
 
 class BookScreen extends StatefulWidget {
   const BookScreen({super.key});

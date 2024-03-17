@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:travel_app/main.dart';
 import 'package:travel_app/paysaccesful.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'destinationDetail.dart';
 
 class Payment extends StatefulWidget {
   const Payment({super.key});

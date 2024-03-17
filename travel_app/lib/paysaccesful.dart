@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'home_page.dart';
-
+import 'destinationDetail.dart';
 import 'package:travel_app/main.dart';
 
 class DonePay extends StatefulWidget {
