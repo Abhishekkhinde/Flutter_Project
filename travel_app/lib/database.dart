@@ -1,6 +1,5 @@
 import 'package:sqflite/sqflite.dart';
-import 'package:travel_app/paymentScreen.dart';
-import 'package:flutter/material.dart';
+
 
 class PaymentData {
   int? id;

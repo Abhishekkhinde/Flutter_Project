@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app/database.dart';
 import 'package:sqflite/sqflite.dart';
-// import 'home_page.dart';
-// import 'bookScreen.dart';
+
 import 'loginScreen.dart';
-import 'history.dart';
-import 'paymentScreen.dart';
-import 'database.dart';
+
 import 'package:path/path.dart' as p;
-import 'destinationDetail.dart';
 
 void main() async {
   runApp(const MainApp());
@@ -37,9 +33,10 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Payment(),
+      home: LoginPage(),
     );
   }
 }
+
 int inde = 0;
 int totalseat = 0;

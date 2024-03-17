@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:travel_app/database.dart';
 import 'package:travel_app/main.dart';
 import 'package:travel_app/paysaccesful.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,21 +19,44 @@ class _Paymentstate extends State {
   TextEditingController expiryController = TextEditingController();
   TextEditingController cvvController = TextEditingController();
 
-  void validationpayment() {
+  void submit(bool doedit, [PaymentData? paymetnobj]) async {
     if (nameController.text.trim().isNotEmpty &&
         dateController.text.trim().isNotEmpty &&
         cardNoController.text.trim().isNotEmpty &&
         expiryController.text.trim().isNotEmpty &&
         cvvController.text.trim().isNotEmpty) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const DonePay()),
-      );
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text("payment succesful "),
-        ),
-      );
+      if (!doedit) {
+        await insertPyamentData(
+          PaymentData(
+              name: nameController.text.trim(),
+              date: dateController.text.trim(),
+              cardnumber: int.parse(cardNoController.text.trim()),
+              cardexpirydate: expiryController.text.trim(),
+              cardCvv: int.parse(cvvController.text.trim()),
+              totalAmount: popularDestination[inde].ticketAmmount * totalseat,
+              locationName: popularDestination[inde].locationName),
+        );
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const DonePay()),
+        );
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text("payment succesful "),
+          ),
+        );
+        setState(() {});
+      } else {
+        paymetnobj!.name = nameController.text.trim();
+        paymetnobj.date = nameController.text.trim();
+        paymetnobj.cardnumber = int.parse(cardNoController.text.trim());
+        paymetnobj.cardexpirydate = expiryController.text.trim();
+        paymetnobj.cardCvv = int.parse(cvvController.text.trim());
+        paymetnobj.totalAmount =
+            popularDestination[inde].ticketAmmount * totalseat;
+        paymetnobj.locationName = popularDestination[inde].locationName;
+      }
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
@@ -42,8 +66,7 @@ class _Paymentstate extends State {
     }
   }
 
-  @override
-  Widget build(BuildContext context) {
+  Scaffold isPaymentScreen(bool doedit, [PaymentData? paymentobj]) {
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -218,6 +241,20 @@ class _Paymentstate extends State {
                                       color: Colors.orange, width: 2),
                                 ),
                               ),
+                              onTap: () async {
+                                DateTime? pickedDate = await showDatePicker(
+                                  context: context,
+                                  firstDate: DateTime(2015),
+                                  lastDate: DateTime(2045),
+                                  initialDate: DateTime.now(),
+                                );
+
+                                String formatedDatee =
+                                    DateFormat.yMMMd().format(pickedDate!);
+                                setState(() {
+                                  expiryController.text = formatedDatee;
+                                });
+                              },
                               textInputAction: TextInputAction.done,
                               keyboardType: TextInputType.emailAddress,
                             ),
@@ -290,7 +327,7 @@ class _Paymentstate extends State {
                     ),
                   ),
                   onPressed: () {
-                    validationpayment();
+                    doedit ? submit(doedit, paymentobj) : submit(doedit);
                   },
                   child: const Text(
                     "Proceed",
@@ -332,5 +369,9 @@ class _Paymentstate extends State {
         ),
       ),
     );
+  }
+
+  Widget build(BuildContext context) {
+    return isPaymentScreen(false);
   }
 }

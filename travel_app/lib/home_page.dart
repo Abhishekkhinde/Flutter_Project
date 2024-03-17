@@ -1,9 +1,9 @@
 import "package:flutter/material.dart";
 import 'package:google_fonts/google_fonts.dart';
+import 'package:travel_app/history.dart';
 import 'package:travel_app/main.dart';
 import 'bookScreen.dart';
 import 'destinationDetail.dart';
-
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,7 +17,12 @@ class _HomePageState extends State {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const History()),
+          );
+        },
         child: Container(
           padding: const EdgeInsets.only(),
           decoration: const BoxDecoration(
