@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 
 import 'database.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -23,54 +23,54 @@ class _HistoryState extends State {
         itemBuilder: (context, index) {
           return Slidable(
             closeOnScroll: true,
-            endActionPane: ActionPane(
+            endActionPane: const ActionPane(
               extentRatio: 0.2,
-              motion: const DrawerMotion(),
+              motion: DrawerMotion(),
               children: [
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        GestureDetector(
-                          child: Container(
-                            //  padding: const EdgeInsets.all(10),
-                            height: 25,
-                            width: 25,
-                            decoration: const BoxDecoration(
-                                color: Color.fromRGBO(89, 57, 241, 1),
-                                shape: BoxShape.circle),
-                            child: const Icon(
-                              Icons.edit,
-                              color: Colors.white,
-                              size: 20,
-                            ),
-                          ),
-                          onTap: () {
-                            //   editTask(todolist[index]);
-                          },
-                        ),
-                        GestureDetector(
-                          child: Container(
-                            //   padding: const EdgeInsets.all(10),
-                            height: 25,
-                            width: 25,
-                            decoration: const BoxDecoration(
-                                color: Color.fromRGBO(89, 57, 241, 1),
-                                shape: BoxShape.circle),
-                            child: const Icon(
-                              Icons.delete,
-                              color: Colors.white,
-                              size: 20,
-                            ),
-                          ),
-                          onTap: () {
-                            //   removeTask(todolist[index]);
-                          },
-                        ),
-                      ],
-                    ),
+                    padding: EdgeInsets.all(10.0),
+                    // child: Column(
+                    //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //   children: [
+                    //     GestureDetector(
+                    //       child: Container(
+                    //         //  padding: const EdgeInsets.all(10),
+                    //         height: 25,
+                    //         width: 25,
+                    //         decoration: const BoxDecoration(
+                    //             color: Color.fromRGBO(89, 57, 241, 1),
+                    //             shape: BoxShape.circle),
+                    //         child: const Icon(
+                    //           Icons.edit,
+                    //           color: Colors.white,
+                    //           size: 20,
+                    //         ),
+                    //       ),
+                    //       onTap: () {
+                    //         //   editTask(todolist[index]);
+                    //       },
+                    //     ),
+                    //     GestureDetector(
+                    //       child: Container(
+                    //         //   padding: const EdgeInsets.all(10),
+                    //         height: 25,
+                    //         width: 25,
+                    //         decoration: const BoxDecoration(
+                    //             color: Color.fromRGBO(89, 57, 241, 1),
+                    //             shape: BoxShape.circle),
+                    //         child: const Icon(
+                    //           Icons.delete,
+                    //           color: Colors.white,
+                    //           size: 20,
+                    //         ),
+                    //       ),
+                    //       onTap: () {
+                    //         //   removeTask(todolist[index]);
+                    //       },
+                    //     ),
+                    //   ],
+                    // ),
                   ),
                 ),
               ],
@@ -80,9 +80,12 @@ class _HistoryState extends State {
                   const EdgeInsets.only(top: 5, left: 10, right: 10, bottom: 5),
               child: Container(
                 padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     color: Color.fromRGBO(255, 255, 255, 1),
-                    borderRadius: BorderRadius.all(Radius.circular(15))),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(15),
+                    ),
+                    boxShadow: [BoxShadow()]),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,

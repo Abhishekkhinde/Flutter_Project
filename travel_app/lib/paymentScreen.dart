@@ -354,7 +354,9 @@ class _Paymentstate extends State {
                       ),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                   child: const Text(
                     "Back",
                     style: TextStyle(

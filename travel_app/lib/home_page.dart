@@ -4,6 +4,7 @@ import 'package:travel_app/history.dart';
 import 'package:travel_app/main.dart';
 import 'bookScreen.dart';
 import 'destinationDetail.dart';
+import 'loginScreen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -15,31 +16,50 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State {
   Scaffold isHomeScreen() {
     return Scaffold(
-      floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const History()),
-          );
-        },
-        child: Container(
-          padding: const EdgeInsets.only(),
-          decoration: const BoxDecoration(
-            shape: BoxShape.circle,
-            color: Color.fromRGBO(255, 255, 255, 1),
-          ),
-          child: const Icon(
-            Icons.history,
-            size: 30,
-          ),
-        ),
-      ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {},
+      //   child: Container(
+      //     padding: const EdgeInsets.only(),
+      //     decoration: const BoxDecoration(
+      //       shape: BoxShape.circle,
+      //       color: Color.fromRGBO(255, 255, 255, 1),
+      //     ),
+      //     child: const Icon(
+      //       Icons.history,
+      //       size: 30,
+      //     ),
+      //   ),
+      // ),
       backgroundColor: const Color.fromRGBO(225, 246, 254, 1),
+
+      appBar: AppBar(
+        backgroundColor: const Color.fromRGBO(225, 246, 254, 1),
+        title: Text(
+          "Travel App",
+          style: GoogleFonts.quicksand(
+              textStyle:
+                  const TextStyle(fontSize: 30, fontWeight: FontWeight.w700)),
+        ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const History()),
+              );
+            },
+            icon: const Icon(
+              Icons.history,
+              size: 30,
+            ),
+          )
+        ],
+      ),
       body: ListView(
         children: [
           const SizedBox(
-            height: 40,
+            height: 30,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -50,12 +70,15 @@ class _HomePageState extends State {
                   Container(
                     padding: const EdgeInsets.only(left: 15),
                     child: Text(
-                      "Abhishek",
+                      nameController.text,
                       style: GoogleFonts.quicksand(
                         textStyle: const TextStyle(
-                            fontSize: 25, fontWeight: FontWeight.w500),
+                            fontSize: 29, fontWeight: FontWeight.w600),
                       ),
                     ),
+                  ),
+                  const SizedBox(
+                    height: 10,
                   ),
                   Container(
                     padding: const EdgeInsets.only(left: 15),
@@ -63,7 +86,7 @@ class _HomePageState extends State {
                       "Where to Next?",
                       style: GoogleFonts.quicksand(
                           textStyle: const TextStyle(
-                              fontSize: 30, fontWeight: FontWeight.w600)),
+                              fontSize: 35, fontWeight: FontWeight.w600)),
                     ),
                   ),
                 ],
@@ -71,7 +94,7 @@ class _HomePageState extends State {
             ],
           ),
           const SizedBox(
-            height: 100,
+            height: 50,
           ),
           Container(
             padding: const EdgeInsets.only(left: 15),
@@ -79,7 +102,7 @@ class _HomePageState extends State {
               "Trending Destinations",
               style: GoogleFonts.quicksand(
                   textStyle: const TextStyle(
-                      fontSize: 25, fontWeight: FontWeight.w600)),
+                      fontSize: 28, fontWeight: FontWeight.w700)),
             ),
           ),
           // SingleChildScrollView(
@@ -289,7 +312,7 @@ class _HomePageState extends State {
               "Popular Destinations",
               style: GoogleFonts.quicksand(
                   textStyle: const TextStyle(
-                      fontSize: 25, fontWeight: FontWeight.w600)),
+                      fontSize: 28, fontWeight: FontWeight.w700)),
             ),
           ),
           // SingleChildScrollView(

@@ -15,8 +15,9 @@ class LoginData {
   LoginData({required this.name, required this.password});
 }
 
+TextEditingController nameController = TextEditingController();
+
 class _LoginPageState extends State {
-  TextEditingController nameController = TextEditingController();
   TextEditingController passController = TextEditingController();
   final FocusNode nameFocusNode = FocusNode();
   final FocusNode passFocusNode = FocusNode();
@@ -67,7 +68,7 @@ class _LoginPageState extends State {
         padding: const EdgeInsets.only(
           left: 10,
           right: 10,
-          top: 250,
+          top: 10,
         ),
         decoration: const BoxDecoration(
           image: DecorationImage(
@@ -77,14 +78,15 @@ class _LoginPageState extends State {
         ),
         child: Form(
           key: _formkey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.center,
+          child: ListView(
             children: [
+              const SizedBox(
+                height: 200,
+              ),
               Container(
                 height: 50,
-                margin: const EdgeInsets.all(40),
-                padding: const EdgeInsets.only(left: 40, right: 40),
+                margin: const EdgeInsets.all(30),
+                padding: const EdgeInsets.only(left: 30, right: 30),
                 decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.all(
@@ -110,8 +112,9 @@ class _LoginPageState extends State {
               ),
               Text(
                 "OR",
+                textAlign: TextAlign.center,
                 style: GoogleFonts.quicksand(
-                    fontSize: 15, fontWeight: FontWeight.bold),
+                    fontSize: 20, fontWeight: FontWeight.bold),
               ),
               const SizedBox(
                 height: 10,
@@ -125,7 +128,7 @@ class _LoginPageState extends State {
                   decoration: InputDecoration(
                     hintText: "Enter Your Name",
                     hintStyle:
-                        const TextStyle(color: Colors.black, fontSize: 15),
+                        const TextStyle(color: Colors.white, fontSize: 15),
                     enabledBorder: const OutlineInputBorder(
                       borderRadius: BorderRadius.all(
                         Radius.circular(30),
@@ -135,7 +138,7 @@ class _LoginPageState extends State {
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20),
                       borderSide:
-                          const BorderSide(color: Colors.orange, width: 2),
+                          const BorderSide(color: Colors.white, width: 2),
                     ),
                   ),
                   onChanged: (value) {
@@ -167,7 +170,7 @@ class _LoginPageState extends State {
                   decoration: InputDecoration(
                     hintText: "Enter Password",
                     hintStyle:
-                        const TextStyle(color: Colors.black, fontSize: 15),
+                        const TextStyle(color: Colors.white, fontSize: 15),
                     enabledBorder: const OutlineInputBorder(
                       borderRadius: BorderRadius.all(
                         Radius.circular(30),
@@ -177,7 +180,7 @@ class _LoginPageState extends State {
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20),
                       borderSide:
-                          const BorderSide(color: Colors.orange, width: 2),
+                          const BorderSide(color: Colors.white, width: 2),
                     ),
                     prefixIcon: const Icon(Icons.lock),
                     suffixIcon: const Icon(Icons.remove_red_eye_outlined),
@@ -197,7 +200,9 @@ class _LoginPageState extends State {
                   keyboardType: TextInputType.emailAddress,
                 ),
               ),
-              const Spacer(),
+              const SizedBox(
+                height: 200,
+              ),
               ElevatedButton(
                 style: ButtonStyle(
                   backgroundColor: const MaterialStatePropertyAll(
@@ -227,9 +232,6 @@ class _LoginPageState extends State {
                       color: Colors.black),
                 ),
               ),
-              const SizedBox(
-                height: 50,
-              )
             ],
           ),
         ),

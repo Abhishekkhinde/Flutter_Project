@@ -1,6 +1,5 @@
 import 'package:sqflite/sqflite.dart';
 
-
 class PaymentData {
   int? id;
   String? name;
@@ -71,6 +70,27 @@ Future<List<PaymentData>> getpaymentdata() async {
       locationName: listPaymentData[index]['locationName'],
     );
   });
+}
+
+Future<void> detelelist(PaymentData obj) async {
+  final localDB = await database;
+
+  await localDB.delete('BookingDetail', where: 'id = ?', whereArgs: [obj.id]);
+  paymentdatastore = await getpaymentdata();
+  print(await getpaymentdata());
+}
+
+Future<void> updatelist(PaymentData obj) async {
+  final localDB = await database;
+
+  await localDB.update(
+    'Tasklist',
+    obj.paymentDataMap(),
+    where: 'id = ?',
+    whereArgs: [obj.id],
+  );
+  paymentdatastore = await getpaymentdata();
+  print(await getpaymentdata());
 }
 
 List<PaymentData> paymentdatastore = [];
