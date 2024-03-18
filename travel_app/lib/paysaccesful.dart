@@ -75,10 +75,10 @@ class _DonePayState extends State {
                   ),
                 ),
                 onPressed: () {
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (context) => const HomePage()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const HomePage()));
                 },
                 child: const Text(
                   "Done",
