@@ -4,7 +4,6 @@ import 'package:travel_app/main.dart';
 import 'package:travel_app/paymentScreen.dart';
 import 'destinationDetail.dart';
 
-
 class BookScreen extends StatefulWidget {
   const BookScreen({super.key});
   @override
@@ -20,12 +19,17 @@ class _BookScreenState extends State {
           padding: EdgeInsets.only(
             bottom: MediaQuery.of(context).viewInsets.bottom,
           ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.start,
+          child: ListView(
+            // mainAxisSize: MainAxisSize.min,
+            // mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Container(
-                padding: const EdgeInsets.only(left: 20, right: 10, top: 20),
+                padding: EdgeInsets.only(
+                  left: 20,
+                  right: 10,
+                  top: 20,
+                  bottom: MediaQuery.of(context).viewInsets.bottom,
+                ),
                 height: 425,
                 width: double.infinity,
                 alignment: Alignment.topCenter,
@@ -222,7 +226,7 @@ class _BookScreenState extends State {
                       ),
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            fixedSize: const Size(250, 50),
+                            fixedSize: const Size(200, 50),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20),
                             ),

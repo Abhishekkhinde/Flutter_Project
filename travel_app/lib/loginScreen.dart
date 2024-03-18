@@ -64,6 +64,11 @@ class _LoginPageState extends State {
   Scaffold loginpagen() {
     return Scaffold(
       body: Container(
+        padding: const EdgeInsets.only(
+          left: 10,
+          right: 10,
+          top: 250,
+        ),
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage("assets/img5.jpg"),
@@ -79,7 +84,7 @@ class _LoginPageState extends State {
               Container(
                 height: 50,
                 margin: const EdgeInsets.all(40),
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.only(left: 40, right: 40),
                 decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.all(
@@ -88,9 +93,9 @@ class _LoginPageState extends State {
                 ),
                 child: Row(
                   children: [
-                    const SizedBox(
-                      width: 70,
-                    ),
+                    // const SizedBox(
+                    //   width: 70,
+                    // ),
                     Image.asset(
                       "assets/googleimg.png",
                       height: 30,
@@ -192,9 +197,7 @@ class _LoginPageState extends State {
                   keyboardType: TextInputType.emailAddress,
                 ),
               ),
-              const SizedBox(
-                height: 150,
-              ),
+              const Spacer(),
               ElevatedButton(
                 style: ButtonStyle(
                   backgroundColor: const MaterialStatePropertyAll(

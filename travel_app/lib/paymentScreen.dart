@@ -210,7 +210,7 @@ class _Paymentstate extends State {
                             ),
                           ),
                           textInputAction: TextInputAction.done,
-                          keyboardType: TextInputType.emailAddress,
+                          keyboardType: TextInputType.phone,
                         ),
                       ),
                       const SizedBox(
@@ -264,7 +264,7 @@ class _Paymentstate extends State {
                           ),
                           Container(
                             height: 50,
-                            width: 145,
+                            width: 100,
                             child: TextField(
                               controller: cvvController,
                               decoration: InputDecoration(
@@ -284,7 +284,7 @@ class _Paymentstate extends State {
                                 ),
                               ),
                               textInputAction: TextInputAction.done,
-                              keyboardType: TextInputType.emailAddress,
+                              keyboardType: TextInputType.phone,
                             ),
                           ),
                         ],

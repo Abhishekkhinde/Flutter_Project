@@ -59,9 +59,7 @@ class _DonePayState extends State {
                     fontWeight: FontWeight.bold,
                     color: Colors.black),
               ),
-              const SizedBox(
-                height: 200,
-              ),
+              const Spacer(),
               ElevatedButton(
                 style: ButtonStyle(
                   backgroundColor: const MaterialStatePropertyAll(
