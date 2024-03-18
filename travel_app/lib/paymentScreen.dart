@@ -250,7 +250,7 @@ class _Paymentstate extends State {
                                 );
 
                                 String formatedDatee =
-                                    DateFormat.yMMMd().format(pickedDate!);
+                                    DateFormat.yMMM().format(pickedDate!);
                                 setState(() {
                                   expiryController.text = formatedDatee;
                                 });

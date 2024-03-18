@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app/database.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:travel_app/paymentScreen.dart';
+// import 'package:travel_app/paymentScreen.dart';
 
 import 'loginScreen.dart';
 
@@ -48,5 +48,3 @@ bool paymentScreenn = false;
 bool paymentSuccessfuln = false;
 bool histryScreenn = false;
 bool loginScreen = true;
-
-
