@@ -53,13 +53,14 @@ class _LoginPageState extends State {
           );
         }
       }
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text("Login failed "),
-        ),
-      );
     }
+    // else {
+    //   ScaffoldMessenger.of(context).showSnackBar(
+    //     const SnackBar(
+    //       content: Text("Login failed "),
+    //     ),
+    //   );
+    // }
   }
 
   Scaffold loginpagen() {
@@ -218,11 +219,25 @@ class _LoginPageState extends State {
                   ),
                 ),
                 onPressed: () {
-                  setState(() {
-                    flag = false;
-                    homeScreen = true;
-                    validation();
-                  });
+                  bool loginValidated = _formkey.currentState!.validate();
+                  if (loginValidated) {
+                    setState(() {
+                      flag = false;
+                      homeScreen = true;
+                      validation();
+                    });
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text("Login failed "),
+                      ),
+                    );
+                  }
+                  // setState(() {
+                  //   flag = false;
+                  //   homeScreen = true;
+                  //   validation();
+                  // });
                 },
                 child: const Text(
                   "Log In",
