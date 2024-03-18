@@ -42,9 +42,9 @@ class MainApp extends StatelessWidget {
 int inde = 0;
 int totalseat = 0;
 
-bool homeScreenn = false;
-bool bookScreenn = false;
-bool paymentScreenn = false;
-bool paymentSuccessfuln = false;
-bool histryScreenn = false;
-bool loginScreen = true;
+// bool homeScreenn = false;
+// bool bookScreenn = false;
+// bool paymentScreenn = false;
+// bool paymentSuccessfuln = false;
+// bool histryScreenn = false;
+// bool loginScreen = true;
