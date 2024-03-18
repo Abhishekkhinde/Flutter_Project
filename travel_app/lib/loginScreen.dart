@@ -183,8 +183,14 @@ class _LoginPageState extends State {
                       borderSide:
                           const BorderSide(color: Colors.white, width: 2),
                     ),
-                    prefixIcon: const Icon(Icons.lock),
-                    suffixIcon: const Icon(Icons.remove_red_eye_outlined),
+                    prefixIcon: const Icon(
+                      Icons.lock,
+                      color: Colors.white,
+                    ),
+                    suffixIcon: const Icon(
+                      Icons.remove_red_eye_outlined,
+                      color: Colors.white,
+                    ),
                   ),
                   validator: (password) {
                     if (password == null || password.isEmpty) {

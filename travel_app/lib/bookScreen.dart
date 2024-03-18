@@ -73,6 +73,10 @@ class _BookScreenState extends State {
               ),
               Container(
                 padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
+                decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(20),
+                        bottomRight: Radius.circular(20))),
                 child: Column(
                   children: [
                     Row(
@@ -171,7 +175,7 @@ class _BookScreenState extends State {
                 ),
               ),
               Container(
-                height: 250,
+                height: 225,
                 padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
                 child: SingleChildScrollView(
                     child: Column(
