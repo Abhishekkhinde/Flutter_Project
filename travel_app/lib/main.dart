@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app/database.dart';
 import 'package:sqflite/sqflite.dart';
+import 'package:travel_app/paymentScreen.dart';
 
 import 'loginScreen.dart';
 
@@ -40,3 +41,10 @@ class MainApp extends StatelessWidget {
 
 int inde = 0;
 int totalseat = 0;
+
+bool homeScreenn = false;
+bool bookScreenn = false;
+bool paymentScreenn = false;
+bool paymentSuccessfuln = false;
+bool histryScreenn = false;
+bool loginScreen = true;
