@@ -263,11 +263,11 @@ class _ToDoListState extends State {
   }
 
   var listOfColor = [
-    const Color.fromRGBO(250, 232, 232, 1),
-    const Color.fromRGBO(250, 232, 250, 1),
-    const Color.fromRGBO(250, 249, 232, 1),
-    const Color.fromRGBO(232, 237, 250, 1),
-    const Color.fromRGBO(240, 215, 260, 1),
+    const Color.fromRGBO(250, 232, 234, 1),
+    const Color.fromRGBO(250, 232, 252, 1),
+    const Color.fromRGBO(250, 249, 234, 1),
+    const Color.fromRGBO(232, 237, 252, 1),
+    const Color.fromRGBO(240, 215, 255, 1),
   ];
   List todoList = [];
 
@@ -348,7 +348,7 @@ class _ToDoListState extends State {
                                 style: GoogleFonts.quicksand(
                                   textStyle: const TextStyle(
                                       fontWeight: FontWeight.w600,
-                                      fontSize: 12),
+                                      fontSize: 14),
                                 ),
                               ),
                               const SizedBox(
@@ -359,7 +359,7 @@ class _ToDoListState extends State {
                                 style: GoogleFonts.quicksand(
                                   textStyle: const TextStyle(
                                       fontWeight: FontWeight.w500,
-                                      fontSize: 10),
+                                      fontSize: 12),
                                 ),
                               ),
                             ],
@@ -372,7 +372,13 @@ class _ToDoListState extends State {
                     ),
                     Row(
                       children: [
-                        Text(todoList[index].date),
+                        Text(
+                          todoList[index].date,
+                          style: GoogleFonts.quicksand(
+                            textStyle: const TextStyle(
+                                fontWeight: FontWeight.w500, fontSize: 12),
+                          ),
+                        ),
                         const Spacer(),
                         Row(
                           children: [
