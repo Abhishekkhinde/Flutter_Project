@@ -1,3 +1,5 @@
+import 'package:expense_manager/categories.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'login_screen.dart';
@@ -214,7 +216,14 @@ class _HomeScreenState extends State {
                     ],
                   ),
                 ),
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CategoriesScreen(),
+                    ),
+                  );
+                },
               ),
               GestureDetector(
                 child: Container(
