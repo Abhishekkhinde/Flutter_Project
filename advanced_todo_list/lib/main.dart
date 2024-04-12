@@ -20,6 +20,15 @@ class MainApp extends StatelessWidget {
 List<ToDoModelClass> todolist = [];
 
 class _ToDoAppState extends State {
+  @override
+  void initState() {
+    super.initState();
+    // Future.delayed(const Duration(seconds: 0), () async {
+    //   todolist = await getListData();
+    // });
+  }
+
+  bool taskStatus = false;
   TextEditingController titleController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
   TextEditingController dateController = TextEditingController();
@@ -229,8 +238,11 @@ class _ToDoAppState extends State {
                                         borderRadius: BorderRadius.circular(10),
                                       ),
                                       activeColor: Colors.green,
-                                      value: true,
-                                      onChanged: (value) {},
+                                      value: taskStatus ? true : false,
+                                      onChanged: (value) {
+                                        taskStatus = true;
+                                        setState(() {});
+                                      },
                                     )
                                   ],
                                 ),
@@ -269,7 +281,8 @@ class _ToDoAppState extends State {
           ToDoModelClass(
               title: titleController.text.trim(),
               description: descriptionController.text.trim(),
-              date: dateController.text.trim()),
+              date: dateController.text.trim(),
+              isdonetask: false),
         );
         setState(() {});
       } else {
@@ -487,12 +500,14 @@ class ToDoModelClass {
   String? title;
   String? description;
   String? date;
+  bool isdonetask;
 
   ToDoModelClass({
     this.listNo,
     required this.title,
     required this.description,
     required this.date,
+    required this.isdonetask,
   });
 
   Map<String, dynamic> todolistMap() {
@@ -501,12 +516,13 @@ class ToDoModelClass {
       'title': title,
       'description': description,
       'date': date,
+      'isdonetask': (isdonetask) ? 1 : 0,
     };
   }
 
   @override
   String toString() {
-    return '{listNo: $listNo,title:$title,description: $description,date:$date,}';
+    return '{listNo: $listNo,title:$title,description: $description,date:$date,isdonetask:$isdonetask}';
   }
 }
 
@@ -527,11 +543,11 @@ Future<List<ToDoModelClass>> getListData() async {
   List<Map<String, dynamic>> listmapEntry = await localDB.query("Tasklist");
   return List.generate(listmapEntry.length, (index) {
     return ToDoModelClass(
-      listNo: listmapEntry[index]['listNo'],
-      title: listmapEntry[index]['title'],
-      description: listmapEntry[index]['description'],
-      date: listmapEntry[index]['date'],
-    );
+        listNo: listmapEntry[index]['listNo'],
+        title: listmapEntry[index]['title'],
+        description: listmapEntry[index]['description'],
+        date: listmapEntry[index]['date'],
+        isdonetask: (listmapEntry[index]['isdonetask'] == 0) ? true : false);
   });
 }
 
@@ -558,20 +574,23 @@ Future<void> updatelist(ToDoModelClass obj) async {
 
 dynamic databases;
 void main() async {
-  runApp(const MainApp());
-
-  databases = openDatabase(
+  WidgetsFlutterBinding.ensureInitialized();
+  databases = await openDatabase(
     path.join(await getDatabasesPath(), "tododata.db"),
     version: 1,
     onCreate: (db, version) {
       db.execute('''CREATE TABLE Tasklist(
-      listNo INTEGER PRIMARY KEY,
+      listNo INTEGER PRIMARY KEY,DSS
       title TEXT ,
       description TEXT,
-      date TEXT
+      date TEXT,
+      isdonetask INT
     )''');
     },
   );
   todolist = await getListData();
+
+  runApp(const MainApp());
+
   // print(await getListData());
 }

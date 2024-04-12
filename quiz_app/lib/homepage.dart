@@ -17,30 +17,30 @@ class SingleModelView {
 
 class _HomePageState extends State {
   List allQuestions = [
-    (
+    SingleModelView(
       question:
           "Who developed the Flutter Framework and continues to maintain it today?",
       options: ["Facebook", "Microsoft", "Google", "Oracle"],
       answerIndex: 2,
     ),
-    (
+    SingleModelView(
       question:
           "Which programming language is used to build Flutter applications?",
       options: ["Kotlin", "Dart", "Java", "Go"],
       answerIndex: 1,
     ),
-    (
+    SingleModelView(
       question: "How many types of widgets are there in Flutter?",
       options: ["2", "4", "6", "8+"],
       answerIndex: 0,
     ),
-    (
+    SingleModelView(
       question:
           "What language is Flutter's rendering engine primarily written in?",
       options: ["Kotlin", "C++", "Dart", "Java"],
       answerIndex: 1,
     ),
-    (
+    SingleModelView(
       question: "What widget would you use for repeating content in Flutter?",
       options: ["ArrayView", "Stack", "ExpandedView", "ListView"],
       answerIndex: 3,
