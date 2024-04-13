@@ -62,30 +62,28 @@ class _HomeScreenState extends State {
                     const SizedBox(
                       width: 17,
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            Text(
-                              "Medicine",
-                              style: GoogleFonts.poppins(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 15,
-                                color: const Color.fromRGBO(0, 0, 0, 1),
-                              ),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Medicine",
+                            style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 15,
+                              color: const Color.fromRGBO(0, 0, 0, 1),
                             ),
-                          ],
-                        ),
-                        Text(
-                          "Lorem Ipsum is simply dummy text of the ",
-                          style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 10,
-                            color: const Color.fromRGBO(0, 0, 0, 1),
                           ),
-                        )
-                      ],
+                          Text(
+                            "Lorem Ipsum is simply dummy text of the ",
+                            style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 10,
+                              color: const Color.fromRGBO(0, 0, 0, 1),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
