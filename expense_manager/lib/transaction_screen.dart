@@ -1,4 +1,6 @@
 import 'package:expense_manager/categories.dart';
+import 'package:expense_manager/graphscreen.dart';
+import 'package:expense_manager/trashpage.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -259,7 +261,14 @@ class _HomeScreenState extends State {
                     ],
                   ),
                 ),
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const GraphScreen(),
+                    ),
+                  );
+                },
               ),
               GestureDetector(
                 child: Container(
@@ -295,7 +304,14 @@ class _HomeScreenState extends State {
                     ],
                   ),
                 ),
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CategoriesScreen(),
+                    ),
+                  );
+                },
               ),
               GestureDetector(
                 child: Container(
@@ -321,7 +337,7 @@ class _HomeScreenState extends State {
                         width: 7,
                       ),
                       Text(
-                        "Subtract",
+                        "Trash",
                         style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w400,
                           fontSize: 16,
@@ -331,7 +347,14 @@ class _HomeScreenState extends State {
                     ],
                   ),
                 ),
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const TrashScreen(),
+                    ),
+                  );
+                },
               ),
               GestureDetector(
                 child: Container(

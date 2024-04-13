@@ -9,6 +9,87 @@ class CategoriesScreen extends StatefulWidget {
 }
 
 class _CategoriesScreenState extends State {
+  Future showMyDialog() async {
+    return await showDialog(
+        barrierColor: Colors.black26,
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            surfaceTintColor: Color.fromRGBO(255, 255, 255, 1),
+            // backgroundColor: Color.fromRGBO(255, 255, 255, 1),
+            alignment: Alignment.center,
+            title: Text(
+              "Delete Category",
+              style: GoogleFonts.poppins(
+                fontWeight: FontWeight.w500,
+                fontSize: 20,
+                color: const Color.fromRGBO(0, 0, 0, 1),
+              ),
+              textAlign: TextAlign.center,
+            ),
+            content: Text(
+              "Are you sure you want to delete the selected category?",
+              style: GoogleFonts.poppins(
+                fontWeight: FontWeight.w400,
+                fontSize: 16,
+                color: const Color.fromRGBO(0, 0, 0, 1),
+              ),
+              textAlign: TextAlign.center,
+            ),
+            actions: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      fixedSize: const Size(120, 35),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      backgroundColor: const Color.fromRGBO(14, 161, 125, 1),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Text(
+                      "Delete",
+                      style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16,
+                        color: const Color.fromRGBO(255, 255, 255, 1),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 15,
+                  ),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      fixedSize: const Size(120, 35),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      backgroundColor: Color.fromARGB(0, 195, 191, 191),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Text(
+                      "Cancel",
+                      style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16,
+                        color: const Color.fromRGBO(0, 0, 0, 1),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ],
+          );
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,6 +146,9 @@ class _CategoriesScreenState extends State {
                   ),
                 ),
                 onTap: () {},
+                onLongPress: () async {
+                  await showMyDialog();
+                },
               );
             }),
       ),

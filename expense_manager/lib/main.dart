@@ -4,6 +4,8 @@ import 'login_screen.dart';
 import 'register_screen.dart';
 import 'transaction_screen.dart';
 import 'categories.dart';
+import 'graphscreen.dart';
+import 'trashpage.dart';
 
 void main() {
   runApp(const MainApp());
