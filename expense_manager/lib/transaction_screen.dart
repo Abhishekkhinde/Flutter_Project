@@ -400,7 +400,7 @@ class _HomeScreenState extends State {
   void homeScreen() {
     showModalBottomSheet(
       isScrollControlled: true,
-      backgroundColor: Color.fromRGBO(255, 255, 255, 1),
+      backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
       context: context,
       builder: (context) {
         return Padding(
@@ -464,13 +464,13 @@ class _HomeScreenState extends State {
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5),
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color.fromRGBO(191, 189, 189, 1),
                     ),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5),
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color.fromRGBO(191, 189, 189, 1),
                     ),
                   ),
@@ -496,13 +496,13 @@ class _HomeScreenState extends State {
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5),
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color.fromRGBO(191, 189, 189, 1),
                     ),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5),
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color.fromRGBO(191, 189, 189, 1),
                     ),
                   ),
@@ -528,13 +528,13 @@ class _HomeScreenState extends State {
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5),
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color.fromRGBO(191, 189, 189, 1),
                     ),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5),
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color.fromRGBO(191, 189, 189, 1),
                     ),
                   ),
@@ -547,7 +547,7 @@ class _HomeScreenState extends State {
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromRGBO(14, 161, 125, 1),
-                    shadowColor: Color.fromRGBO(0, 0, 0, 0.2),
+                    shadowColor: const Color.fromRGBO(0, 0, 0, 0.2),
                   ),
                   onPressed: () {},
                   child: Text(
