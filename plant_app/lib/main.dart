@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plant_app/view/getstartpage.dart';
+import 'package:plant_app/view/loginpage.dart';
 
 void main() {
   runApp(const MainApp());
@@ -12,7 +13,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: GetStartPage(),
+      home: LoginPage(),
     );
   }
 }
