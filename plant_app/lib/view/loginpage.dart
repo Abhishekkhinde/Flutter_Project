@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginPage extends StatefulWidget {
@@ -49,6 +50,12 @@ class _LoginPageState extends State<LoginPage> {
               margin: const EdgeInsets.only(left: 20, right: 20),
               height: 50,
               decoration: BoxDecoration(
+                  border: const Border.fromBorderSide(
+                    BorderSide(
+                      color: Color.fromRGBO(204, 211, 196, 1),
+                      width: 1,
+                    ),
+                  ),
                   color: const Color.fromRGBO(255, 255, 255, 1),
                   borderRadius: BorderRadius.circular(10),
                   boxShadow: const [
@@ -71,28 +78,31 @@ class _LoginPageState extends State<LoginPage> {
             ),
             const SizedBox(height: 30),
             // const Spacer(),
-            Container(
-              margin: const EdgeInsets.only(left: 20, right: 20),
-              height: 50,
-              decoration: const BoxDecoration(
-                color: Color.fromRGBO(217, 217, 217, 1),
-                gradient: LinearGradient(colors: [
-                  Color.fromRGBO(62, 102, 24, 1),
-                  Color.fromRGBO(124, 180, 70, 1)
-                ]),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(10),
+            GestureDetector(
+              child: Container(
+                margin: const EdgeInsets.only(left: 20, right: 20),
+                height: 50,
+                decoration: const BoxDecoration(
+                  color: Color.fromRGBO(217, 217, 217, 1),
+                  gradient: LinearGradient(colors: [
+                    Color.fromRGBO(62, 102, 24, 1),
+                    Color.fromRGBO(124, 180, 70, 1)
+                  ]),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                ),
+                alignment: Alignment.center,
+                child: Text(
+                  "Log in",
+                  style: GoogleFonts.rubik(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 18,
+                    color: const Color.fromRGBO(255, 255, 255, 1),
+                  ),
                 ),
               ),
-              alignment: Alignment.center,
-              child: Text(
-                "Log in",
-                style: GoogleFonts.rubik(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 18,
-                  color: const Color.fromRGBO(255, 255, 255, 1),
-                ),
-              ),
+              onTap: () {},
             ),
             const SizedBox(
               height: 53,
