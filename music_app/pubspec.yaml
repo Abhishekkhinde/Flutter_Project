@@ -20,3 +20,10 @@ flutter:
   uses-material-design: true
   assets:
    - assets/home.png
+   - assets/gal1.png
+   - assets/32.png
+   - assets/11.png
+   - assets/38.png
+   - assets/39.png
+   - assets/34.png
+   - assets/40.png
