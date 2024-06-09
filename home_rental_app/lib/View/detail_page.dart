@@ -15,7 +15,9 @@ class _DetailPageState extends State<DetailPage> {
       backgroundColor: const Color.fromRGBO(244, 243, 243, 1),
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
           icon: const Icon(
             Icons.arrow_back_ios,
             size: 30,
@@ -200,6 +202,55 @@ class _DetailPageState extends State<DetailPage> {
                 ),
               ),
             ],
+          ),
+          Container(
+            margin: const EdgeInsets.only(left: 22, right: 22, top: 10),
+            height: 125,
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Text(
+                    "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet",
+                    textAlign: TextAlign.left,
+                    style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 16,
+                        color: const Color.fromRGBO(0, 0, 0, 1)),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const Spacer(),
+          Container(
+            height: 100,
+            width: double.infinity,
+            padding:
+                const EdgeInsets.only(left: 85, right: 85, top: 20, bottom: 20),
+            decoration: const BoxDecoration(
+                color: Color.fromRGBO(255, 255, 255, 1),
+                boxShadow: [
+                  BoxShadow(
+                    blurStyle: BlurStyle.outer,
+                    blurRadius: 13, spreadRadius: 6,
+                    color: Color.fromRGBO(255, 255, 255, 1),
+                    // offset: Offset(80, 0)
+                  )
+                ]),
+            child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  // fixedSize: const Size(220, 55),
+                  backgroundColor: const Color.fromRGBO(32, 169, 247, 1),
+                ),
+                onPressed: () {},
+                child: Text(
+                  "Rent Now",
+                  style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 22,
+                    color: const Color.fromRGBO(255, 255, 255, 1),
+                  ),
+                )),
           )
         ],
       ),
