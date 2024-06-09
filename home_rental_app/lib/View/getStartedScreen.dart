@@ -1,6 +1,7 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:home_rental_app/View/home_screen.dart';
 
 class GetStarted extends StatefulWidget {
   const GetStarted({super.key});
@@ -54,7 +55,14 @@ class _GetStatedState extends State<GetStarted> {
             style: ElevatedButton.styleFrom(
                 fixedSize: const Size(180, 45),
                 backgroundColor: const Color.fromRGBO(32, 169, 247, 1)),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const HomeScreen(),
+                ),
+              );
+            },
             child: Text(
               "Get Started",
               style: GoogleFonts.poppins(

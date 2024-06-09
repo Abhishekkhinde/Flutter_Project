@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:home_rental_app/View/detail_page.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -9,7 +10,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -113,71 +113,82 @@ class _HomeScreenState extends State<HomeScreen> {
                 scrollDirection: Axis.horizontal,
                 itemCount: 3,
                 itemBuilder: (context, index) {
-                  return Container(
-                    margin: const EdgeInsets.only(left: 22, top: 14),
-                    height: 306,
-                    width: 211,
-                    padding: const EdgeInsets.only(
-                        top: 11, left: 11, right: 11, bottom: 18),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: const Color.fromRGBO(255, 255, 255, 1),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          height: 196,
-                          width: 189,
-                          decoration: const BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage("assets/nighthillvilla.png"),
+                  return GestureDetector(
+                    child: Container(
+                      margin: const EdgeInsets.only(left: 22, top: 14),
+                      height: 306,
+                      width: 211,
+                      padding: const EdgeInsets.only(
+                          top: 11, left: 11, right: 11, bottom: 18),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: const Color.fromRGBO(255, 255, 255, 1),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            height: 196,
+                            width: 189,
+                            decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage("assets/nighthillvilla.png"),
+                              ),
                             ),
                           ),
-                        ),
-                        const SizedBox(
-                          height: 6,
-                        ),
-                        Text(
-                          "Night Hill Villa",
-                          style: GoogleFonts.poppins(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16,
-                              color: const Color.fromRGBO(0, 0, 0, 1)),
-                        ),
-                        const SizedBox(
-                          height: 4,
-                        ),
-                        Text(
-                          "London,Night Hill",
-                          style: GoogleFonts.poppins(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 12,
-                              color: const Color.fromRGBO(72, 72, 72, 1)),
-                        ),
-                        const SizedBox(
-                          height: 8,
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              "\$5900",
-                              style: GoogleFonts.poppins(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 14,
-                                  color: const Color.fromRGBO(32, 169, 247, 1)),
-                            ),
-                            Text(
-                              '/Month',
-                              style: GoogleFonts.poppins(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 12,
-                                  color: const Color.fromRGBO(72, 72, 72, 1)),
-                            )
-                          ],
-                        )
-                      ],
+                          const SizedBox(
+                            height: 6,
+                          ),
+                          Text(
+                            "Night Hill Villa",
+                            style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 16,
+                                color: const Color.fromRGBO(0, 0, 0, 1)),
+                          ),
+                          const SizedBox(
+                            height: 4,
+                          ),
+                          Text(
+                            "London,Night Hill",
+                            style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 12,
+                                color: const Color.fromRGBO(72, 72, 72, 1)),
+                          ),
+                          const SizedBox(
+                            height: 8,
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                "\$5900",
+                                style: GoogleFonts.poppins(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 14,
+                                    color:
+                                        const Color.fromRGBO(32, 169, 247, 1)),
+                              ),
+                              Text(
+                                '/Month',
+                                style: GoogleFonts.poppins(
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 12,
+                                    color: const Color.fromRGBO(72, 72, 72, 1)),
+                              )
+                            ],
+                          )
+                        ],
+                      ),
                     ),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const DetailPage(),
+                        ),
+                      );
+                    },
                   );
                 }),
           ),

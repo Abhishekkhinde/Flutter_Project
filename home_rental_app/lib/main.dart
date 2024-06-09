@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_rental_app/View/detail_page.dart';
 import 'package:home_rental_app/View/getStartedScreen.dart';
 import 'package:home_rental_app/View/home_screen.dart';
 
@@ -12,7 +13,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: HomeScreen(),
+      home: GetStarted(),
     );
   }
 }
