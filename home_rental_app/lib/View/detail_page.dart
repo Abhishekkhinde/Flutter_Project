@@ -14,6 +14,7 @@ class _DetailPageState extends State<DetailPage> {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(244, 243, 243, 1),
       appBar: AppBar(
+        backgroundColor: const Color.fromRGBO(244, 243, 243, 1),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -48,6 +49,41 @@ class _DetailPageState extends State<DetailPage> {
                 fit: BoxFit.fill,
               ),
             ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  height: 27,
+                  width: 55,
+                  padding:
+                      const EdgeInsets.only(left: 8.5, top: 3.5, bottom: 3.5),
+                  margin: const EdgeInsets.only(left: 14, top: 14),
+                  decoration: BoxDecoration(
+                    color: const Color.fromRGBO(112, 200, 250, 1),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Icon(
+                        Icons.star,
+                        size: 17,
+                        color: Color.fromRGBO(251, 227, 12, 1),
+                      ),
+                      Text(
+                        "4.9",
+                        style: GoogleFonts.poppins(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 12,
+                            color: const Color.fromRGBO(255, 255, 255, 1)),
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
           Container(
             alignment: Alignment.centerLeft,
@@ -74,7 +110,7 @@ class _DetailPageState extends State<DetailPage> {
                       color: const Color.fromRGBO(32, 169, 247, 1)),
                 ),
                 Text(
-                  "Month",
+                  "/Month",
                   style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w500,
                       fontSize: 16,

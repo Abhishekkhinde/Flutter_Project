@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:home_rental_app/View/detail_page.dart';
+import 'package:home_rental_app/Model/home_data_model.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -111,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
             height: 320,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: 3,
+                itemCount: popularHome.length,
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     child: Container(
@@ -130,17 +131,56 @@ class _HomeScreenState extends State<HomeScreen> {
                           Container(
                             height: 196,
                             width: 189,
-                            decoration: const BoxDecoration(
+                            decoration: BoxDecoration(
                               image: DecorationImage(
-                                image: AssetImage("assets/nighthillvilla.png"),
+                                image: AssetImage(popularHome[index].image),
                               ),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  height: 27,
+                                  width: 55,
+                                  padding: const EdgeInsets.only(
+                                      left: 8.5, top: 3.5, bottom: 3.5),
+                                  margin:
+                                      const EdgeInsets.only(right: 9, top: 9),
+                                  decoration: BoxDecoration(
+                                    color:
+                                        const Color.fromRGBO(112, 200, 250, 1),
+                                    borderRadius: BorderRadius.circular(15),
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      const Icon(
+                                        Icons.star,
+                                        size: 17,
+                                        color: Color.fromRGBO(251, 227, 12, 1),
+                                      ),
+                                      Text(
+                                        "${popularHome[index].rating}",
+                                        style: GoogleFonts.poppins(
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 12,
+                                            color: const Color.fromRGBO(
+                                                255, 255, 255, 1)),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                           const SizedBox(
                             height: 6,
                           ),
                           Text(
-                            "Night Hill Villa",
+                            popularHome[index].villaName,
                             style: GoogleFonts.poppins(
                                 fontWeight: FontWeight.w600,
                                 fontSize: 16,
@@ -150,7 +190,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 4,
                           ),
                           Text(
-                            "London,Night Hill",
+                            popularHome[index].location,
                             style: GoogleFonts.poppins(
                                 fontWeight: FontWeight.w500,
                                 fontSize: 12,
@@ -162,7 +202,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Row(
                             children: [
                               Text(
-                                "\$5900",
+                                "\$${popularHome[index].ammout}",
                                 style: GoogleFonts.poppins(
                                     fontWeight: FontWeight.w600,
                                     fontSize: 14,
