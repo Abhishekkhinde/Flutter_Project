@@ -21,3 +21,11 @@ flutter:
   assets:
    - assets/splashimage.png
    - assets/loginpage1.png
+   - assets/dash1.png
+   - assets/dash2.png
+   - assets/category1.png
+   - assets/category2.png
+   - assets/category3.png
+   - assets/category4.png
+   - assets/dash community.png
+   - assets/dashevent.png
