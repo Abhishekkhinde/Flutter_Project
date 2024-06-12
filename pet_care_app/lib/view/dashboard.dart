@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pet_care_app/view/boillerplate.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -13,9 +13,7 @@ class _DashboardState extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: NavigationBar(
-        destinations: [],
-      ),
+      bottomNavigationBar: const BottomNavi(),
       backgroundColor: const Color.fromARGB(255, 243, 243, 243),
       body: Padding(
         padding: const EdgeInsets.only(
