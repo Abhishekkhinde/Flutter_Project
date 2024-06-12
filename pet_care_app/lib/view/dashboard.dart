@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pet_care_app/view/boillerplate.dart';
+import 'package:pet_care_app/view/notification_page.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -47,19 +48,30 @@ class _DashboardState extends State {
                           fontSize: 14,
                           color: const Color.fromRGBO(0, 0, 0, 1)),
                     ),
-                    Text("Good Morning!",
-                        style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14,
-                            color: const Color.fromRGBO(194, 195, 204, 1))),
+                    Text(
+                      "Good Morning!",
+                      style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 14,
+                        color: const Color.fromRGBO(194, 195, 204, 1),
+                      ),
+                    ),
                   ],
                 ),
                 const Spacer(),
-                const Icon(
-                  Icons.alarm_sharp,
-                  size: 24,
-                  color: Color.fromRGBO(0, 0, 0, 1),
-                ),
+                IconButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return const NotificationPage();
+                    }));
+                  },
+                  icon: const Icon(
+                    Icons.notifications_none,
+                    size: 24,
+                    color: Color.fromRGBO(0, 0, 0, 1),
+                  ),
+                )
               ],
             ),
             Container(
