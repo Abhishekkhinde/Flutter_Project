@@ -13,6 +13,7 @@ class _BottomNaviState extends State<BottomNavi> {
   @override
   Widget build(BuildContext context) {
     return NavigationBar(
+      surfaceTintColor: const Color.fromRGBO(255, 255, 255, 1),
       backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
       onDestinationSelected: (int index) {
         setState(() {
