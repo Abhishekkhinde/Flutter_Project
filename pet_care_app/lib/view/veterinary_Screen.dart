@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pet_care_app/view/boillerplate.dart';
-import 'package:pet_care_app/view/notification_page.dart';
+import 'package:pet_care_app/view/detail_doctor.dart';
 
 class VeterinaryScreen extends StatefulWidget {
   const VeterinaryScreen({super.key});
@@ -316,7 +314,12 @@ class _VeterinaryScreenState extends State {
                   itemCount: 8,
                   itemBuilder: (context, index) {
                     return GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return const DoctorDetailPage();
+                        }));
+                      },
                       child: Container(
                         margin: const EdgeInsets.only(bottom: 16),
                         padding: const EdgeInsets.all(16),
