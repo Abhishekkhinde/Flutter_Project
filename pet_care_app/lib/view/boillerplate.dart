@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class BottomNavi extends StatefulWidget {
   const BottomNavi({super.key});
@@ -39,16 +40,19 @@ class _BottomNaviState extends State<BottomNavi> {
               color: Color.fromRGBO(126, 128, 143, 1),
             ),
             label: "Service"),
-        NavigationDestination(
-          icon: IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.shopping_cart_outlined,
-                size: 24,
-                color: Color.fromRGBO(126, 128, 143, 1),
-              )),
-          label: "Shop",
+        const SizedBox(
+          width: 30,
         ),
+        // NavigationDestination(
+        //   icon: IconButton(
+        //       onPressed: () {},
+        //       icon: const Icon(
+        //         Icons.shopping_cart_outlined,
+        //         size: 24,
+        //         color: Color.fromRGBO(126, 128, 143, 1),
+        //       )),
+        //   label: "Shop",
+        // ),
         NavigationDestination(
             icon: IconButton(
                 onPressed: () {},
@@ -68,6 +72,50 @@ class _BottomNaviState extends State<BottomNavi> {
                 )),
             label: "History")
       ],
+    );
+  }
+}
+
+class FloatingButton extends StatefulWidget {
+  const FloatingButton({super.key});
+
+  @override
+  State createState() => _FloatingButtonState();
+}
+
+class _FloatingButtonState extends State {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      // margin: EdgeInsets.only(top: 10),
+      height: 75,
+      width: 75,
+      child: FloatingActionButton(
+        onPressed: () {},
+        shape: const CircleBorder(),
+        backgroundColor: const Color.fromRGBO(245, 146, 69, 1),
+        child: Container(
+            alignment: Alignment.bottomCenter,
+            padding: const EdgeInsets.all(15),
+            child: Column(
+              children: [
+                const Icon(
+                  Icons.shopping_cart_outlined,
+                  size: 28,
+                  color: Colors.white,
+                ),
+                Text(
+                  "Shop",
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.poppins(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w500,
+                    color: const Color.fromRGBO(255, 255, 255, 1),
+                  ),
+                ),
+              ],
+            )),
+      ),
     );
   }
 }
