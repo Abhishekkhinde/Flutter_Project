@@ -14,6 +14,8 @@ class _BottomNaviState extends State<BottomNavi> {
   @override
   Widget build(BuildContext context) {
     return NavigationBar(
+      
+      indicatorColor: const Color.fromRGBO(255, 255, 255, 1),
       surfaceTintColor: const Color.fromRGBO(255, 255, 255, 1),
       backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
       onDestinationSelected: (int index) {
@@ -26,6 +28,12 @@ class _BottomNaviState extends State<BottomNavi> {
       labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
       destinations: [
         const NavigationDestination(
+          enabled: true,
+          selectedIcon: Icon(
+            Icons.home,
+            size: 24,
+            color: Color.fromRGBO(245, 146, 69, 1),
+          ),
           icon: Icon(
             Icons.home,
             size: 24,
@@ -34,6 +42,13 @@ class _BottomNaviState extends State<BottomNavi> {
           label: "Home",
         ),
         const NavigationDestination(
+          
+            enabled: true,
+            selectedIcon: Icon(
+              Icons.favorite_border_outlined,
+              size: 24,
+              color: Color.fromRGBO(245, 146, 69, 1),
+            ),
             icon: Icon(
               Icons.favorite_border_outlined,
               size: 24,
@@ -54,6 +69,12 @@ class _BottomNaviState extends State<BottomNavi> {
         //   label: "Shop",
         // ),
         NavigationDestination(
+            enabled: true,
+            selectedIcon: const Icon(
+              Icons.watch_later_outlined,
+              size: 24,
+              color: Color.fromRGBO(245, 146, 69, 1),
+            ),
             icon: IconButton(
                 onPressed: () {},
                 icon: const Icon(
@@ -63,6 +84,12 @@ class _BottomNaviState extends State<BottomNavi> {
                 )),
             label: "History"),
         NavigationDestination(
+            enabled: true,
+            selectedIcon: const Icon(
+              Icons.person_sharp,
+              size: 24,
+              color: Color.fromRGBO(245, 146, 69, 1),
+            ),
             icon: IconButton(
                 onPressed: () {},
                 icon: const Icon(
