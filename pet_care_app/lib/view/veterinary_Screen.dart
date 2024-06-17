@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pet_care_app/view/boillerplate.dart';
 import 'package:pet_care_app/view/detail_doctor.dart';
@@ -349,74 +350,78 @@ class _VeterinaryScreenState extends State {
                             // const SizedBox(
                             //   width: 13,
                             // ),
-                            Container(
-                              padding: const EdgeInsets.only(
-                                  left: 16, right: 16, top: 8, bottom: 8),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    "Dr. Anna Johanson",
-                                    style: GoogleFonts.poppins(
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 14,
-                                      color: const Color.fromRGBO(0, 0, 0, 1),
+                            Expanded(
+                              child: Container(
+                                padding: const EdgeInsets.only(
+                                    left: 16, right: 16, top: 8, bottom: 8),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      "Dr. Anna Johanson",
+                                      style: GoogleFonts.poppins(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 14,
+                                        color: const Color.fromRGBO(0, 0, 0, 1),
+                                      ),
                                     ),
-                                  ),
-                                  Text(
-                                    "Veterinary Behavioral",
-                                    style: GoogleFonts.poppins(
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 12,
-                                        color:
-                                            const Color.fromRGBO(0, 0, 0, 0.2)),
-                                  ),
-                                  const SizedBox(
-                                    height: 8,
-                                  ),
-                                  Row(
-                                    children: [
-                                      const Icon(
-                                        Icons.star_outline_outlined,
-                                        size: 16,
-                                        color: Color.fromRGBO(248, 182, 131, 1),
-                                      ),
-                                      const SizedBox(
-                                        width: 4,
-                                      ),
-                                      Text(
-                                        "4.8",
-                                        style: GoogleFonts.poppins(
+                                    Text(
+                                      "Veterinary Behavioral",
+                                      style: GoogleFonts.poppins(
                                           fontWeight: FontWeight.w400,
                                           fontSize: 12,
                                           color: const Color.fromRGBO(
-                                              194, 195, 204, 1),
+                                              0, 0, 0, 0.2)),
+                                    ),
+                                    const SizedBox(
+                                      height: 8,
+                                    ),
+                                    Row(
+                                      children: [
+                                        const Icon(
+                                          Icons.star_outline_outlined,
+                                          size: 16,
+                                          color:
+                                              Color.fromRGBO(248, 182, 131, 1),
                                         ),
-                                      ),
-                                      const SizedBox(
-                                        width: 16,
-                                      ),
-                                      const Icon(
-                                        Icons.location_on_outlined,
-                                        size: 16,
-                                        color: Color.fromRGBO(248, 182, 131, 1),
-                                      ),
-                                      const SizedBox(
-                                        width: 4,
-                                      ),
-                                      Text(
-                                        "1 km",
-                                        style: GoogleFonts.poppins(
-                                          fontWeight: FontWeight.w400,
-                                          fontSize: 12,
-                                          color: const Color.fromRGBO(
-                                              194, 195, 204, 1),
+                                        const SizedBox(
+                                          width: 4,
                                         ),
-                                      ),
-                                    ],
-                                  )
-                                ],
+                                        Text(
+                                          "4.8",
+                                          style: GoogleFonts.poppins(
+                                            fontWeight: FontWeight.w400,
+                                            fontSize: 12,
+                                            color: const Color.fromRGBO(
+                                                194, 195, 204, 1),
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          width: 16,
+                                        ),
+                                        const Icon(
+                                          Icons.location_on_outlined,
+                                          size: 16,
+                                          color:
+                                              Color.fromRGBO(248, 182, 131, 1),
+                                        ),
+                                        const SizedBox(
+                                          width: 4,
+                                        ),
+                                        Text(
+                                          "1 km",
+                                          style: GoogleFonts.poppins(
+                                            fontWeight: FontWeight.w400,
+                                            fontSize: 12,
+                                            color: const Color.fromRGBO(
+                                                194, 195, 204, 1),
+                                          ),
+                                        ),
+                                      ],
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
                           ],

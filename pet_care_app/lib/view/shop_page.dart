@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pet_care_app/view/boillerplate.dart';
 
@@ -102,7 +101,7 @@ class _ShopScreenState extends State {
             ],
           ),
           const SizedBox(
-            height: 50,
+            height: 30,
           ),
           Expanded(
             child: GridView.builder(

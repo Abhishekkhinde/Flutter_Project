@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pet_care_app/view/dashboard.dart';
+import 'package:pet_care_app/view/shop_page.dart';
 
 class BottomNavi extends StatefulWidget {
   const BottomNavi({super.key});
@@ -121,7 +122,16 @@ class _FloatingButtonState extends State {
       height: 75,
       width: 75,
       child: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return const ShopScreen();
+              },
+            ),
+          );
+        },
         shape: const CircleBorder(),
         backgroundColor: const Color.fromRGBO(245, 146, 69, 1),
         child: Container(

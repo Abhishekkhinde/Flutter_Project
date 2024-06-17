@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pet_care_app/view/boillerplate.dart';
 import 'package:pet_care_app/view/grooming_page.dart';
 import 'package:pet_care_app/view/notification_page.dart';
 import 'package:pet_care_app/view/shop_page.dart';
+import 'package:pet_care_app/view/training_page.dart';
 import 'package:pet_care_app/view/veterinary_Screen.dart';
 
 class Dashboard extends StatefulWidget {
@@ -334,7 +334,16 @@ class _DashboardState extends State {
                             ),
                           ),
                         ),
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return const TrainingScreen();
+                              },
+                            ),
+                          );
+                        },
                       ),
                       const SizedBox(
                         height: 16,

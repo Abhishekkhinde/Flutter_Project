@@ -65,7 +65,7 @@ class _DoctorDetailPageState extends State {
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(10)),
               image: DecorationImage(
-                  image: AssetImage("assets/doctordetail/doctor_detail.png"),
+                  image: AssetImage("assets/doctordetail/drimage1.png"),
                   fit: BoxFit.fill),
             ),
           ),
