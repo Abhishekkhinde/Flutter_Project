@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
@@ -33,10 +33,10 @@ class _CartScreenState extends State {
               color: const Color.fromRGBO(13, 13, 14, 1)),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(30),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text(
+      body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        Container(
+          margin: const EdgeInsets.only(left: 30, right: 30),
+          child: Text(
             "My Orders",
             style: GoogleFonts.imprima(
               fontWeight: FontWeight.w500,
@@ -44,10 +44,60 @@ class _CartScreenState extends State {
               color: const Color.fromRGBO(13, 13, 14, 1),
             ),
           ),
-          SizedBox(
-            height: 30,
+        ),
+        SizedBox(
+          height: 30,
+        ),
+        Slidable(
+          closeOnScroll: true,
+          endActionPane: ActionPane(
+            motion: const DrawerMotion(),
+            extentRatio: 0.2,
+            children: [
+              Expanded(
+                child: Column(
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.only(top: 10),
+                      height: 55,
+                      padding: const EdgeInsets.only(top: 20, bottom: 20),
+                      decoration: const BoxDecoration(
+                          color: Color.fromRGBO(255, 122, 0, 1),
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(50),
+                              bottomLeft: Radius.circular(50))),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          GestureDetector(
+                            child: Image.asset(
+                              "assets/icon/heart.png",
+                              color: const Color.fromRGBO(255, 255, 255, 1),
+                              height: 17,
+                              width: 17,
+                            ),
+                            onTap: () {},
+                          ),
+                          GestureDetector(
+                            child: Image.asset(
+                              "assets/icon/trash.png",
+                              color: const Color.fromRGBO(255, 255, 255, 1),
+                              height: 17,
+                              width: 17,
+                            ),
+                            onTap: () {},
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            ],
           ),
-          Container(
+          child: Container(
+            padding: EdgeInsets.only(left: 30, right: 30),
             child: Row(
               children: [
                 Container(
@@ -114,9 +164,10 @@ class _CartScreenState extends State {
                 Column(
                   children: [
                     SizedBox(
-                      height: 125,
+                      height: 115,
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Text(
                           "1",
@@ -140,9 +191,9 @@ class _CartScreenState extends State {
                 )
               ],
             ),
-          )
-        ]),
-      ),
+          ),
+        ),
+      ]),
     );
   }
 }
