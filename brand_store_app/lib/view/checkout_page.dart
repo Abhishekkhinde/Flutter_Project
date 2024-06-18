@@ -36,7 +36,7 @@ class _CheckOutScreenState extends State {
       body: Padding(
         padding: const EdgeInsets.only(left: 30, right: 30),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
           Text(
@@ -47,7 +47,7 @@ class _CheckOutScreenState extends State {
               color: const Color.fromRGBO(121, 119, 128, 1),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 14,
           ),
           Container(
@@ -97,7 +97,7 @@ class _CheckOutScreenState extends State {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 24,
           ),
           Row(
@@ -108,7 +108,7 @@ class _CheckOutScreenState extends State {
                 width: 18,
                 fit: BoxFit.fill,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 15,
               ),
               Text(
@@ -121,7 +121,7 @@ class _CheckOutScreenState extends State {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 44,
           ),
           Text(
@@ -132,7 +132,7 @@ class _CheckOutScreenState extends State {
               color: const Color.fromRGBO(121, 119, 128, 1),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
           Row(
@@ -170,7 +170,7 @@ class _CheckOutScreenState extends State {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
           Row(
@@ -186,7 +186,7 @@ class _CheckOutScreenState extends State {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
           Row(
