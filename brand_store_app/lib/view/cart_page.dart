@@ -1,3 +1,4 @@
+import 'package:brand_store_app/view/checkout_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -13,6 +14,7 @@ class _CartScreenState extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {},
@@ -301,10 +303,9 @@ class _CartScreenState extends State {
                     backgroundColor: const Color.fromRGBO(255, 122, 0, 1),
                     fixedSize: const Size(190, 62)),
                 onPressed: () {
-                  // Navigator.push(context,
-                  //     MaterialPageRoute(builder: (context) {
-                  //   return const ();
-                  // }));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return const CheckOutScreen();
+                  }));
                 },
                 child: Text(
                   "Checkout Now",

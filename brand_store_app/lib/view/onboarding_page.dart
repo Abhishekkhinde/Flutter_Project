@@ -13,6 +13,7 @@ class _OnboardingScreenState extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
       body: Column(
         children: [
           Container(

@@ -13,6 +13,8 @@ class DetailScreenState extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+            backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
+
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {},
