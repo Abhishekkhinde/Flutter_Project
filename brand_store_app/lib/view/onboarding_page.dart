@@ -1,3 +1,4 @@
+import 'package:brand_store_app/view/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -57,7 +58,7 @@ class _OnboardingScreenState extends State {
                   color: const Color.fromRGBO(121, 119, 128, 1)),
             ),
           ),
-          Spacer(),
+          const Spacer(),
           Container(
             padding: const EdgeInsets.only(
               left: 30,
@@ -100,7 +101,12 @@ class _OnboardingScreenState extends State {
                       ),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return const HomeScreen();
+                    }));
+                  },
                   child: Text(
                     "Sign In",
                     style: GoogleFonts.imprima(

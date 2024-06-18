@@ -20,3 +20,23 @@ flutter:
   uses-material-design: true
   assets:
    - assets/1.png
+   - assets/navigation_icon/bag.png
+   - assets/navigation_icon/home.png
+   - assets/navigation_icon/search.png
+   - assets/navigation_icon/setting.png
+   - assets/icon/profile.png
+   - assets/icon/menu.png
+   - assets/homeimage/home1.png
+   - assets/icon/back.png
+   - assets/icon/design1.png
+   - assets/icon/design2.png
+   - assets/icon/design3.png
+   - assets/icon/heart.png
+   - assets/icon/map.png
+   - assets/icon/mastercard.png
+   - assets/icon/paypal.png
+   - assets/icon/save.png
+   - assets/icon/time.png
+   - assets/icon/trash.png
+   - assets/icon/visa.png
+   - assets/detailimage/detail1.png
