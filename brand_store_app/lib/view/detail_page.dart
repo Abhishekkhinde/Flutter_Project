@@ -211,7 +211,7 @@ class DetailScreenState extends State {
                 ),
               ],
             ),
-            Spacer(),
+            const Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -229,7 +229,7 @@ class DetailScreenState extends State {
                     onPressed: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return CartScreen();
+                        return const CartScreen();
                       }));
                     },
                     child: Text(

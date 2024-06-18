@@ -26,7 +26,7 @@ class _OnboardingScreenState extends State {
                   fit: BoxFit.fill),
             ),
           ),
-           SizedBox(
+          const SizedBox(
             height: 40,
           ),
           Container(

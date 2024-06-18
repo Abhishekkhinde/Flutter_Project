@@ -144,7 +144,7 @@ class _HomeScreenState extends State {
                         color: const Color.fromRGBO(13, 13, 14, 1)),
                   ),
                 ),
-              const  SizedBox(
+                const SizedBox(
                   width: 5,
                 ),
                 Container(
@@ -164,7 +164,7 @@ class _HomeScreenState extends State {
                         color: const Color.fromRGBO(13, 13, 14, 1)),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 5,
                 ),
                 Container(
@@ -206,7 +206,7 @@ class _HomeScreenState extends State {
                       ),
                     );
                   },
-                  child: Container(
+                  child: SizedBox(
                     // height: 700,
                     // padding: const EdgeInsets.only(bottom: 10),
                     width: double.infinity,
