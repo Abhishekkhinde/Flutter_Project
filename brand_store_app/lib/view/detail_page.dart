@@ -238,7 +238,7 @@ class DetailScreenState extends State {
                           fontWeight: FontWeight.w400,
                           fontSize: 18,
                           color: const Color.fromRGBO(255, 255, 255, 1)),
-                    ))
+                    )),
               ],
             )
           ],

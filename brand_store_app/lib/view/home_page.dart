@@ -144,7 +144,7 @@ class _HomeScreenState extends State {
                         color: const Color.fromRGBO(13, 13, 14, 1)),
                   ),
                 ),
-                SizedBox(
+              const  SizedBox(
                   width: 5,
                 ),
                 Container(

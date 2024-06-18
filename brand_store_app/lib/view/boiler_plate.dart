@@ -43,7 +43,7 @@ class _NaviBarState extends State {
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return const OnboardingScreen();
-                }));
+                }),);
               },
               child: const Image(
                 image: AssetImage("assets/navigation_icon/home.png"),

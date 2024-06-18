@@ -31,21 +31,6 @@ class _CartScreenState extends State {
                 fontSize: 18,
                 color: const Color.fromRGBO(13, 13, 14, 1)),
           ),
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: const Image(
-                image: AssetImage("assets/icon/save.png"),
-                color: Color.fromRGBO(13, 13, 14, 1),
-                fit: BoxFit.fill,
-                height: 22,
-                width: 20,
-              ),
-            ),
-            const SizedBox(
-              width: 20,
-            )
-          ],
         ),
         body: Padding(
             padding: const EdgeInsets.all(30),
