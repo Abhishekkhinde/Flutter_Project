@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'dart:math' as math;
 
 class GetStartedScreen extends StatefulWidget {
   const GetStartedScreen({super.key});
@@ -14,13 +13,11 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
-        // alignment: Alignment.center,
-        clipBehavior: Clip.antiAlias,
+        alignment: Alignment.center,
+        clipBehavior: Clip.hardEdge,
         children: [
           Container(
-            // alignment: Alignment.center,
             height: double.infinity,
-            // padding: const EdgeInsets.only(top: 50),
             width: double.infinity,
             decoration: const BoxDecoration(
               gradient: LinearGradient(transform: GradientRotation(20), stops: [
@@ -31,20 +28,15 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                 Color.fromRGBO(75, 76, 237, 1),
               ]),
             ),
-            child: Transform.rotate(
-              origin: const Offset(-10, 70),
-              // alignment: Alignment.topRight,
-              angle: math.pi / 2,
-              child: SizedBox(
-                height: 192,
-                width: 700,
-                child: Text(
-                  "EXTREME",
-                  style: GoogleFonts.allertaStencil(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 150,
-                      color: const Color.fromRGBO(255, 255, 255, 0.2)),
-                ),
+            child: RotatedBox(
+              quarterTurns: 1,
+              child: Text(
+                "EXTREME",
+                textAlign: TextAlign.center,
+                style: GoogleFonts.allertaStencil(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 140,
+                    color: const Color.fromRGBO(255, 255, 255, 0.2)),
               ),
             ),
           ),
