@@ -1,3 +1,4 @@
+import 'package:bicycle_app/view/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -13,7 +14,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
-        alignment: Alignment.center,
+        alignment: Alignment.centerRight,
         clipBehavior: Clip.hardEdge,
         children: [
           Container(
@@ -88,24 +89,32 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Container(
-                          height: 60,
-                          width: 60,
-                          decoration: const BoxDecoration(
-                              color: Color.fromRGBO(75, 76, 237, 1),
-                              shape: BoxShape.circle,
-                              boxShadow: [
-                                BoxShadow(
-                                  blurRadius: 5,
-                                  color: Colors.yellowAccent,
-                                  spreadRadius: 2,
-                                  blurStyle: BlurStyle.normal,
-                                ),
-                              ]),
-                          child: const Image(
-                            image: AssetImage("assets/arrow.png"),
-                            height: 30,
-                            width: 30,
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return const HomeScreen();
+                            }));
+                          },
+                          child: Container(
+                            height: 60,
+                            width: 60,
+                            decoration: const BoxDecoration(
+                                color: Color.fromRGBO(75, 76, 237, 1),
+                                shape: BoxShape.circle,
+                                boxShadow: [
+                                  BoxShadow(
+                                    blurRadius: 5,
+                                    color: Colors.yellowAccent,
+                                    spreadRadius: 2,
+                                    blurStyle: BlurStyle.normal,
+                                  ),
+                                ]),
+                            child: const Image(
+                              image: AssetImage("assets/arrow.png"),
+                              height: 30,
+                              width: 30,
+                            ),
                           ),
                         ),
                         const Spacer(),
