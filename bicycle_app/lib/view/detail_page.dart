@@ -1,3 +1,4 @@
+import 'package:bicycle_app/view/cart_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -45,6 +46,11 @@ class _DetailScreenState extends State<DetailScreen> {
             ),
             const Spacer(),
             GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return const CartScreen();
+                }));
+              },
               child: Container(
                 alignment: Alignment.center,
                 height: 50,
