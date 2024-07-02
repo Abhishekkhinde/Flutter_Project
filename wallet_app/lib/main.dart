@@ -1,4 +1,3 @@
-import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:flutter/material.dart';
 import 'package:wallet_app/view/login_registation/splash_page.dart';
 
