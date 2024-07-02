@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:wallet_app/view/login_registation/boiler_plate.dart';
+import 'package:wallet_app/view/login_registation/otp1_page.dart';
 
 class CreateAccountScreen1 extends StatefulWidget {
   const CreateAccountScreen1({super.key});
@@ -239,9 +240,10 @@ class _CreateAccountScreenState1 extends State<CreateAccountScreen1> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    // Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    //   return const ();
-                    // }));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return const Otp1Screen();
+                    }));
                   },
                   child: Container(
                     height: 45,
