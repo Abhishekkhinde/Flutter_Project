@@ -576,11 +576,11 @@ dynamic databases;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   databases = await openDatabase(
-    path.join(await getDatabasesPath(), "tododata.db"),
+    path.join(await getDatabasesPath(), "tododataa.db"),
     version: 1,
     onCreate: (db, version) {
       db.execute('''CREATE TABLE Tasklist(
-      listNo INTEGER PRIMARY KEY,DSS
+      listNo INTEGER PRIMARY KEY,
       title TEXT ,
       description TEXT,
       date TEXT,
