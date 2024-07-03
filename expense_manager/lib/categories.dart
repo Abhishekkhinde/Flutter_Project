@@ -1,3 +1,4 @@
+import 'package:expense_manager/boilerplate.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -15,7 +16,7 @@ class _CategoriesScreenState extends State {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            surfaceTintColor: Color.fromRGBO(255, 255, 255, 1),
+            surfaceTintColor: const Color.fromRGBO(255, 255, 255, 1),
             // backgroundColor: Color.fromRGBO(255, 255, 255, 1),
             alignment: Alignment.center,
             title: Text(
@@ -69,7 +70,7 @@ class _CategoriesScreenState extends State {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      backgroundColor: Color.fromARGB(0, 195, 191, 191),
+                      backgroundColor: const Color.fromARGB(0, 195, 191, 191),
                     ),
                     onPressed: () {
                       Navigator.pop(context);
@@ -93,6 +94,7 @@ class _CategoriesScreenState extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const Mydawer(),
       appBar: AppBar(
         title: const Text("Categories"),
       ),
@@ -154,7 +156,7 @@ class _CategoriesScreenState extends State {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton.extended(
-        backgroundColor: Color.fromRGBO(255, 255, 255, 1),
+        backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
         onPressed: () {
           mybottomSheet();
@@ -179,7 +181,7 @@ class _CategoriesScreenState extends State {
   void mybottomSheet() {
     showModalBottomSheet(
       isScrollControlled: true,
-      backgroundColor: Color.fromRGBO(255, 255, 255, 1),
+      backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
       context: context,
       builder: (context) {
         return Padding(
@@ -198,7 +200,7 @@ class _CategoriesScreenState extends State {
                     Container(
                       height: 74,
                       width: 74,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           color: Color.fromRGBO(140, 128, 128, 0.2)),
                       child: Image.asset(
@@ -262,13 +264,13 @@ class _CategoriesScreenState extends State {
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5),
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color.fromRGBO(191, 189, 189, 1),
                     ),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5),
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color.fromRGBO(191, 189, 189, 1),
                     ),
                   ),
@@ -279,7 +281,7 @@ class _CategoriesScreenState extends State {
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromRGBO(14, 161, 125, 1),
-                    shadowColor: Color.fromRGBO(0, 0, 0, 0.2),
+                    shadowColor: const Color.fromRGBO(0, 0, 0, 0.2),
                   ),
                   onPressed: () {},
                   child: Text(

@@ -1,3 +1,4 @@
+import 'package:expense_manager/boilerplate.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pie_chart/pie_chart.dart';
@@ -21,7 +22,7 @@ class _GraphScreenState extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const Drawer(),
+      drawer: const Mydawer(),
       appBar: AppBar(
         title: Text(
           "Graph",
@@ -34,7 +35,7 @@ class _GraphScreenState extends State {
       ),
       body: Padding(
         padding:
-            const EdgeInsets.only(left: 23, right: 23, top: 31, bottom: 60),
+            const EdgeInsets.only(left: 23, right: 23, top: 31, bottom: 20),
         child: Column(
           children: [
             PieChart(

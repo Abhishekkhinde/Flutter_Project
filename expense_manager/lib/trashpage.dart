@@ -1,3 +1,4 @@
+import 'package:expense_manager/boilerplate.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -14,7 +15,7 @@ class _TrashScreenState extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // drawer: Drawer(),
+      drawer: const Mydawer(),
       appBar: AppBar(
         title: Text(
           "Trash",
