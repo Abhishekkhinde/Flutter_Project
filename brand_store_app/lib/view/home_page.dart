@@ -14,8 +14,7 @@ class _HomeScreenState extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-            backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
-
+      backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
       bottomNavigationBar: const NaviBar(),
       appBar: AppBar(
         leading: IconButton(
@@ -197,6 +196,7 @@ class _HomeScreenState extends State {
                 crossAxisCount: 2,
                 crossAxisSpacing: 15,
                 mainAxisSpacing: 20,
+                childAspectRatio: 2.5 / 4,
               ),
               itemBuilder: (context, index) {
                 return GestureDetector(
