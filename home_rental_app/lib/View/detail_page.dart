@@ -36,9 +36,6 @@ class _DetailPageState extends State<DetailPage> {
       ),
       body: Column(
         children: [
-          const SizedBox(
-            height: 18,
-          ),
           Container(
             margin: const EdgeInsets.all(22),
             width: double.infinity,
@@ -206,8 +203,8 @@ class _DetailPageState extends State<DetailPage> {
                 alignment: Alignment.centerLeft,
                 height: 141,
                 width: 117,
-                padding: const EdgeInsets.all(14),
-                margin: const EdgeInsets.only(left: 13, top: 13, bottom: 13),
+                padding: const EdgeInsets.all(13),
+                margin: const EdgeInsets.only(left: 12, top: 12, bottom: 12),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
                     color: const Color.fromRGBO(255, 255, 255, 1)),
@@ -240,7 +237,7 @@ class _DetailPageState extends State<DetailPage> {
             ],
           ),
           Container(
-            margin: const EdgeInsets.only(left: 22, right: 22, top: 10),
+            margin: const EdgeInsets.only(left: 22, right: 22, top: 8),
             height: 125,
             child: SingleChildScrollView(
               child: Column(
@@ -262,7 +259,7 @@ class _DetailPageState extends State<DetailPage> {
             height: 100,
             width: double.infinity,
             padding:
-                const EdgeInsets.only(left: 85, right: 85, top: 20, bottom: 20),
+                const EdgeInsets.only(left: 85, right: 85, top: 10, bottom: 20),
             decoration: const BoxDecoration(
                 color: Color.fromRGBO(255, 255, 255, 1),
                 boxShadow: [
