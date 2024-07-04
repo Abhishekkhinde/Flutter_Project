@@ -223,7 +223,7 @@ class _Otp1ScreenState extends State<Otp1Screen> {
                 ),
               ),
             ),
-          ),
+          )
         ],
       ),
     );
