@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:wallet_app/view/main_page/home_page.dart';
 
 class Otp1Screen extends StatefulWidget {
   const Otp1Screen({super.key});
@@ -198,9 +199,9 @@ class _Otp1ScreenState extends State<Otp1Screen> {
           Spacer(),
           GestureDetector(
             onTap: () {
-              // Navigator.push(context, MaterialPageRoute(builder: (context) {
-              //   return const Otp1Screen();
-              // }));
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return const HomeScreen();
+              }));
             },
             child: Container(
               height: 45,
