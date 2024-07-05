@@ -28,3 +28,8 @@ flutter:
    - assets/facebook_logo.png
    - assets/google_logo.png
    - assets/regi_image.png
+   - assets/profile_pic/profile_pic.png
+   - assets/topup_arrow.png
+   - assets/transfer.png
+   - assets/withdraw_arror.png
+   - assets/transaction/latest_trans_1.png
