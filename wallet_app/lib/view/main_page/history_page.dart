@@ -136,7 +136,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                           children: [
                             GestureDetector(
                               onTap: () {
-                                showModelBottomSheet();
+                                showBottomSheet();
                               },
                               child: Row(
                                 children: [
@@ -250,7 +250,214 @@ class _HistoryScreenState extends State<HistoryScreen> {
     );
   }
 
-  void showModelBottomSheet() {
-    
+  Future<void> showBottomSheet() async {
+    await showModalBottomSheet(
+      backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
+      context: context,
+      isDismissible: true,
+      isScrollControlled: true,
+      builder: (context) {
+        return Padding(
+          padding: EdgeInsets.only(
+              left: 16,
+              right: 16,
+              top: 16,
+              bottom: MediaQuery.of(context).viewInsets.bottom),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Row(
+                children: [
+                  Container(
+                    height: 56,
+                    width: 56,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        image: DecorationImage(
+                            image: AssetImage("assets/transaction/nike.png"),
+                            fit: BoxFit.fill)),
+                  ),
+                  SizedBox(
+                    width: 12,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Nike",
+                        style: GoogleFonts.sora(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 16,
+                          color: Color.fromRGBO(25, 25, 25, 1),
+                        ),
+                      ),
+                      Text(
+                        "Yesterday",
+                        style: GoogleFonts.sora(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 14,
+                          color: Color.fromRGBO(120, 131, 141, 1),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Spacer(),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Text(
+                      "Done",
+                      textAlign: TextAlign.start,
+                      style: GoogleFonts.sora(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16,
+                        color: Color.fromRGBO(29, 98, 202, 1),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 24),
+              Container(
+                padding:
+                    EdgeInsets.only(top: 16, bottom: 16, left: 8, right: 8),
+                alignment: Alignment.center,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: Color.fromRGBO(255, 246, 246, 1),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.add,
+                      size: 21,
+                      color: Color.fromRGBO(184, 50, 50, 1),
+                    ),
+                    Text(
+                      "\$50.23",
+                      style: GoogleFonts.sora(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 21,
+                        color: Color.fromRGBO(184, 50, 50, 1),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              Container(
+                padding:
+                    EdgeInsets.only(top: 12, bottom: 12, left: 16, right: 16),
+                alignment: Alignment.centerLeft,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(255, 255, 255, 1),
+                  border: Border.all(
+                      width: 1, color: Color.fromRGBO(229, 231, 232, 1)),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Today",
+                      style: GoogleFonts.sora(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 12,
+                        color: Color.fromRGBO(120, 131, 141, 1),
+                      ),
+                    ),
+                    Text(
+                      "December 29, 2022 - 12:32 ",
+                      style: GoogleFonts.sora(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 12,
+                        color: Color.fromRGBO(83, 93, 102, 1),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              Container(
+                padding:
+                    EdgeInsets.only(top: 12, bottom: 12, left: 16, right: 16),
+                alignment: Alignment.centerLeft,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(255, 255, 255, 1),
+                  border: Border.all(
+                      width: 1, color: Color.fromRGBO(229, 231, 232, 1)),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Transaction no.",
+                          style: GoogleFonts.sora(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 12,
+                            color: Color.fromRGBO(120, 131, 141, 1),
+                          ),
+                        ),
+                        Text(
+                          "23010412432431",
+                          style: GoogleFonts.sora(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 12,
+                            color: Color.fromRGBO(83, 93, 102, 1),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Icon(
+                      Icons.content_copy_rounded,
+                      size: 20,
+                      color: Color.fromRGBO(83, 93, 102, 1),
+                    )
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 24,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.flag_outlined,
+                    size: 20,
+                    color: Color.fromRGBO(184, 50, 50, 1),
+                  ),
+                  Text(
+                    "Report a problem",
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.sora(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 14,
+                      color: Color.fromRGBO(184, 50, 50, 1),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 40,
+              )
+            ],
+          ),
+        );
+      },
+    );
   }
 }
