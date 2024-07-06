@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:wallet_app/view/main_page/history_page.dart';
+import 'package:wallet_app/view/main_page/home_page.dart';
 
 class BottomNaviBar extends StatefulWidget {
   const BottomNaviBar({super.key});
@@ -10,6 +12,44 @@ class BottomNaviBar extends StatefulWidget {
 
 class _BottomNaviBarState extends State<BottomNaviBar> {
   int _selectedIndex = 0;
+
+  void _onIconTap(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    switch (index) {
+      case 0:
+        Navigator.push(context, MaterialPageRoute(
+          builder: (context) {
+            return HomeScreen();
+          },
+        ));
+        break;
+      case 1:
+        Navigator.push(context, MaterialPageRoute(
+          builder: (context) {
+            return const HistoryScreen();
+          },
+        ));
+        break;
+      case 2:
+        Navigator.push(context, MaterialPageRoute(
+          builder: (context) {
+            return const HistoryScreen();
+          },
+        ));
+        break;
+      case 3:
+        Navigator.push(context, MaterialPageRoute(
+          builder: (context) {
+            return const HistoryScreen();
+          },
+        ));
+        break;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,6 +81,7 @@ class _BottomNaviBarState extends State<BottomNaviBar> {
 
     return InkWell(
       onTap: () {
+        _onIconTap(index);
         setState(
           () {
             _selectedIndex = index;
