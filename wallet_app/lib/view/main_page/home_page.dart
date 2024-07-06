@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:wallet_app/view/main_page/boiler_plate_main.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -12,6 +13,79 @@ class _HomePageState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: BottomNaviBar(),
+      // Container(
+      //   height: 62,
+      //   width: double.infinity,
+      //   decoration: BoxDecoration(
+      //     border: Border(
+      //       top: BorderSide(
+      //         width: 1,
+      //         color: Color.fromRGBO(225, 227, 237, 1),
+      //       ),
+      //     ),
+      //   ),
+      //   child: ListView.builder(
+      //     itemCount: 4,
+      //     physics: const NeverScrollableScrollPhysics(),
+      //     scrollDirection: Axis.horizontal,
+      //     padding: EdgeInsets.only(bottom: 8),
+      //     itemBuilder: (context, index) {
+      //       return Container(
+      //         padding: EdgeInsets.only(left: 10, right: 10),
+      //         child: InkWell(
+      //           onTap: () {
+      //             setState(
+      //               () {
+      //                 currentIndex = index;
+      //               },
+      //             );
+      //           },
+      //           // splashColor: Colors.transparent,
+      //           // highlightColor: Colors.transparent,
+      //           child: Column(
+      //             mainAxisAlignment: MainAxisAlignment.start,
+      //             crossAxisAlignment: CrossAxisAlignment.center,
+      //             children: [
+      //               Container(
+      //                 // duration: Duration(milliseconds: 1500),
+      //                 // curve: Curves.fastLinearToSlowEaseIn,
+      //                 // margin: EdgeInsets.only(
+      //                 //   bottom: index == currentIndex ? 2 : 0,
+      //                 // ),
+      //                 width: index == currentIndex ? size.width * .100 : 0,
+
+      //                 height: 2,
+      //                 decoration: BoxDecoration(
+      //                   color: index == currentIndex
+      //                       ? Color.fromRGBO(111, 69, 233, 1)
+      //                       : Color.fromRGBO(255, 255, 255, 1),
+      //                 ),
+      //               ),
+      //               Icon(
+      //                 iconOfAppBar[index],
+      //                 size: 24,
+      //                 color: index == currentIndex
+      //                     ? Color.fromRGBO(111, 69, 233, 1)
+      //                     : Color.fromRGBO(83, 93, 102, 1),
+      //               ),
+      //               Text(
+      //                 "Home",
+      //                 style: GoogleFonts.sora(
+      //                   fontWeight: FontWeight.w600,
+      //                   fontSize: 12,
+      //                   color: index == currentIndex
+      //                       ? Color.fromRGBO(111, 69, 233, 1)
+      //                       : Color.fromRGBO(83, 93, 102, 1),
+      //                 ),
+      //               )
+      //             ],
+      //           ),
+      //         ),
+      //       );
+      //     },
+      //   ),
+      // ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

@@ -33,3 +33,7 @@ flutter:
    - assets/transfer.png
    - assets/withdraw_arror.png
    - assets/transaction/latest_trans_1.png
+   - assets/appbar_icon/cards.png
+   - assets/appbar_icon/history.png
+   - assets/appbar_icon/home.png
+   - assets/appbar_icon/more.png
