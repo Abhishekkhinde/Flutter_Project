@@ -40,3 +40,8 @@ flutter:
    - assets/search.png 
    - assets/filter.png
    - assets/transaction/nike.png
+   - assets/about.png
+   - assets/analytics.png
+   - assets/contact_us.png
+   - assets/help1.png
+   - assets/paybills.png

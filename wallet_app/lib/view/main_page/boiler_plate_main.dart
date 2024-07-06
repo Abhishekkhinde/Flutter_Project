@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:wallet_app/view/main_page/history_page.dart';
 import 'package:wallet_app/view/main_page/home_page.dart';
+import 'package:wallet_app/view/main_page/more_page.dart';
 
 class BottomNaviBar extends StatefulWidget {
   const BottomNaviBar({super.key});
@@ -43,7 +44,7 @@ class _BottomNaviBarState extends State<BottomNaviBar> {
       case 3:
         Navigator.push(context, MaterialPageRoute(
           builder: (context) {
-            return const HistoryScreen();
+            return const MoreScreen();
           },
         ));
         break;
