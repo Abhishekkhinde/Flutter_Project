@@ -37,3 +37,6 @@ flutter:
    - assets/appbar_icon/history.png
    - assets/appbar_icon/home.png
    - assets/appbar_icon/more.png
+   - assets/search.png 
+   - assets/filter.png
+   - assets/transaction/nike.png
