@@ -6,7 +6,7 @@ class AppBar1 extends StatefulWidget implements PreferredSizeWidget {
 
   @override
   State createState() => _AppBar1State();
-@override
+  @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
 
@@ -16,6 +16,9 @@ class _AppBar1State extends State {
     return AppBar(
       backgroundColor: const Color.fromRGBO(247, 244, 255, 1),
       leading: GestureDetector(
+        onTap: () {
+          Navigator.pop(context);
+        },
         child: Row(
           children: [
             const SizedBox(

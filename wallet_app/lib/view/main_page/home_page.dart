@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:wallet_app/view/main_page/boiler_plate_main.dart';
+import 'package:wallet_app/view/main_page/profile_setting_page.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -132,6 +133,13 @@ class _HomePageState extends State<HomeScreen> {
                     ),
                     Spacer(),
                     GestureDetector(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) {
+                            return ProfileSettingScreen();
+                          },
+                        ));
+                      },
                       child: Icon(
                         Icons.settings_outlined,
                         size: 20,

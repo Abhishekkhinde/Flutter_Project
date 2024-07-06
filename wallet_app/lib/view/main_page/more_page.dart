@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:wallet_app/view/main_page/about_page.dart';
 import 'package:wallet_app/view/main_page/boiler_plate_main.dart';
 
 class MoreScreen extends StatefulWidget {
@@ -88,7 +89,8 @@ class _MoreScreenState extends State<MoreScreen> {
                         width: 32,
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                              image: AssetImage("assets/transfer.png"),
+                              image:
+                                  AssetImage("assets/transaction/transfer.png"),
                               fit: BoxFit.fill),
                         ),
                       ),
@@ -131,7 +133,7 @@ class _MoreScreenState extends State<MoreScreen> {
                         width: 32,
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                              image: AssetImage("assets/topup_arrow.png"),
+                              image: AssetImage("assets/transaction/topup.png"),
                               fit: BoxFit.fill),
                         ),
                       ),
@@ -174,7 +176,8 @@ class _MoreScreenState extends State<MoreScreen> {
                         width: 32,
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                              image: AssetImage("assets/withdraw_arror.png"),
+                              image:
+                                  AssetImage("assets/transaction/withdraw.png"),
                               fit: BoxFit.fill),
                         ),
                       ),
@@ -351,7 +354,13 @@ class _MoreScreenState extends State<MoreScreen> {
                   height: 12,
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return const AboutScreen();
+                      },
+                    ));
+                  },
                   child: Row(
                     children: [
                       Container(

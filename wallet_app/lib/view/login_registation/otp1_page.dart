@@ -25,6 +25,9 @@ class _Otp1ScreenState extends State<Otp1Screen> {
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(255, 255, 255, 1),
         leading: GestureDetector(
+          onTap: () {
+              Navigator.pop(context);
+            },
           child: Row(
             children: [
               const SizedBox(

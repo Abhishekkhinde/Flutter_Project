@@ -45,3 +45,11 @@ flutter:
    - assets/contact_us.png
    - assets/help1.png
    - assets/paybills.png
+   - assets/transaction/topup.png 
+   - assets/transaction/transfer.png 
+   - assets/transaction/withdraw.png
+   - assets/profile.png
+   - assets/mobile.png
+   - assets/password.png
+   - assets/email.png
+   - assets/shield.png
