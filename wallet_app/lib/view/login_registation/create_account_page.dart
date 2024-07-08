@@ -294,6 +294,8 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                 children: [
                   GestureDetector(
                       onTap: () {
+                        Navigator.of(context).pop();
+
                         showbottomsheetmobile();
                       },
                       child: Text(
@@ -441,6 +443,8 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                 children: [
                   GestureDetector(
                       onTap: () {
+                        Navigator.of(context).pop();
+
                         showbottomsheet();
                       },
                       child: Text(

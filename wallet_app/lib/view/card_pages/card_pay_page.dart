@@ -193,14 +193,27 @@ class _CardPayScreenState extends State<CardPayScreen> {
                   ),
                   color: Color.fromRGBO(87, 50, 191, 1),
                 ),
-                child: Text(
-                  "Done",
-                  textAlign: TextAlign.center,
-                  style: GoogleFonts.sora(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 14,
-                    color: const Color.fromRGBO(255, 255, 255, 1),
-                  ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.qr_code,
+                      size: 20,
+                      color: Color.fromRGBO(255, 255, 255, 1),
+                    ),
+                    SizedBox(
+                      width: 2,
+                    ),
+                    Text(
+                      "QR Pay",
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.sora(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 14,
+                        color: const Color.fromRGBO(255, 255, 255, 1),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             )

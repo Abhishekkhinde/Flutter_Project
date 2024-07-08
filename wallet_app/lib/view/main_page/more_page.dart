@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:wallet_app/view/bill_payment_pages/pay_bills_page.dart';
 import 'package:wallet_app/view/main_page/about_page.dart';
 import 'package:wallet_app/view/main_page/boiler_plate_main.dart';
 
@@ -38,7 +39,16 @@ class _MoreScreenState extends State<MoreScreen> {
             child: Column(
               children: [
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const PayBillsScreen();
+                        },
+                      ),
+                    );
+                  },
                   child: Row(
                     children: [
                       Container(
