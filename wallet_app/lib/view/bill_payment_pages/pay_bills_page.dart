@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:wallet_app/view/bill_payment_pages/payment_success_page.dart';
 
 class PayBillsScreen extends StatefulWidget {
   const PayBillsScreen({super.key});
@@ -408,9 +409,10 @@ class _PayBillsScreenState extends State<PayBillsScreen> {
                   onTap: () {
                     Navigator.of(context).pop();
 
-                    // Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    //   return const HomeScreen();
-                    // }));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return const PaymentSuccessScreen();
+                    }));
                   },
                   child: Container(
                     height: 45,
