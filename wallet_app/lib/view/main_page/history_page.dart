@@ -18,6 +18,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          SizedBox(height: 30),
           Padding(
             padding: const EdgeInsets.only(left: 16, right: 16),
             child: Text(

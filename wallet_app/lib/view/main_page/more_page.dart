@@ -22,7 +22,7 @@ class _MoreScreenState extends State<MoreScreen> {
           Padding(
             padding: const EdgeInsets.only(top: 35, left: 16, right: 16),
             child: Text(
-              "History",
+              "More",
               style: GoogleFonts.sora(
                 fontWeight: FontWeight.w600,
                 fontSize: 24,
