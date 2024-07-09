@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:wallet_app/view/main_page/home_page.dart';
 
 class PaymentSuccessScreen extends StatefulWidget {
   const PaymentSuccessScreen({super.key});
@@ -220,9 +221,9 @@ class _PaymentSuccessScreenState extends State<PaymentSuccessScreen> {
             Spacer(),
             GestureDetector(
               onTap: () {
-                // Navigator.push(context, MaterialPageRoute(builder: (context) {
-                //   return const ;
-                // }));
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return const HomeScreen();
+                }));
               },
               child: Container(
                 height: 45,

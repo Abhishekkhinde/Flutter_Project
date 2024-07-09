@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:wallet_app/view/bill_payment_pages/pay_bills_page.dart';
 import 'package:wallet_app/view/main_page/about_page.dart';
 import 'package:wallet_app/view/main_page/boiler_plate_main.dart';
+import 'package:wallet_app/view/transfer_pages/transfer_page.dart';
 
 class MoreScreen extends StatefulWidget {
   const MoreScreen({super.key});
@@ -75,7 +76,7 @@ class _MoreScreenState extends State<MoreScreen> {
                       Icon(
                         Icons.arrow_forward_ios_rounded,
                         color: Color.fromRGBO(83, 93, 102, 1),
-                        size: 10,
+                        size: 16,
                       ),
                     ],
                   ),
@@ -91,7 +92,13 @@ class _MoreScreenState extends State<MoreScreen> {
                   height: 12,
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return TransferScreen();
+                      },
+                    ));
+                  },
                   child: Row(
                     children: [
                       Container(
@@ -119,7 +126,7 @@ class _MoreScreenState extends State<MoreScreen> {
                       Icon(
                         Icons.arrow_forward_ios_rounded,
                         color: Color.fromRGBO(83, 93, 102, 1),
-                        size: 10,
+                        size: 16,
                       ),
                     ],
                   ),
@@ -162,7 +169,7 @@ class _MoreScreenState extends State<MoreScreen> {
                       Icon(
                         Icons.arrow_forward_ios_rounded,
                         color: Color.fromRGBO(83, 93, 102, 1),
-                        size: 10,
+                        size: 16,
                       ),
                     ],
                   ),
@@ -206,7 +213,7 @@ class _MoreScreenState extends State<MoreScreen> {
                       Icon(
                         Icons.arrow_forward_ios_rounded,
                         color: Color.fromRGBO(83, 93, 102, 1),
-                        size: 10,
+                        size: 16,
                       ),
                     ],
                   ),
@@ -249,7 +256,7 @@ class _MoreScreenState extends State<MoreScreen> {
                       Icon(
                         Icons.arrow_forward_ios_rounded,
                         color: Color.fromRGBO(83, 93, 102, 1),
-                        size: 10,
+                        size: 16,
                       ),
                     ],
                   ),
@@ -305,7 +312,7 @@ class _MoreScreenState extends State<MoreScreen> {
                       Icon(
                         Icons.arrow_forward_ios_rounded,
                         color: Color.fromRGBO(83, 93, 102, 1),
-                        size: 10,
+                        size: 16,
                       ),
                     ],
                   ),
@@ -348,7 +355,7 @@ class _MoreScreenState extends State<MoreScreen> {
                       Icon(
                         Icons.arrow_forward_ios_rounded,
                         color: Color.fromRGBO(83, 93, 102, 1),
-                        size: 10,
+                        size: 16,
                       ),
                     ],
                   ),
@@ -397,7 +404,7 @@ class _MoreScreenState extends State<MoreScreen> {
                       Icon(
                         Icons.arrow_forward_ios_rounded,
                         color: Color.fromRGBO(83, 93, 102, 1),
-                        size: 10,
+                        size: 16,
                       ),
                     ],
                   ),

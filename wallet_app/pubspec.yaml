@@ -59,3 +59,4 @@ flutter:
    - assets/card/wifi.png
    - assets/secure_pay.png
    - assets/payment_done_image.png
+   - assets/transfer_fail.png
