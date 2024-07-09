@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:music_app/view/boiller_plate.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class GalleryScreen extends StatefulWidget {
   const GalleryScreen({super.key});
@@ -19,6 +21,8 @@ class _GalleryScreenState extends State<GalleryScreen> {
     "assets/34.png",
     "assets/40.png",
   ];
+
+  int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,105 +31,106 @@ class _GalleryScreenState extends State<GalleryScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              padding: const EdgeInsets.only(left: 22, bottom: 64),
-              alignment: Alignment.bottomLeft,
-              width: 459,
-              height: 360,
-              decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("assets/gal1.png"),
-                    fit: BoxFit.fill,
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                        offset: Offset(20, 20),
-                        blurRadius: 20,
-                        spreadRadius: 19,
-                        blurStyle: BlurStyle.inner,
-                        color: Color.fromRGBO(24, 24, 24, 1))
-                  ]),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "A.L.O.N.E",
-                    style: GoogleFonts.inter(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 36,
-                      color: const Color.fromRGBO(255, 255, 255, 1),
+            CarouselSlider.builder(
+              itemCount: discographyImage.length,
+              itemBuilder: (context, index, realIndex) {
+                final imageUrl = discographyImage[index];
+
+                return Stack(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.only(left: 22, bottom: 64),
+                      alignment: Alignment.bottomLeft,
+                      width: 459,
+                      height: 360,
+                      decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage("assets/gal1.png"),
+                            fit: BoxFit.fill,
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                                offset: Offset(20, 20),
+                                blurRadius: 20,
+                                spreadRadius: 19,
+                                blurStyle: BlurStyle.inner,
+                                color: Color.fromRGBO(24, 24, 24, 1))
+                          ]),
                     ),
-                  ),
-                  ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          fixedSize: const Size(132, 37),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(19)),
-                          backgroundColor: const Color.fromRGBO(255, 46, 0, 1)),
-                      onPressed: () {},
+                    Positioned(
+                      bottom: 120,
+                      left: 20,
                       child: Text(
-                        "Subscribe",
+                        "A.L.O.N.E",
                         style: GoogleFonts.inter(
                           fontWeight: FontWeight.w600,
-                          fontSize: 16,
-                          color: const Color.fromRGBO(0, 0, 0, 1),
+                          fontSize: 36,
+                          color: const Color.fromRGBO(255, 255, 255, 1),
                         ),
-                      ))
-                ],
+                      ),
+                    ),
+                    Positioned(
+                      bottom: 65,
+                      left: 20,
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              fixedSize: const Size(132, 37),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(19)),
+                              backgroundColor:
+                                  const Color.fromRGBO(255, 46, 0, 1)),
+                          onPressed: () {},
+                          child: Text(
+                            "Subscribe",
+                            style: GoogleFonts.inter(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 16,
+                              color: const Color.fromRGBO(0, 0, 0, 1),
+                            ),
+                          )),
+                    ),
+                  ],
+                );
+              },
+              options: CarouselOptions(
+                viewportFraction: 1,
+                autoPlay: true,
+                autoPlayInterval: const Duration(seconds: 5),
+                height: MediaQuery.of(context).size.height * 0.415,
+                onPageChanged: (index, reason) {
+                  setState(() {
+                    currentIndex = index;
+                  });
+                },
               ),
             ),
             const SizedBox(
               height: 10,
             ),
-            Container(
-              decoration: const BoxDecoration(
-                color: Color.fromRGBO(24, 24, 24, 1),
-                boxShadow: [
-                  BoxShadow(
-                    blurRadius: 70,
-                    spreadRadius: 80,
-                    blurStyle: BlurStyle.solid,
-                    // offset: Offset(50, 100),
-                    color: Color.fromRGBO(24, 24, 24, 0.5),
-                  )
-                ],
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    height: 7,
-                    width: 21,
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(22)),
-                      color: Color.fromRGBO(255, 61, 0, 1),
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 3,
-                  ),
-                  Container(
-                    height: 7,
-                    width: 7,
-                    decoration: const BoxDecoration(
-                      color: Color.fromRGBO(255, 255, 255, 1),
-                      shape: BoxShape.circle,
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 3,
-                  ),
-                  Container(
-                    height: 7,
-                    width: 7,
-                    decoration: const BoxDecoration(
-                      color: Color.fromRGBO(255, 255, 255, 1),
-                      shape: BoxShape.circle,
-                    ),
-                  ),
-                ],
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                for (int i = 0; i < discographyImage.length; i++)
+                  currentIndex == i
+                      ? Container(
+                          margin: const EdgeInsets.all(2),
+                          height: 7,
+                          width: 21,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(22),
+                            color: const Color.fromRGBO(255, 61, 0, 1),
+                          ),
+                        )
+                      : Container(
+                          margin: const EdgeInsets.all(2),
+                          height: 7,
+                          width: 7,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: const Color.fromRGBO(255, 255, 255, 1),
+                          ),
+                        )
+              ],
             ),
             const SizedBox(
               height: 17,
@@ -241,7 +246,6 @@ class _GalleryScreenState extends State<GalleryScreen> {
                 ],
               ),
             ),
-            const SizedBox(height: 8),
             SizedBox(
               height: 200,
               child: ListView.builder(
