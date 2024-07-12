@@ -12,6 +12,9 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    final double screenHeight = MediaQuery.of(context).size.height;
+    // final double screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: const Color.fromRGBO(24, 24, 24, 0.6),
       body: Column(
@@ -20,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Container(
             alignment: Alignment.bottomLeft,
             padding: const EdgeInsets.only(left: 44, right: 44, bottom: 30),
-            height: 648,
+            height: screenHeight * 3 / 4,
             width: 497,
             decoration: const BoxDecoration(
                 image: DecorationImage(
@@ -29,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     fit: BoxFit.fill)),
             child: Text(
-              "Dancing between The shadows        Of rhythm ",
+              "Dancing between The shadows Of rhythm ",
               style: GoogleFonts.inter(
                   fontSize: 35,
                   fontWeight: FontWeight.w600,
@@ -89,9 +92,10 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Container(
             alignment: Alignment.center,
-            margin: const EdgeInsets.only(left: 88, right: 88),
+            margin: const EdgeInsets.only(left: 40, right: 40),
             child: Text(
               "by continuing you agree to terms of services and Privacy policy",
+              textAlign: TextAlign.center,
               style: GoogleFonts.inter(
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
