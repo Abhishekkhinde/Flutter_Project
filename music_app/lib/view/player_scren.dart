@@ -20,14 +20,14 @@ class _PlayerScreenState extends State<PlayerScreen> {
     // Create the audio player.
     player = AudioPlayer();
 
-    // //set release mode to keep the source after playback has completed
-    // player.setReleaseMode(ReleaseMode.stop);
+    //set release mode to keep the source after playback has completed
+    player.setReleaseMode(ReleaseMode.stop);
 
-    // // start the player as soon as the app is displayed
-    // WidgetsBinding.instance.addPostFrameCallback((_) async {
-    //   await player.setSource(AssetSource('ma.mp3'));
-    //   await player.resume();
-    // });
+    // start the player as soon as the app is displayed
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      // await player.setSource(AssetSource('ma.mp3'));
+      await player.resume();
+    });
   }
 
   @override
