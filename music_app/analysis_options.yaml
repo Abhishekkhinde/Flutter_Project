@@ -1,4 +1,5 @@
 analyzer:
   errors:
     unnecessary_this: ignore
+    unrelated_type_equality_checks: ignore
 include: package:flutter_lints/flutter.yaml

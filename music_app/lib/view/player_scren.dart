@@ -1,9 +1,8 @@
-// ignore: file_names
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:music_app/view/boiller_plate.dart';
-import 'audio_file.dart';
+import 'package:music_app/view/player_widget.dart';
 
 class PlayerScreen extends StatefulWidget {
   const PlayerScreen({super.key});
@@ -13,13 +12,29 @@ class PlayerScreen extends StatefulWidget {
 }
 
 class _PlayerScreenState extends State<PlayerScreen> {
-  late AudioPlayer advancedplayer;
-
+  AudioPlayer player = AudioPlayer();
   @override
   void initState() {
     super.initState();
 
-    advancedplayer = AudioPlayer();
+    // Create the audio player.
+    player = AudioPlayer();
+
+    // //set release mode to keep the source after playback has completed
+    // player.setReleaseMode(ReleaseMode.stop);
+
+    // // start the player as soon as the app is displayed
+    // WidgetsBinding.instance.addPostFrameCallback((_) async {
+    //   await player.setSource(AssetSource('ma.mp3'));
+    //   await player.resume();
+    // });
+  }
+
+  @override
+  void dispose() {
+    // Release all sources and dispose the player.
+    player.dispose();
+    super.dispose();
   }
 
   @override
@@ -66,17 +81,18 @@ class _PlayerScreenState extends State<PlayerScreen> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.download,
-                          size: 25,
-                        )),
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.download,
+                        size: 25,
+                      ),
+                    ),
                   ],
                 ),
               ],
             ),
           ),
-          AudioFile(advancedplayer: advancedplayer),
+          PlayerWidget(player: player),
         ],
       ),
     );
