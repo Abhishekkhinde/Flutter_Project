@@ -76,12 +76,12 @@ class _PlayerWidgetState extends State<PlayerWidget> {
     return ProgressBar(
       progress: position,
       total: duration,
-      timeLabelTextStyle: const TextStyle(color: Colors.white),
-      timeLabelLocation: TimeLabelLocation.below,
-      bufferedBarColor: Colors.white,
+      // timeLabelTextStyle: const TextStyle(color: Colors.white),
+      timeLabelLocation: TimeLabelLocation.none,
+      bufferedBarColor: null,
       progressBarColor: const Color.fromRGBO(230, 154, 21, 1),
       baseBarColor: const Color.fromRGBO(217, 217, 217, 0.19),
-      thumbRadius: 7,
+      thumbRadius: 0,
       thumbColor: Colors.amber,
       buffered: const Duration(milliseconds: 10000),
       onDragUpdate: (duration) {},
@@ -120,7 +120,8 @@ class _PlayerWidgetState extends State<PlayerWidget> {
           ),
         ),
         Container(
-          padding: const EdgeInsets.only(left: 20, right: 20),
+          padding:
+              const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
           child: progresBar(),
         ),
         Container(

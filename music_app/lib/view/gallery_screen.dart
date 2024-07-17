@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:music_app/model/cursor_model.dart';
+import 'package:music_app/model/discography_model.dart';
 import 'package:music_app/view/boiller_plate.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:music_app/view/player_scren.dart';
@@ -12,8 +14,6 @@ class GalleryScreen extends StatefulWidget {
 }
 
 class _GalleryScreenState extends State<GalleryScreen> {
-
-  
   List discographyImage = [
     "assets/32.png",
     "assets/38.png",
@@ -36,9 +36,9 @@ class _GalleryScreenState extends State<GalleryScreen> {
         child: Column(
           children: [
             CarouselSlider.builder(
-              itemCount: discographyImage.length,
+              itemCount: cursorList.length,
               itemBuilder: (context, index, realIndex) {
-                final imageUrl = discographyImage[index];
+                final curseData = cursorList[index];
 
                 return Stack(
                   children: [
@@ -47,12 +47,12 @@ class _GalleryScreenState extends State<GalleryScreen> {
                       alignment: Alignment.bottomLeft,
                       width: 459,
                       height: screenHeight * 3 / 4,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: AssetImage("assets/gal1.png"),
+                            image: AssetImage("${curseData.curseImage}"),
                             fit: BoxFit.fill,
                           ),
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(
                                 offset: Offset(20, 20),
                                 blurRadius: 20,
@@ -65,7 +65,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
                       bottom: 120,
                       left: 20,
                       child: Text(
-                        "A.L.O.N.E",
+                        "${curseData.curseName}",
                         style: GoogleFonts.inter(
                           fontWeight: FontWeight.w600,
                           fontSize: 36,
@@ -174,7 +174,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
               height: screenHeight * 0.21,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: discographyImage.length,
+                itemCount: dicographySong.length,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.only(left: 15, right: 15),
@@ -198,7 +198,8 @@ class _GalleryScreenState extends State<GalleryScreen> {
                                   Radius.circular(10),
                                 ),
                                 image: DecorationImage(
-                                  image: AssetImage(discographyImage[index]),
+                                  image: AssetImage(
+                                      "${dicographySong[index].songImg}"),
                                   fit: BoxFit.fill,
                                 ),
                               ),
@@ -207,7 +208,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
                               height: 6,
                             ),
                             Text(
-                              "Dead inside",
+                              "${dicographySong[index].songName}",
                               style: GoogleFonts.inter(
                                 fontWeight: FontWeight.w600,
                                 fontSize: 12,
@@ -215,7 +216,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
                               ),
                             ),
                             Text(
-                              "2020",
+                              "${dicographySong[index].year}",
                               style: GoogleFonts.inter(
                                 fontWeight: FontWeight.w400,
                                 fontSize: 10,
@@ -260,7 +261,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
               ),
             ),
             SizedBox(
-              height: screenHeight * 1.5,
+              height: screenHeight * 0.7,
               child: ListView.builder(
                 itemCount: popularImage.length,
                 itemBuilder: (context, index) {
