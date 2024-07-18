@@ -41,5 +41,29 @@ List<DiscographyModel> dicographySong = [
       year: "2024",
       description: "Jaanam",
       isFavorite: false,
-      singer: "vishal mishara")
+      singer: "vishal mishara"),
+  DiscographyModel(
+      songName: "Ram Siya Ram",
+      songUrl: "assets/discography_song/music/Ram_siya_Ram_song.mp3",
+      songImg: "assets/discography_song/image/Ram_siya_ram_im.jpg",
+      year: "2023",
+      description: "Ram Siya Ram",
+      isFavorite: false,
+      singer: "Sachet Tandon"),
+  DiscographyModel(
+      songName: "Heeriye",
+      songUrl: "assets/discography_song/music/Heeriye_song.mp3",
+      songImg: "assets/discography_song/image/heeriye_image.jpg",
+      year: "2023",
+      description: "Heeriye Heeriye Mp3",
+      isFavorite: false,
+      singer: "Arijit Singh"),
+  DiscographyModel(
+      songName: "Maan Meri Jaan",
+      songUrl: "assets/discography_song/music/Maan_meri_jaan.mp3",
+      songImg: "assets/discography_song/image/maan_meri_jaanimage.jpg",
+      year: "2020",
+      description: "Maan meri jaan hindi song",
+      isFavorite: false,
+      singer: "King")
 ];
