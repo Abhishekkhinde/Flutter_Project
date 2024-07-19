@@ -4,6 +4,7 @@ import 'package:music_app/model/cursor_model.dart';
 import 'package:music_app/model/discography_model.dart';
 import 'package:music_app/view/boiller_plate.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:music_app/view/discography_screen.dart';
 import 'package:music_app/view/player_scren.dart';
 
 class GalleryScreen extends StatefulWidget {
@@ -14,16 +15,6 @@ class GalleryScreen extends StatefulWidget {
 }
 
 class _GalleryScreenState extends State<GalleryScreen> {
-  List discographyImage = [
-    "assets/32.png",
-    "assets/38.png",
-    "assets/39.png",
-  ];
-  List popularImage = [
-    "assets/34.png",
-    "assets/40.png",
-  ];
-
   int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -114,7 +105,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                for (int i = 0; i < discographyImage.length; i++)
+                for (int i = 0; i < cursorList.length; i++)
                   currentIndex == i
                       ? Container(
                           margin: const EdgeInsets.all(2),
@@ -162,7 +153,16 @@ class _GalleryScreenState extends State<GalleryScreen> {
                         color: const Color.fromRGBO(248, 162, 69, 1),
                       ),
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const DiscographyScreen();
+                          },
+                        ),
+                      );
+                    },
                   )
                 ],
               ),
@@ -174,7 +174,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
               height: screenHeight * 0.21,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: dicographySong.length,
+                itemCount: 4,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.only(left: 15, right: 15),
@@ -182,7 +182,8 @@ class _GalleryScreenState extends State<GalleryScreen> {
                       onTap: () {
                         Navigator.push(context, MaterialPageRoute(
                           builder: (context) {
-                            return const PlayerScreen();
+                            return PlayerScreen(
+                                musiclist: dicographySong, index: index);
                           },
                         ));
                       },
@@ -263,18 +264,18 @@ class _GalleryScreenState extends State<GalleryScreen> {
             SizedBox(
               height: screenHeight * 0.7,
               child: ListView.builder(
-                itemCount: popularImage.length,
+                itemCount: 0,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.only(
                         left: 17, right: 25, top: 7, bottom: 7),
                     child: GestureDetector(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(
-                          builder: (context) {
-                            return const PlayerScreen();
-                          },
-                        ));
+                        // Navigator.push(context, MaterialPageRoute(
+                        //   builder: (context) {
+                        //     return const PlayerScreen();
+                        //   },
+                        // ));
                       },
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -284,9 +285,9 @@ class _GalleryScreenState extends State<GalleryScreen> {
                             width: 67,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
-                              image: DecorationImage(
-                                  image: AssetImage(popularImage[index]),
-                                  fit: BoxFit.fill),
+                              // image: DecorationImage(
+                              //     image: AssetImage(popularImage[index]),
+                              //     fit: BoxFit.fill),
                             ),
                           ),
                           const SizedBox(

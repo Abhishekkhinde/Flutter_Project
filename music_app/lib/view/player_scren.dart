@@ -5,7 +5,9 @@ import 'package:music_app/view/boiller_plate.dart';
 import 'package:music_app/view/player_widget.dart';
 
 class PlayerScreen extends StatefulWidget {
-  const PlayerScreen({super.key});
+  final List musiclist;
+  final int index;
+  const PlayerScreen({super.key, required this.musiclist, required this.index});
 
   @override
   State<PlayerScreen> createState() => _PlayerScreenState();
@@ -40,7 +42,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
   @override
   Widget build(BuildContext context) {
     final double screenHeight = MediaQuery.of(context).size.height;
-
+    final song = widget.musiclist[widget.index];
     return Scaffold(
       bottomNavigationBar: const BottomNavi(),
       backgroundColor: const Color.fromRGBO(24, 24, 24, 0.6),

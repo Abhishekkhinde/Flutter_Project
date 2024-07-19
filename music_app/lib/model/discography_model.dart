@@ -53,7 +53,7 @@ List<DiscographyModel> dicographySong = [
   DiscographyModel(
       songName: "Heeriye",
       songUrl: "assets/discography_song/music/Heeriye_song.mp3",
-      songImg: "assets/discography_song/image/heeriye_image.jpg",
+      songImg: "assets/discography_song/image/heeriye.jpeg",
       year: "2023",
       description: "Heeriye Heeriye Mp3",
       isFavorite: false,

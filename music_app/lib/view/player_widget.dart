@@ -5,6 +5,7 @@ import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 
 class PlayerWidget extends StatefulWidget {
   final AudioPlayer player;
+  
 
   const PlayerWidget({required this.player, super.key});
 
