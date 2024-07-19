@@ -54,17 +54,14 @@ class _PlayerScreenState extends State<PlayerScreen> {
             // height: 551,
             height: screenHeight * 0.65,
             width: 390,
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage(
-                      "assets/11.png",
-                    ),
-                    fit: BoxFit.fill)),
+                    image: AssetImage(song.songImg), fit: BoxFit.fill)),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text(
-                  "Alone in the Abyss",
+                  song.description,
                   style: GoogleFonts.inter(
                     fontWeight: FontWeight.w400,
                     fontSize: 24,
@@ -72,7 +69,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
                   ),
                 ),
                 Text(
-                  "Youlakou",
+                  song.singer,
                   style: GoogleFonts.inter(
                     fontWeight: FontWeight.w600,
                     fontSize: 13,
@@ -95,7 +92,8 @@ class _PlayerScreenState extends State<PlayerScreen> {
               ],
             ),
           ),
-          PlayerWidget(player: player),
+          PlayerWidget(
+              player: player, musclist: widget.musiclist, index: widget.index)
         ],
       ),
     );

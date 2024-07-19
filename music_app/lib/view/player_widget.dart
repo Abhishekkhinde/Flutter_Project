@@ -5,9 +5,14 @@ import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 
 class PlayerWidget extends StatefulWidget {
   final AudioPlayer player;
-  
+  final List musclist;
+  final int index;
 
-  const PlayerWidget({required this.player, super.key});
+  const PlayerWidget(
+      {required this.player,
+      super.key,
+      required this.musclist,
+      required this.index});
 
   @override
   State<StatefulWidget> createState() => _PlayerWidgetState();
@@ -19,17 +24,19 @@ class _PlayerWidgetState extends State<PlayerWidget> {
   late AssetSource path;
   Duration duration = const Duration();
   Duration position = const Duration();
+  int curentindex = 0;
 
   @override
   void initState() {
     super.initState();
+    curentindex = widget.index;
 
     initplayer();
   }
 
   Future initplayer() async {
-    const currentsong = 'ma.mp3';
-    path = AssetSource(currentsong);
+    final currentsong = widget.musclist[curentindex];
+    path = AssetSource(currentsong.songUrl);
     // listen to audio duration
     player.onDurationChanged.listen((Duration d) {
       setState(() {
@@ -49,6 +56,8 @@ class _PlayerWidgetState extends State<PlayerWidget> {
         duration = position;
       });
     });
+    await player.setSource(path);
+    playPause();
   }
 
   @override

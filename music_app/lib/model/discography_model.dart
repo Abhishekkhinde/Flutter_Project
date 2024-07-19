@@ -20,7 +20,7 @@ class DiscographyModel {
 List<DiscographyModel> dicographySong = [
   DiscographyModel(
       songName: "Mere meheboob",
-      songUrl: "assets/discography_song/music/1.mp3",
+      songUrl: "audio/1.mp3",
       songImg: "assets/discography_song/image/1.jpg",
       year: "2024",
       singer: "Udit Narayan",
@@ -28,7 +28,7 @@ List<DiscographyModel> dicographySong = [
       isFavorite: false),
   DiscographyModel(
       songName: "Husn Tera",
-      songUrl: "assets/discography_song/music/2.mp3",
+      songUrl: "audio/2.mp3",
       songImg: "assets/discography_song/image/21.jpg",
       year: "2024",
       singer: "Karan Aujla",
@@ -36,7 +36,7 @@ List<DiscographyModel> dicographySong = [
       isFavorite: false),
   DiscographyModel(
       songName: "Jaanam",
-      songUrl: "assets/discography_song/music/3.mp3",
+      songUrl: "audio/3.mp3",
       songImg: "assets/discography_song/image/3.jpg",
       year: "2024",
       description: "Jaanam",
@@ -44,7 +44,7 @@ List<DiscographyModel> dicographySong = [
       singer: "vishal mishara"),
   DiscographyModel(
       songName: "Ram Siya Ram",
-      songUrl: "assets/discography_song/music/Ram_siya_Ram_song.mp3",
+      songUrl: "audio/Ram_siya_Ram_song.mp3",
       songImg: "assets/discography_song/image/Ram_siya_ram_im.jpg",
       year: "2023",
       description: "Ram Siya Ram",
@@ -52,7 +52,7 @@ List<DiscographyModel> dicographySong = [
       singer: "Sachet Tandon"),
   DiscographyModel(
       songName: "Heeriye",
-      songUrl: "assets/discography_song/music/Heeriye_song.mp3",
+      songUrl: "audio/Heeriye_song.mp3",
       songImg: "assets/discography_song/image/heeriye.jpeg",
       year: "2023",
       description: "Heeriye Heeriye Mp3",
@@ -60,7 +60,7 @@ List<DiscographyModel> dicographySong = [
       singer: "Arijit Singh"),
   DiscographyModel(
       songName: "Maan Meri Jaan",
-      songUrl: "assets/discography_song/music/Maan_meri_jaan.mp3",
+      songUrl: "audio/Maan_meri_jaan.mp3",
       songImg: "assets/discography_song/image/maan_meri_jaanimage.jpg",
       year: "2020",
       description: "Maan meri jaan hindi song",
