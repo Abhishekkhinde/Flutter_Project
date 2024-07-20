@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:music_app/model/discography_model.dart';
-import 'package:music_app/view/boiller_plate.dart';
+import 'package:music_app/view/landing_page.dart';
 import 'package:music_app/view/player_scren.dart';
 
 class DiscographyScreen extends StatefulWidget {
@@ -18,7 +18,7 @@ class _DiscographyScreenState extends State<DiscographyScreen> {
 
     return Scaffold(
       backgroundColor: const Color.fromRGBO(24, 24, 24, 1),
-      bottomNavigationBar: const BottomNavi(),
+      // bottomNavigationBar: const BottomNavi(),
       body: Padding(
         padding: const EdgeInsets.only(top: 30, left: 10, right: 10),
         child: Column(

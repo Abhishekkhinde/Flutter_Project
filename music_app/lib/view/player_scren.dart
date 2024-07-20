@@ -1,7 +1,7 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:music_app/view/boiller_plate.dart';
+import 'package:music_app/view/landing_page.dart';
 import 'package:music_app/view/player_widget.dart';
 
 class PlayerScreen extends StatefulWidget {
@@ -15,6 +15,8 @@ class PlayerScreen extends StatefulWidget {
 
 class _PlayerScreenState extends State<PlayerScreen> {
   AudioPlayer player = AudioPlayer();
+  bool isFavourite = false;
+
   @override
   void initState() {
     super.initState();
@@ -77,8 +79,29 @@ class _PlayerScreenState extends State<PlayerScreen> {
                   ),
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    IconButton(
+                      icon: isFavourite
+                          ? const Icon(
+                              Icons.favorite,
+                              color: Colors.red,
+                              size: 30,
+                            )
+                          : const Icon(
+                              Icons.favorite_border_outlined,
+                              color: Colors.red,
+                              size: 30,
+                            ),
+                      onPressed: () {
+                        if (isFavourite == false) {
+                          isFavourite = true;
+                        } else {
+                          isFavourite = false;
+                        }
+                        setState(() {});
+                      },
+                    ),
                     IconButton(
                       onPressed: () {},
                       icon: const Icon(
