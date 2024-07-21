@@ -33,9 +33,6 @@ class _DiscographyScreenState extends State<DiscographyScreen> {
                 color: const Color.fromRGBO(255, 46, 0, 1),
               ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
             Expanded(
               child: GridView.builder(
                 itemCount: musiclist.length,

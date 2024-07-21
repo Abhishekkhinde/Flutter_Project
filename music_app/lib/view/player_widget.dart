@@ -142,24 +142,24 @@ class _PlayerWidgetState extends State<PlayerWidget> {
               const Icon(
                 Icons.repeat_one_rounded,
                 color: Color.fromRGBO(255, 255, 255, 1),
-                size: 20,
+                size: 30,
               ),
               const Icon(
                 Icons.skip_previous_rounded,
                 color: Color.fromRGBO(255, 255, 255, 1),
-                size: 25,
+                size: 30,
               ),
               IconButton(
                   icon: isPlaying
                       ? const Icon(
                           Icons.play_circle_fill,
                           color: Color.fromRGBO(255, 255, 255, 1),
-                          size: 50,
+                          size: 60,
                         )
                       : const Icon(
                           Icons.pause_circle_filled,
                           color: Color.fromRGBO(255, 255, 255, 1),
-                          size: 50,
+                          size: 60,
                         ),
                   onPressed: () {
                     playPause();
@@ -167,12 +167,12 @@ class _PlayerWidgetState extends State<PlayerWidget> {
               const Icon(
                 Icons.skip_next_rounded,
                 color: Color.fromRGBO(255, 255, 255, 1),
-                size: 25,
+                size: 30,
               ),
               const Icon(
                 Icons.volume_up_rounded,
                 color: Color.fromRGBO(255, 255, 255, 1),
-                size: 20,
+                size: 30,
               ),
             ],
           ),
