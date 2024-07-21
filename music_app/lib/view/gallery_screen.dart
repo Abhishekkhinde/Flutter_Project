@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:music_app/model/cursor_model.dart';
 import 'package:music_app/model/discography_model.dart';
-import 'package:music_app/view/landing_page.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:music_app/view/discography_screen.dart';
 import 'package:music_app/view/player_scren.dart';
@@ -158,7 +157,8 @@ class _GalleryScreenState extends State<GalleryScreen> {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return const DiscographyScreen();
+                            return DiscographyScreen(
+                                name: "Discography", songs: dicographySong);
                           },
                         ),
                       );
@@ -256,26 +256,34 @@ class _GalleryScreenState extends State<GalleryScreen> {
                         color: const Color.fromRGBO(248, 162, 69, 1),
                       ),
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return DiscographyScreen(
+                              name: "Popular Song", songs: popularSong);
+                        },
+                      ));
+                    },
                   )
                 ],
               ),
             ),
             SizedBox(
-              height: screenHeight * 0.7,
+              height: screenHeight * 0.3,
               child: ListView.builder(
-                itemCount: 0,
+                itemCount: 4,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.only(
                         left: 17, right: 25, top: 7, bottom: 7),
                     child: GestureDetector(
                       onTap: () {
-                        // Navigator.push(context, MaterialPageRoute(
-                        //   builder: (context) {
-                        //     return const PlayerScreen();
-                        //   },
-                        // ));
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) {
+                            return PlayerScreen(
+                                musiclist: popularSong, index: index);
+                          },
+                        ));
                       },
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -285,9 +293,10 @@ class _GalleryScreenState extends State<GalleryScreen> {
                             width: 67,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
-                              // image: DecorationImage(
-                              //     image: AssetImage(popularImage[index]),
-                              //     fit: BoxFit.fill),
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                      "${popularSong[index].songImg}"),
+                                  fit: BoxFit.fill),
                             ),
                           ),
                           const SizedBox(

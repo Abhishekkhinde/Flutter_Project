@@ -110,7 +110,7 @@ class _PlayerWidgetState extends State<PlayerWidget> {
           child: Row(
             children: [
               Text(
-                "Dynamic Warmup | ",
+                "${position.inMinutes}:${(position.inSeconds % 60).toString().padLeft(2, '0')}",
                 style: GoogleFonts.inter(
                   fontWeight: FontWeight.w400,
                   fontSize: 15,

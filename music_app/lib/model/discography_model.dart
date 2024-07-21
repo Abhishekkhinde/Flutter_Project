@@ -1,4 +1,4 @@
-class DiscographyModel {
+class SongModel {
   final String? songName;
   final String? songUrl;
   final String? songImg;
@@ -7,7 +7,7 @@ class DiscographyModel {
   String? description;
   bool isFavorite = false;
 
-  DiscographyModel(
+  SongModel(
       {required this.songName,
       required this.songUrl,
       required this.songImg,
@@ -17,8 +17,74 @@ class DiscographyModel {
       required this.singer});
 }
 
-List<DiscographyModel> dicographySong = [
-  DiscographyModel(
+List<SongModel> dicographySong = [
+  SongModel(
+    songName: "Avengers",
+    songUrl: "audio/avengers.mp3",
+    songImg: "assets/curseimage/avenger.jpg",
+    year: "2022",
+    singer: "Avenger",
+    description: "Avengers BGM",
+    isFavorite: false,
+  ),
+  SongModel(
+    songName: "Thor",
+    songUrl: "audio/thor.mp3",
+    songImg: "assets/curseimage/ragnarok.jpg",
+    year: "2021",
+    singer: "Thorrr",
+    description: "Thor Ragnarok",
+    isFavorite: false,
+  ),
+  SongModel(
+    songName: "Bad Bone",
+    songUrl: "audio/bad-to-the-bone-21498.mp3",
+    songImg: "assets/curseimage/s5.jpg",
+    year: "2020",
+    singer: "Bad",
+    description: "Bad to the bone",
+    isFavorite: false,
+  ),
+  SongModel(
+    songName: "Guitar Audio",
+    songUrl: "audio/guitar.mp3",
+    songImg: "assets/curseimage/guitar.jpg",
+    year: "2019",
+    singer: "Guitar",
+    description: "Guitar Song",
+    isFavorite: false,
+  ),
+  SongModel(
+    songName: "Instrumental",
+    songUrl: "audio/instrument.mp3",
+    songImg: "assets/curseimage/gal1.png",
+    year: "2018",
+    singer: "Instrument",
+    description: "Instrumental Song",
+    isFavorite: false,
+  ),
+  SongModel(
+    songName: "Instrumental 2",
+    songUrl: "audio/mu.mp3",
+    songImg: "assets/curseimage/123.jpg",
+    year: "2017",
+    singer: "Instrument",
+    description: "Instrumental 2 Song",
+    isFavorite: false,
+  ),
+  SongModel(
+    songName: "Hollywood bgm",
+    songUrl: "audio/bgm.mp3",
+    songImg: "assets/curseimage/s3.jpg",
+    year: "2020",
+    singer: "Tyler Swift",
+    description: "Hollywwod BGM",
+    isFavorite: false,
+  ),
+];
+
+List<SongModel> popularSong = [
+  SongModel(
       songName: "Mere meheboob",
       songUrl: "audio/1.mp3",
       songImg: "assets/discography_song/image/1.jpg",
@@ -26,7 +92,7 @@ List<DiscographyModel> dicographySong = [
       singer: "Udit Narayan",
       description: "Mere Mehboob Mere Sanam",
       isFavorite: false),
-  DiscographyModel(
+  SongModel(
       songName: "Husn Tera",
       songUrl: "audio/2.mp3",
       songImg: "assets/discography_song/image/21.jpg",
@@ -34,7 +100,7 @@ List<DiscographyModel> dicographySong = [
       singer: "Karan Aujla",
       description: "Husn Tera Tauba Tauba",
       isFavorite: false),
-  DiscographyModel(
+  SongModel(
       songName: "Jaanam",
       songUrl: "audio/3.mp3",
       songImg: "assets/discography_song/image/3.jpg",
@@ -42,7 +108,7 @@ List<DiscographyModel> dicographySong = [
       description: "Jaanam",
       isFavorite: false,
       singer: "vishal mishara"),
-  DiscographyModel(
+  SongModel(
       songName: "Ram Siya Ram",
       songUrl: "audio/Ram_siya_Ram_song.mp3",
       songImg: "assets/discography_song/image/Ram_siya_ram_im.jpg",
@@ -50,7 +116,7 @@ List<DiscographyModel> dicographySong = [
       description: "Ram Siya Ram",
       isFavorite: false,
       singer: "Sachet Tandon"),
-  DiscographyModel(
+  SongModel(
       songName: "Heeriye",
       songUrl: "audio/Heeriye_song.mp3",
       songImg: "assets/discography_song/image/heeriye.jpeg",
@@ -58,7 +124,7 @@ List<DiscographyModel> dicographySong = [
       description: "Heeriye Heeriye Mp3",
       isFavorite: false,
       singer: "Arijit Singh"),
-  DiscographyModel(
+  SongModel(
       songName: "Maan Meri Jaan",
       songUrl: "audio/Maan_meri_jaan.mp3",
       songImg: "assets/discography_song/image/maan_meri_jaanimage.jpg",

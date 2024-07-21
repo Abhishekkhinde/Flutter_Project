@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:music_app/model/discography_model.dart';
-import 'package:music_app/view/landing_page.dart';
 import 'package:music_app/view/player_scren.dart';
 
 class DiscographyScreen extends StatefulWidget {
-  const DiscographyScreen({super.key});
+  final String name;
+  final List songs;
+  const DiscographyScreen({super.key, required this.name, required this.songs});
 
   @override
   State<DiscographyScreen> createState() => _DiscographyScreenState();
@@ -15,7 +15,7 @@ class _DiscographyScreenState extends State<DiscographyScreen> {
   @override
   Widget build(BuildContext context) {
     final double screenHeight = MediaQuery.of(context).size.height;
-
+    final musiclist = widget.songs;
     return Scaffold(
       backgroundColor: const Color.fromRGBO(24, 24, 24, 1),
       // bottomNavigationBar: const BottomNavi(),
@@ -25,7 +25,7 @@ class _DiscographyScreenState extends State<DiscographyScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              "Discography",
+              widget.name,
               textAlign: TextAlign.center,
               style: GoogleFonts.inter(
                 fontWeight: FontWeight.w600,
@@ -38,21 +38,21 @@ class _DiscographyScreenState extends State<DiscographyScreen> {
             ),
             Expanded(
               child: GridView.builder(
-                itemCount: dicographySong.length,
+                itemCount: musiclist.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    childAspectRatio: 8 / 9,
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 15),
+                    childAspectRatio: 3 / 4,
+                    crossAxisSpacing: 5,
+                    mainAxisSpacing: 10),
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: const EdgeInsets.only(left: 15, right: 15),
+                    padding: const EdgeInsets.only(left: 5, right: 5),
                     child: GestureDetector(
                       onTap: () {
                         Navigator.push(context, MaterialPageRoute(
                           builder: (context) {
                             return PlayerScreen(
-                                musiclist: dicographySong, index: index);
+                                musiclist: musiclist, index: index);
                           },
                         ));
                       },
@@ -61,15 +61,15 @@ class _DiscographyScreenState extends State<DiscographyScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                              height: screenHeight * 0.20,
+                              height: screenHeight * 0.25,
                               // width: 119,
                               decoration: BoxDecoration(
                                 borderRadius: const BorderRadius.all(
                                   Radius.circular(10),
                                 ),
                                 image: DecorationImage(
-                                  image: AssetImage(
-                                      "${dicographySong[index].songImg}"),
+                                  image:
+                                      AssetImage("${musiclist[index].songImg}"),
                                   fit: BoxFit.fill,
                                 ),
                               ),
@@ -78,18 +78,18 @@ class _DiscographyScreenState extends State<DiscographyScreen> {
                               height: 6,
                             ),
                             Text(
-                              "${dicographySong[index].songName}",
+                              "${musiclist[index].songName}",
                               style: GoogleFonts.inter(
                                 fontWeight: FontWeight.w600,
-                                fontSize: 12,
+                                fontSize: 14,
                                 color: const Color.fromRGBO(203, 200, 200, 1),
                               ),
                             ),
                             Text(
-                              "${dicographySong[index].year}",
+                              "${musiclist[index].year}",
                               style: GoogleFonts.inter(
                                 fontWeight: FontWeight.w400,
-                                fontSize: 10,
+                                fontSize: 12,
                                 color: const Color.fromRGBO(203, 200, 200, 1),
                               ),
                             ),
