@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:music_app/view/player_scren.dart';
 
-class DiscographyScreen extends StatefulWidget {
+class SeeAllSongScreen extends StatefulWidget {
   final String name;
   final List songs;
-  const DiscographyScreen({super.key, required this.name, required this.songs});
+  const SeeAllSongScreen({super.key, required this.name, required this.songs});
 
   @override
-  State<DiscographyScreen> createState() => _DiscographyScreenState();
+  State<SeeAllSongScreen> createState() => _DiscographyScreenState();
 }
 
-class _DiscographyScreenState extends State<DiscographyScreen> {
+class _DiscographyScreenState extends State<SeeAllSongScreen> {
   @override
   Widget build(BuildContext context) {
     final double screenHeight = MediaQuery.of(context).size.height;

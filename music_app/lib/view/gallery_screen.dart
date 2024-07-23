@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:music_app/model/cursor_model.dart';
 import 'package:music_app/model/discography_model.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:music_app/view/discography_screen.dart';
+import 'package:music_app/view/allsong_screen.dart';
 import 'package:music_app/view/player_scren.dart';
 
 class GalleryScreen extends StatefulWidget {
@@ -157,7 +157,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return DiscographyScreen(
+                            return SeeAllSongScreen(
                                 name: "Discography", songs: dicographySong);
                           },
                         ),
@@ -259,7 +259,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(
                         builder: (context) {
-                          return DiscographyScreen(
+                          return SeeAllSongScreen(
                               name: "Popular Song", songs: popularSong);
                         },
                       ));
