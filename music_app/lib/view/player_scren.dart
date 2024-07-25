@@ -13,38 +13,42 @@ class PlayerScreen extends StatefulWidget {
 }
 
 class _PlayerScreenState extends State<PlayerScreen> {
-  AudioPlayer player = AudioPlayer();
+  late AudioPlayer player;
   bool isFavourite = false;
+  late int currentIndex;
 
   @override
   void initState() {
     super.initState();
-
-    // Create the audio player.
+    currentIndex = widget.index;
     player = AudioPlayer();
-
-    //set release mode to keep the source after playback has completed
     player.setReleaseMode(ReleaseMode.stop);
-
-    // start the player as soon as the app is displayed
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      // await player.setSource(AssetSource('ma.mp3'));
-      await player.resume();
+      if (currentIndex < widget.musiclist.length) {
+        final songUrl = widget.musiclist[currentIndex].songUrl;
+        await player.setSource(AssetSource(songUrl));
+        await player.resume();
+      }
     });
   }
 
   @override
   void dispose() {
-    // Release all sources and dispose the player.
     player.dispose();
     super.dispose();
+  }
+
+  void updateSong(int index) {
+    setState(() {
+      currentIndex = index;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     final double screenHeight = MediaQuery.of(context).size.height;
     final double screenwidth = MediaQuery.of(context).size.width;
-    final song = widget.musiclist[widget.index];
+    final song = widget.musiclist[currentIndex];
     return Scaffold(
       backgroundColor: const Color.fromRGBO(24, 24, 24, 0.6),
       body: Column(
@@ -52,7 +56,6 @@ class _PlayerScreenState extends State<PlayerScreen> {
         children: [
           Container(
             padding: const EdgeInsets.only(left: 5, right: 7, bottom: 5),
-            // height: 551,
             height: screenHeight * 0.65,
             width: screenwidth * 1,
             decoration: BoxDecoration(
@@ -78,12 +81,9 @@ class _PlayerScreenState extends State<PlayerScreen> {
                               size: 30,
                             ),
                       onPressed: () {
-                        if (isFavourite == false) {
-                          isFavourite = true;
-                        } else {
-                          isFavourite = false;
-                        }
-                        setState(() {});
+                        setState(() {
+                          isFavourite = !isFavourite;
+                        });
                       },
                     ),
                     IconButton(
@@ -116,7 +116,11 @@ class _PlayerScreenState extends State<PlayerScreen> {
             ),
           ),
           PlayerWidget(
-              player: player, musclist: widget.musiclist, index: widget.index)
+            player: player,
+            musclist: widget.musiclist,
+            index: currentIndex,
+            onSongChanged: updateSong,
+          ),
         ],
       ),
     );

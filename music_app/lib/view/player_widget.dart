@@ -7,44 +7,45 @@ class PlayerWidget extends StatefulWidget {
   final AudioPlayer player;
   final List musclist;
   final int index;
+  final ValueChanged<int> onSongChanged;
 
-  const PlayerWidget(
-      {required this.player,
-      super.key,
-      required this.musclist,
-      required this.index});
+  const PlayerWidget({
+    required this.player,
+    super.key,
+    required this.musclist,
+    required this.index,
+    required this.onSongChanged,
+  });
 
   @override
   State<StatefulWidget> createState() => _PlayerWidgetState();
 }
 
 class _PlayerWidgetState extends State<PlayerWidget> {
-  final player = AudioPlayer();
-  bool isPlaying = true;
+  late AudioPlayer player;
+  late int currentIndex;
+  bool isPlaying = false;
   late AssetSource path;
   Duration duration = const Duration();
   Duration position = const Duration();
-  int curentindex = 0;
 
   @override
   void initState() {
     super.initState();
-    curentindex = widget.index;
-
+    player = widget.player;
+    currentIndex = widget.index;
     initplayer();
   }
 
-  Future initplayer() async {
-    final currentsong = widget.musclist[curentindex];
+  Future<void> initplayer() async {
+    final currentsong = widget.musclist[currentIndex];
     path = AssetSource(currentsong.songUrl);
-    // listen to audio duration
     player.onDurationChanged.listen((Duration d) {
       setState(() {
         duration = d;
       });
     });
 
-    // Listen to audiopostion
     player.onPositionChanged.listen((Duration p) {
       setState(() {
         position = p;
@@ -52,10 +53,9 @@ class _PlayerWidgetState extends State<PlayerWidget> {
     });
 
     player.onPlayerComplete.listen((_) {
-      setState(() {
-        duration = position;
-      });
+      playNextSong();
     });
+
     await player.setSource(path);
     playPause();
   }
@@ -67,37 +67,50 @@ class _PlayerWidgetState extends State<PlayerWidget> {
   }
 
   void playPause() async {
-    if (isPlaying == false) {
+    if (isPlaying) {
       await player.pause();
-      isPlaying = true;
-    } else {
-      player.play(path);
       isPlaying = false;
+    } else {
+      await player.play(path);
+      isPlaying = true;
     }
     setState(() {});
   }
 
-  void _seek(Duration value) {
-    final position = value;
-    player.seek(position);
+  void playNextSong() async {
+    currentIndex = (currentIndex + 1) % widget.musclist.length;
+    await player.stop();
+    widget.onSongChanged(currentIndex);
+    await initplayer();
+    await player.play(path);
+    isPlaying = true;
   }
 
-  Widget progresBar() {
+  void playPreviousSong() async {
+    currentIndex =
+        (currentIndex - 1 + widget.musclist.length) % widget.musclist.length;
+    await player.stop();
+    widget.onSongChanged(currentIndex);
+    await initplayer();
+    await player.play(path);
+    isPlaying = true;
+  }
+
+  void _seek(Duration value) {
+    player.seek(value);
+  }
+
+  Widget progressBar() {
     return ProgressBar(
       progress: position,
       total: duration,
-      // timeLabelTextStyle: const TextStyle(color: Colors.white),
       timeLabelLocation: TimeLabelLocation.none,
-      bufferedBarColor: null,
       progressBarColor: const Color.fromRGBO(230, 154, 21, 1),
       baseBarColor: const Color.fromRGBO(217, 217, 217, 0.19),
       thumbRadius: 0,
       thumbColor: Colors.amber,
       buffered: const Duration(milliseconds: 10000),
-      onDragUpdate: (duration) {},
-      onSeek: (duration) {
-        _seek(duration);
-      },
+      onSeek: _seek,
     );
   }
 
@@ -132,7 +145,7 @@ class _PlayerWidgetState extends State<PlayerWidget> {
         Container(
           padding:
               const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
-          child: progresBar(),
+          child: progressBar(),
         ),
         Container(
           padding: const EdgeInsets.only(top: 10),
@@ -144,30 +157,41 @@ class _PlayerWidgetState extends State<PlayerWidget> {
                 color: Color.fromRGBO(255, 255, 255, 1),
                 size: 30,
               ),
-              const Icon(
-                Icons.skip_previous_rounded,
-                color: Color.fromRGBO(255, 255, 255, 1),
-                size: 30,
+              IconButton(
+                icon: const Icon(
+                  Icons.skip_previous_rounded,
+                  color: Color.fromRGBO(255, 255, 255, 1),
+                  size: 30,
+                ),
+                onPressed: () {
+                  playPreviousSong();
+                },
               ),
               IconButton(
-                  icon: isPlaying
-                      ? const Icon(
-                          Icons.play_circle_fill,
-                          color: Color.fromRGBO(255, 255, 255, 1),
-                          size: 60,
-                        )
-                      : const Icon(
-                          Icons.pause_circle_filled,
-                          color: Color.fromRGBO(255, 255, 255, 1),
-                          size: 60,
-                        ),
-                  onPressed: () {
-                    playPause();
-                  }),
-              const Icon(
-                Icons.skip_next_rounded,
-                color: Color.fromRGBO(255, 255, 255, 1),
-                size: 30,
+                icon: isPlaying
+                    ? const Icon(
+                        Icons.pause_circle_filled,
+                        color: Color.fromRGBO(255, 255, 255, 1),
+                        size: 60,
+                      )
+                    : const Icon(
+                        Icons.play_circle_fill,
+                        color: Color.fromRGBO(255, 255, 255, 1),
+                        size: 60,
+                      ),
+                onPressed: () {
+                  playPause();
+                },
+              ),
+              IconButton(
+                icon: const Icon(
+                  Icons.skip_next_rounded,
+                  color: Color.fromRGBO(255, 255, 255, 1),
+                  size: 30,
+                ),
+                onPressed: () {
+                  playNextSong();
+                },
               ),
               const Icon(
                 Icons.volume_up_rounded,
