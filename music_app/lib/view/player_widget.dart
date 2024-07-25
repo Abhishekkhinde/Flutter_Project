@@ -25,6 +25,7 @@ class _PlayerWidgetState extends State<PlayerWidget> {
   late AudioPlayer player;
   late int currentIndex;
   bool isPlaying = false;
+  bool volume = true;
   late AssetSource path;
   Duration duration = const Duration();
   Duration position = const Duration();
@@ -96,6 +97,18 @@ class _PlayerWidgetState extends State<PlayerWidget> {
     isPlaying = true;
   }
 
+  void volum() async {
+    if (volume == true) {
+      await player.setVolume(0);
+      volume = false;
+    } else {
+      await player.setVolume(1);
+      volume = true;
+    }
+    setState(() {});
+  }
+
+  void vol() async {}
   void _seek(Duration value) {
     player.seek(value);
   }
@@ -193,10 +206,21 @@ class _PlayerWidgetState extends State<PlayerWidget> {
                   playNextSong();
                 },
               ),
-              const Icon(
-                Icons.volume_up_rounded,
-                color: Color.fromRGBO(255, 255, 255, 1),
-                size: 30,
+              IconButton(
+                onPressed: () {
+                  volum();
+                },
+                icon: volume == true
+                    ? const Icon(
+                        Icons.volume_up_rounded,
+                        color: Color.fromRGBO(255, 255, 255, 1),
+                        size: 30,
+                      )
+                    : const Icon(
+                        Icons.volume_off,
+                        color: Color.fromRGBO(255, 255, 255, 1),
+                        size: 30,
+                      ),
               ),
             ],
           ),
