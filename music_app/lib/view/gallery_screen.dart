@@ -346,8 +346,8 @@ class _GalleryScreenState extends State<GalleryScreen> {
                               )
                             ],
                           ),
-                          const Spacer(),
-                          const Icon(
+                          Spacer(),
+                          Icon(
                             Icons.more_vert,
                             size: 40,
                             color: Color.fromRGBO(217, 217, 217, 1),

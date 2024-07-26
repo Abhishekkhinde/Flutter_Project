@@ -81,9 +81,9 @@ class _PlayerScreenState extends State<PlayerScreen> {
                               size: 30,
                             ),
                       onPressed: () {
-                        setState(() {
-                          isFavourite = !isFavourite;
-                        });
+                        widget.musiclist[widget.index].isFavourite =
+                            !widget.musiclist[widget.index].isFavourite;
+                        setState(() {});
                       },
                     ),
                     IconButton(
