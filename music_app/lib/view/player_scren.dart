@@ -87,9 +87,11 @@ class _PlayerScreenState extends State<PlayerScreen> {
                       },
                     ),
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
                       icon: const Icon(
-                        Icons.ios_share,
+                        Icons.logout,
                         size: 25,
                         color: Color.fromRGBO(230, 154, 21, 1),
                       ),
