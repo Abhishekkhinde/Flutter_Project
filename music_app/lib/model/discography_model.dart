@@ -1,5 +1,3 @@
-import 'package:music_app/model/discography_model.dart';
-
 class SongModel {
   final String? songName;
   final String? songUrl;
