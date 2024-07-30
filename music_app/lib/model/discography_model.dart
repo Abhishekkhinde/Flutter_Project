@@ -1,3 +1,5 @@
+import 'package:music_app/model/discography_model.dart';
+
 class SongModel {
   final String? songName;
   final String? songUrl;
@@ -34,7 +36,7 @@ List<SongModel> dicographySong = [
     year: "2021",
     singer: "Thorrr",
     description: "Thor Ragnarok",
-    isFavorite: false,
+    isFavorite: true,
   ),
   SongModel(
     songName: "Bad Bone",
@@ -52,7 +54,7 @@ List<SongModel> dicographySong = [
     year: "2019",
     singer: "Guitar",
     description: "Guitar Song",
-    isFavorite: false,
+    isFavorite: true,
   ),
   SongModel(
     songName: "Instrumental",
@@ -106,7 +108,7 @@ List<SongModel> popularSong = [
       songImg: "assets/discography_song/image/3.jpg",
       year: "2024",
       description: "Jaanam",
-      isFavorite: false,
+      isFavorite: true,
       singer: "vishal mishara"),
   SongModel(
       songName: "Ram Siya Ram",
@@ -133,3 +135,8 @@ List<SongModel> popularSong = [
       isFavorite: false,
       singer: "King")
 ];
+
+List<SongModel> getFavoriteSong() {
+  List<SongModel> favSongList = popularSong + dicographySong;
+  return favSongList.where((song) => song.isFavorite == true).toList();
+}

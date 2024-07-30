@@ -69,7 +69,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     IconButton(
-                      icon: isFavourite
+                      icon: song.isFavorite == true
                           ? const Icon(
                               Icons.favorite,
                               color: Colors.red,
@@ -81,9 +81,9 @@ class _PlayerScreenState extends State<PlayerScreen> {
                               size: 30,
                             ),
                       onPressed: () {
-                        widget.musiclist[widget.index].isFavourite =
-                            !widget.musiclist[widget.index].isFavourite;
-                        setState(() {});
+                        setState(() {
+                          song.isFavorite = !song.isFavorite;
+                        });
                       },
                     ),
                     IconButton(

@@ -239,7 +239,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    "Popular singles",
+                    "Popular Song",
                     style: GoogleFonts.inter(
                       fontWeight: FontWeight.w600,
                       fontSize: 16,
@@ -286,7 +286,8 @@ class _GalleryScreenState extends State<GalleryScreen> {
                         ));
                       },
                       child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        // crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
                             height: 72,
@@ -303,10 +304,11 @@ class _GalleryScreenState extends State<GalleryScreen> {
                             width: 12,
                           ),
                           Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "We Are Chaos",
+                                "${popularSong[index].songName}",
                                 style: GoogleFonts.inter(
                                   fontWeight: FontWeight.w600,
                                   fontSize: 12,
@@ -314,9 +316,11 @@ class _GalleryScreenState extends State<GalleryScreen> {
                                 ),
                               ),
                               Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                // crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "2020",
+                                    "${popularSong[index].year}",
                                     style: GoogleFonts.inter(
                                       fontWeight: FontWeight.w400,
                                       fontSize: 10,
@@ -334,7 +338,7 @@ class _GalleryScreenState extends State<GalleryScreen> {
                                     ),
                                   ),
                                   Text(
-                                    "Easy Living",
+                                    "${popularSong[index].singer}",
                                     style: GoogleFonts.inter(
                                       fontWeight: FontWeight.w400,
                                       fontSize: 10,
@@ -346,8 +350,8 @@ class _GalleryScreenState extends State<GalleryScreen> {
                               )
                             ],
                           ),
-                          Spacer(),
-                          Icon(
+                          const Spacer(),
+                          const Icon(
                             Icons.more_vert,
                             size: 40,
                             color: Color.fromRGBO(217, 217, 217, 1),

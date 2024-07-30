@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:music_app/model/discography_model.dart';
 import 'package:music_app/view/cart_page.dart';
 import 'package:music_app/view/favorite_screen.dart';
 import 'package:music_app/view/gallery_screen.dart';
@@ -17,13 +18,15 @@ class BottomNavi extends StatefulWidget {
 
 class _BottomNaviState extends State<BottomNavi> {
   int currentPageIndex = 2;
+  //final List<SongModel> favorite = getFavoriteSong();
 
-  final screen = const [
-    FavoriteScreen(),
-    SearchScreen(),
-    GalleryScreen(),
-    CartScreen(),
-    ProfileScreen(),
+  final screen = [
+    FavoriteScreen(favoriteSong: getFavoriteSong()),
+    // FavoriteScreen(),
+   const SearchScreen(),
+   const GalleryScreen(),
+   const CartScreen(),
+  const  ProfileScreen(),
   ];
   @override
   Widget build(BuildContext context) {
