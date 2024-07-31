@@ -154,25 +154,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                 ),
               );
 
-              //  Padding(
-              //   padding: const EdgeInsets.only(left: 10, right: 10),
-              //   child: GestureDetector(
-              //     onTap: () {},
-              //     child: Row(
-              //       children: [
-              //         Container(
-              //           height: 100,
-              //           width: 100,
-              //           decoration: BoxDecoration(
-              //             image: DecorationImage(
-              //                 image: AssetImage("${song.songImg}"),
-              //                 fit: BoxFit.fill),
-              //           ),
-              //         )
-              //       ],
-              //     ),
-              //   ),
-              // );
+             
             },
           ))
         ]),
