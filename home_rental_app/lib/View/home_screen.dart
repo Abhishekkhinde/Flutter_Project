@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:home_rental_app/View/all_view_screen.dart';
 import 'package:home_rental_app/View/detail_page.dart';
 import 'package:home_rental_app/Model/home_data_model.dart';
 
@@ -13,6 +14,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    final heights = MediaQuery.of(context).size.height;
+    final widths = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: const Color.fromRGBO(244, 243, 243, 1),
       body: ListView(
@@ -26,10 +29,10 @@ class _HomeScreenState extends State<HomeScreen> {
               Container(
                 margin: const EdgeInsets.only(left: 22),
                 child: Text(
-                  "Hey Devid",
+                  "Hey Abhishek",
                   style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w500,
-                      fontSize: 14,
+                      fontSize: 20,
                       color: const Color.fromRGBO(101, 101, 101, 1)),
                 ),
               ),
@@ -41,7 +44,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
-                      image: AssetImage("assets/2.png"), fit: BoxFit.fill),
+                      image: AssetImage("assets/profile.jpg"),
+                      fit: BoxFit.fill),
                 ),
               ),
             ],
@@ -94,7 +98,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   )),
               const Spacer(),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) {
+                      return AllViewScreen(places: "Most popular");
+                    },
+                  ));
+                },
                 child: Text(
                   "See All",
                   style: GoogleFonts.poppins(
@@ -115,6 +125,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 itemCount: popularHome.length,
                 itemBuilder: (context, index) {
                   return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const DetailPage(),
+                        ),
+                      );
+                    },
                     child: Container(
                       margin: const EdgeInsets.only(left: 22, top: 14),
                       height: 306,
@@ -132,9 +150,10 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 196,
                             width: 189,
                             decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
                               image: DecorationImage(
-                                image: AssetImage(popularHome[index].image),
-                              ),
+                                  image: AssetImage(popularHome[index].image),
+                                  fit: BoxFit.fill),
                             ),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.end,
@@ -221,14 +240,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                     ),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const DetailPage(),
-                        ),
-                      );
-                    },
                   );
                 }),
           ),
@@ -250,7 +261,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   )),
               const Spacer(),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) {
+                      return AllViewScreen(places: "Nearby your location");
+                    },
+                  ));
+                },
                 child: Text(
                   "More",
                   style: GoogleFonts.poppins(

@@ -34,7 +34,7 @@ List popularHome = [
           'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet',
       rating: 4.9),
   HomeModelClass(
-      image: 'assets/popvilla5.png',
+      image: 'assets/popvilla5.jpeg',
       villaName: 'Night Villa',
       location: 'London,New Park',
       ammout: 4900,

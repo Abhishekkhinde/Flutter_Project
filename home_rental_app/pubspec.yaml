@@ -20,9 +20,9 @@ flutter:
   uses-material-design: true
   assets:
    - assets/1.png
-   - assets/2.png
    - assets/nighthillvilla.png
    - assets/8.png
    - assets/detail1.png
    - assets/Group 3.png
-   - assets/popvilla5.png
+   - assets/profile.jpg
+   - assets/popvilla5.jpeg

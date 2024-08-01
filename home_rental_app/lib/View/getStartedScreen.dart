@@ -12,12 +12,14 @@ class GetStarted extends StatefulWidget {
 class _GetStatedState extends State<GetStarted> {
   @override
   Widget build(BuildContext context) {
+    final heights = MediaQuery.of(context).size.height;
+    final widths = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
-            height: 650,
+            height: heights * 0.75,
             width: double.infinity,
             decoration: const BoxDecoration(
               image: DecorationImage(
@@ -29,10 +31,10 @@ class _GetStatedState extends State<GetStarted> {
             ),
           ),
           Container(
-            padding:
-                const EdgeInsets.only(left: 68, right: 68, top: 25, bottom: 8),
+            padding: EdgeInsets.only(top: heights * 0.025, bottom: 8),
             child: Text(
               "Lets find your Paradise",
+              textAlign: TextAlign.center,
               style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,
                   fontSize: 22,
@@ -44,16 +46,16 @@ class _GetStatedState extends State<GetStarted> {
                 const EdgeInsets.only(left: 95, right: 80, top: 8, bottom: 15),
             child: Text(
               "Find your perfect dream space with just a few clicks",
+              textAlign: TextAlign.center,
               style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w400,
                   fontSize: 15,
                   color: const Color.fromRGBO(101, 101, 101, 1)),
-              textAlign: TextAlign.center,
             ),
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-                fixedSize: const Size(180, 45),
+                fixedSize: Size(widths * 0.500, heights * 0.045),
                 backgroundColor: const Color.fromRGBO(32, 169, 247, 1)),
             onPressed: () {
               Navigator.push(
