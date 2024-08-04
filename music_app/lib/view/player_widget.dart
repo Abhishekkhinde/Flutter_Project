@@ -42,19 +42,25 @@ class _PlayerWidgetState extends State<PlayerWidget> {
     final currentsong = widget.musclist[currentIndex];
     path = AssetSource(currentsong.songUrl);
     player.onDurationChanged.listen((Duration d) {
-      setState(() {
-        duration = d;
-      });
+      if (mounted) {
+        setState(() {
+          duration = d;
+        });
+      }
     });
 
     player.onPositionChanged.listen((Duration p) {
-      setState(() {
-        position = p;
-      });
+      if (mounted) {
+        setState(() {
+          position = p;
+        });
+      }
     });
 
     player.onPlayerComplete.listen((_) {
-      playNextSong();
+      if (mounted) {
+        playNextSong();
+      }
     });
 
     await player.setSource(path);
@@ -63,8 +69,8 @@ class _PlayerWidgetState extends State<PlayerWidget> {
 
   @override
   void dispose() {
-    super.dispose();
     player.dispose();
+    super.dispose();
   }
 
   void playPause() async {
@@ -75,7 +81,9 @@ class _PlayerWidgetState extends State<PlayerWidget> {
       await player.play(path);
       isPlaying = true;
     }
-    setState(() {});
+    if (mounted) {
+      setState(() {});
+    }
   }
 
   void playNextSong() async {
@@ -105,10 +113,11 @@ class _PlayerWidgetState extends State<PlayerWidget> {
       await player.setVolume(1);
       volume = true;
     }
-    setState(() {});
+    if (mounted) {
+      setState(() {});
+    }
   }
 
-  void vol() async {}
   void _seek(Duration value) {
     player.seek(value);
   }
