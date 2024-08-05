@@ -53,110 +53,112 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
             ],
           ),
           Expanded(
+              flex: 1,
               child: ListView.builder(
-            itemCount: widget.favoriteSong.length,
-            itemBuilder: (context, index) {
-              final song = widget.favoriteSong[index];
-              return Padding(
-                padding: const EdgeInsets.only(
-                    left: 17, right: 25, top: 7, bottom: 7),
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.push(context, MaterialPageRoute(
-                      builder: (context) {
-                        return PlayerScreen(
-                            musiclist: widget.favoriteSong, index: index);
+                itemCount: widget.favoriteSong.length,
+                itemBuilder: (context, index) {
+                  final song = widget.favoriteSong[index];
+                  return Padding(
+                    padding: const EdgeInsets.only(
+                        left: 17, right: 25, top: 7, bottom: 7),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) {
+                            return PlayerScreen(
+                                musiclist: widget.favoriteSong, index: index);
+                          },
+                        ));
                       },
-                    ));
-                  },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    // crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        height: 72,
-                        width: 67,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          image: DecorationImage(
-                              image: AssetImage("${song.songImg}"),
-                              fit: BoxFit.fill),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 12,
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        // crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            "${song.songName}",
-                            style: GoogleFonts.inter(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 12,
-                              color: const Color.fromRGBO(203, 200, 200, 1),
+                          Container(
+                            height: 72,
+                            width: 67,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              image: DecorationImage(
+                                  image: AssetImage("${song.songImg}"),
+                                  fit: BoxFit.fill),
                             ),
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            // crossAxisAlignment: CrossAxisAlignment.start,
+                          const SizedBox(
+                            width: 12,
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "${song.year}",
-                                style: GoogleFonts.inter(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 10,
-                                  color: const Color.fromRGBO(132, 125, 125, 1),
-                                ),
-                              ),
-                              Text(
-                                " * ",
+                                "${song.songName}",
                                 style: GoogleFonts.inter(
                                   fontWeight: FontWeight.w600,
                                   fontSize: 12,
-                                  color: const Color.fromRGBO(132, 125, 125, 1),
+                                  color: const Color.fromRGBO(203, 200, 200, 1),
                                 ),
                               ),
-                              Text(
-                                "${song.singer}",
-                                style: GoogleFonts.inter(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 10,
-                                  color: const Color.fromRGBO(132, 125, 125, 1),
-                                ),
-                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                // crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "${song.year}",
+                                    style: GoogleFonts.inter(
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 10,
+                                      color: const Color.fromRGBO(
+                                          132, 125, 125, 1),
+                                    ),
+                                  ),
+                                  Text(
+                                    " * ",
+                                    style: GoogleFonts.inter(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 12,
+                                      color: const Color.fromRGBO(
+                                          132, 125, 125, 1),
+                                    ),
+                                  ),
+                                  Text(
+                                    "${song.singer}",
+                                    style: GoogleFonts.inter(
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 10,
+                                      color: const Color.fromRGBO(
+                                          132, 125, 125, 1),
+                                    ),
+                                  ),
+                                ],
+                              )
                             ],
+                          ),
+                          const Spacer(),
+                          IconButton(
+                            onPressed: () {
+                              setState(() {
+                                _toggleFavorite(song);
+                              });
+                            },
+                            icon: song.isFavorite == true
+                                ? const Icon(
+                                    Icons.favorite,
+                                    color: Colors.red,
+                                    size: 30,
+                                  )
+                                : const Icon(
+                                    Icons.favorite_border_outlined,
+                                    color: Colors.red,
+                                    size: 30,
+                                  ),
                           )
                         ],
                       ),
-                      const Spacer(),
-                      IconButton(
-                        onPressed: () {
-                          setState(() {
-                            _toggleFavorite(song);
-                          });
-                        },
-                        icon: song.isFavorite == true
-                            ? const Icon(
-                                Icons.favorite,
-                                color: Colors.red,
-                                size: 30,
-                              )
-                            : const Icon(
-                                Icons.favorite_border_outlined,
-                                color: Colors.red,
-                                size: 30,
-                              ),
-                      )
-                    ],
-                  ),
-                ),
-              );
-
-             
-            },
-          ))
+                    ),
+                  );
+                },
+              ))
         ]),
       ),
     );
