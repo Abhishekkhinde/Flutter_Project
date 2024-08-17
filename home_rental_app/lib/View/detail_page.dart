@@ -47,6 +47,7 @@ class _DetailPageState extends State<DetailPage> {
             width: double.infinity,
             height: 244,
             decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
               image: DecorationImage(
                 image: AssetImage("${data.image}"),
                 fit: BoxFit.fill,
@@ -262,10 +263,10 @@ class _DetailPageState extends State<DetailPage> {
           ),
           const Spacer(),
           Container(
-            height: 100,
+            height: heights * 0.1,
             width: double.infinity,
-            padding:
-                const EdgeInsets.only(left: 85, right: 85, top: 10, bottom: 20),
+            padding: EdgeInsets.only(
+                left: widths * 0.2, right: widths * 0.2, top: 10, bottom: 15),
             decoration: const BoxDecoration(
                 color: Color.fromRGBO(255, 255, 255, 1),
                 boxShadow: [

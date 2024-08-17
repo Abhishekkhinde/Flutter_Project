@@ -270,7 +270,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Navigator.push(context, MaterialPageRoute(
                     builder: (context) {
                       return AllViewScreen(
-                          homeData: popularHome,
+                          homeData: nearByHome,
                           pagename: "Nearby your location");
                     },
                   ));
@@ -291,120 +291,148 @@ class _HomeScreenState extends State<HomeScreen> {
           const SizedBox(
             height: 24,
           ),
-          Container(
-            height: 108,
-            width: 346,
-            margin: const EdgeInsets.only(left: 22, right: 22),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: const Color.fromRGBO(255, 255, 255, 1)),
-            padding:
-                const EdgeInsets.only(left: 9, right: 11, top: 10, bottom: 8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Container(
-                  height: 90,
-                  width: 90,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      image: const DecorationImage(
-                          image: AssetImage("assets/8.png"))),
-                ),
-                const SizedBox(
-                  width: 22,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    const SizedBox(
-                      height: 7,
-                    ),
-                    Text(
-                      "Jumeriah Golf Estates Villa",
-                      style: GoogleFonts.poppins(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 14,
-                          color: const Color.fromRGBO(0, 0, 0, 1)),
-                    ),
-                    const SizedBox(
-                      height: 1,
-                    ),
-                    Row(
+          SizedBox(
+            height: heights * 0.13,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: nearByHome.length,
+              itemBuilder: (context, index) {
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (context) {
+                        return DetailPage(homeData: nearByHome, index: index);
+                      },
+                    ));
+                  },
+                  child: Container(
+                    height: heights * 0.15,
+                    width: widths * 0.88,
+                    margin: const EdgeInsets.only(left: 22, right: 22),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: const Color.fromRGBO(255, 255, 255, 1)),
+                    padding: const EdgeInsets.only(
+                        left: 9, right: 11, top: 10, bottom: 8),
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        const Icon(Icons.location_on,
-                            size: 14, color: Color.fromRGBO(90, 90, 90, 1)),
-                        Text(
-                          "London,Area Plam Jumeriah",
-                          style: GoogleFonts.poppins(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 11,
-                              color: const Color.fromRGBO(90, 90, 90, 1)),
-                        )
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 4,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        const Icon(Icons.chair,
-                            size: 15, color: Color.fromRGBO(90, 90, 90, 1)),
-                        const SizedBox(
-                          width: 6,
-                        ),
-                        Text(
-                          "4 Bedrooms",
-                          style: GoogleFonts.poppins(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 9,
-                              color: const Color.fromRGBO(90, 90, 90, 1)),
+                        Container(
+                          height: 90,
+                          width: 90,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            image: DecorationImage(
+                                image: AssetImage("${nearByHome[index].image}"),
+                                fit: BoxFit.fill),
+                          ),
                         ),
                         const SizedBox(
-                          width: 6,
+                          width: 22,
                         ),
-                        const Icon(Icons.bathtub_rounded,
-                            size: 15, color: Color.fromRGBO(90, 90, 90, 1)),
-                        const SizedBox(
-                          width: 6,
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            const SizedBox(
+                              height: 7,
+                            ),
+                            Text(
+                              "${nearByHome[index].villaName}",
+                              style: GoogleFonts.poppins(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 14,
+                                  color: const Color.fromRGBO(0, 0, 0, 1)),
+                            ),
+                            const SizedBox(
+                              height: 1,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                const Icon(Icons.location_on,
+                                    size: 14,
+                                    color: Color.fromRGBO(90, 90, 90, 1)),
+                                Text(
+                                  "${nearByHome[index].location}",
+                                  style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 11,
+                                      color:
+                                          const Color.fromRGBO(90, 90, 90, 1)),
+                                )
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 4,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                const Icon(Icons.chair,
+                                    size: 15,
+                                    color: Color.fromRGBO(90, 90, 90, 1)),
+                                const SizedBox(
+                                  width: 6,
+                                ),
+                                Text(
+                                  "${nearByHome[index].bedrooms} Bedrooms",
+                                  style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 9,
+                                      color:
+                                          const Color.fromRGBO(90, 90, 90, 1)),
+                                ),
+                                const SizedBox(
+                                  width: 6,
+                                ),
+                                const Icon(Icons.bathtub_rounded,
+                                    size: 15,
+                                    color: Color.fromRGBO(90, 90, 90, 1)),
+                                const SizedBox(
+                                  width: 6,
+                                ),
+                                Text(
+                                  "${nearByHome[index].bathrooms} Bathrooms",
+                                  style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 9,
+                                      color:
+                                          const Color.fromRGBO(90, 90, 90, 1)),
+                                )
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 4,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(
+                                  "\$${nearByHome[index].ammout}",
+                                  style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 14,
+                                      color: const Color.fromRGBO(
+                                          32, 169, 247, 1)),
+                                ),
+                                Text(
+                                  '/Month',
+                                  style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 12,
+                                      color:
+                                          const Color.fromRGBO(72, 72, 72, 1)),
+                                )
+                              ],
+                            )
+                          ],
                         ),
-                        Text(
-                          "5 Bathrooms",
-                          style: GoogleFonts.poppins(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 9,
-                              color: const Color.fromRGBO(90, 90, 90, 1)),
-                        )
                       ],
                     ),
-                    const SizedBox(
-                      height: 4,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Text(
-                          "\$5900",
-                          style: GoogleFonts.poppins(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 14,
-                              color: const Color.fromRGBO(32, 169, 247, 1)),
-                        ),
-                        Text(
-                          '/Month',
-                          style: GoogleFonts.poppins(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 12,
-                              color: const Color.fromRGBO(72, 72, 72, 1)),
-                        )
-                      ],
-                    )
-                  ],
-                ),
-              ],
+                  ),
+                );
+              },
             ),
           )
         ],

@@ -167,3 +167,54 @@ List<HomeModelClass> popularHome = [
     rating: 4.9,
   ),
 ];
+
+List<HomeModelClass> nearByHome = [
+  HomeModelClass(
+    image: 'assets/near_by_you/12.jpg',
+    villaName: 'Countryside Charm',
+    location: 'Hudson Valley, New York',
+    ammout: 6400,
+    bathrooms: 3,
+    bedrooms: 3,
+    size: 3500,
+    about:
+        'Escape to this charming countryside villa in Hudson Valley. It offers peaceful surroundings, a large garden, and cozy interiors. Perfect for a quiet retreat.',
+    rating: 4.6,
+  ),
+  HomeModelClass(
+    image: 'assets/near_by_you/13.jpg',
+    villaName: 'Desert Oasis',
+    location: 'Scottsdale, Arizona',
+    ammout: 7800,
+    bathrooms: 4,
+    bedrooms: 4,
+    size: 4200,
+    about:
+        'Experience luxury in the desert with this stunning villa. It features a private pool, spacious living areas, and beautiful desert landscape views. Perfect for relaxation.',
+    rating: 4.8,
+  ),
+  HomeModelClass(
+    image: 'assets/near_by_you/14.jpg',
+    villaName: 'Lakefront Luxury',
+    location: 'Lake Tahoe, California',
+    ammout: 9500,
+    bathrooms: 5,
+    bedrooms: 5,
+    size: 5000,
+    about:
+        'This luxurious lakefront villa offers stunning views of Lake Tahoe, a private dock, and modern amenities. Ideal for both summer and winter getaways.',
+    rating: 4.9,
+  ),
+  HomeModelClass(
+    image: 'assets/8.png',
+    villaName: 'Jumeriah Golf Villa',
+    location: 'New York, New York',
+    ammout: 13200,
+    bathrooms: 3,
+    bedrooms: 2,
+    size: 5900,
+    about:
+        'A stylish villa located in the bustling streets of Manhattan. This urban retreat features modern architecture, a private rooftop garden, and close proximity to top attractions.',
+    rating: 4.9,
+  ),
+];

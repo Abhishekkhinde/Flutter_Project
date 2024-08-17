@@ -59,14 +59,15 @@ class _AllViewScreenState extends State<AllViewScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => DetailPage(homeData: data ,index:index),
+                        builder: (context) =>
+                            DetailPage(homeData: data, index: index),
                       ),
                     );
                   },
                   child: Container(
                     // margin: const EdgeInsets.only(left: 22, top: 14, right: 22),
-                    height: 306,
-                    width: 211,
+                    // height: 306,
+                    // width: 211,
                     padding:
                         const EdgeInsets.only(top: 11, left: 11, right: 11),
                     decoration: BoxDecoration(
