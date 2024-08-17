@@ -56,7 +56,7 @@ class _GetStatedState extends State<GetStarted> {
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-                fixedSize: Size(widths * 0.500, heights * 0.045),
+                fixedSize: Size(widths * 0.500, heights * 0.056),
                 backgroundColor: const Color.fromRGBO(32, 169, 247, 1)),
             onPressed: () {
               Navigator.push(
