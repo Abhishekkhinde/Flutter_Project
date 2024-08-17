@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:home_rental_app/Model/home_data_model.dart';
 
 class DetailPage extends StatefulWidget {
-  const DetailPage({super.key});
+  final List<HomeModelClass> homeData;
+  final int index;
+  const DetailPage({super.key, required this.homeData, required this.index});
 
   @override
   State<DetailPage> createState() => _DetailPageState();
@@ -11,6 +14,7 @@ class DetailPage extends StatefulWidget {
 class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
+    final data = widget.homeData[widget.index];
     final heights = MediaQuery.of(context).size.height;
     final widths = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -42,9 +46,9 @@ class _DetailPageState extends State<DetailPage> {
             margin: const EdgeInsets.all(22),
             width: double.infinity,
             height: 244,
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/detail1.png"),
+                image: AssetImage("${data.image}"),
                 fit: BoxFit.fill,
               ),
             ),
@@ -72,7 +76,7 @@ class _DetailPageState extends State<DetailPage> {
                         color: Color.fromRGBO(251, 227, 12, 1),
                       ),
                       Text(
-                        "4.9",
+                        "${data.rating}",
                         style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w500,
                             fontSize: 12,
@@ -88,7 +92,7 @@ class _DetailPageState extends State<DetailPage> {
             alignment: Alignment.centerLeft,
             margin: const EdgeInsets.only(left: 22),
             child: Text(
-              "Night Hill Villa",
+              "${data.villaName}",
               style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,
                   fontSize: 22,
@@ -102,7 +106,7 @@ class _DetailPageState extends State<DetailPage> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text(
-                  "\$5900",
+                  "${data.ammout}",
                   style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,
                       fontSize: 16,
@@ -122,7 +126,7 @@ class _DetailPageState extends State<DetailPage> {
             alignment: Alignment.centerLeft,
             margin: const EdgeInsets.only(left: 22),
             child: Text(
-              "London,Night Hill",
+              "${data.location}",
               style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w500,
                   fontSize: 15,
@@ -157,7 +161,7 @@ class _DetailPageState extends State<DetailPage> {
                           color: const Color.fromRGBO(90, 90, 90, 1)),
                     ),
                     Text(
-                      "5",
+                      "${data.bedrooms}",
                       style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w600,
                           fontSize: 16,
@@ -192,7 +196,7 @@ class _DetailPageState extends State<DetailPage> {
                           color: const Color.fromRGBO(90, 90, 90, 1)),
                     ),
                     Text(
-                      "6",
+                      "${data.bathrooms}",
                       style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w600,
                           fontSize: 16,
@@ -227,7 +231,7 @@ class _DetailPageState extends State<DetailPage> {
                           color: const Color.fromRGBO(90, 90, 90, 1)),
                     ),
                     Text(
-                      "7,000 sq ft",
+                      "${data.size}",
                       style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w600,
                           fontSize: 16,
@@ -245,7 +249,7 @@ class _DetailPageState extends State<DetailPage> {
               child: Column(
                 children: [
                   Text(
-                    "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet",
+                    "${data.about}",
                     textAlign: TextAlign.left,
                     style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w400,

@@ -4,8 +4,10 @@ import 'package:home_rental_app/Model/home_data_model.dart';
 import 'package:home_rental_app/View/detail_page.dart';
 
 class AllViewScreen extends StatefulWidget {
-  final String places;
-  const AllViewScreen({super.key, required this.places});
+  final String pagename;
+  final List<HomeModelClass> homeData;
+  const AllViewScreen(
+      {super.key, required this.homeData, required this.pagename});
   @override
   State<AllViewScreen> createState() => _AllViewScreenState();
 }
@@ -13,6 +15,7 @@ class AllViewScreen extends StatefulWidget {
 class _AllViewScreenState extends State<AllViewScreen> {
   @override
   Widget build(BuildContext context) {
+    final data = widget.homeData;
     return Scaffold(
       backgroundColor: const Color.fromRGBO(244, 243, 243, 1),
       appBar: AppBar(
@@ -31,7 +34,7 @@ class _AllViewScreenState extends State<AllViewScreen> {
         //   iconSize: 30,
         // ),
         title: Text(
-          widget.places,
+          widget.pagename,
           style: GoogleFonts.poppins(
             fontWeight: FontWeight.w500,
             fontSize: 24,
@@ -43,8 +46,8 @@ class _AllViewScreenState extends State<AllViewScreen> {
         children: [
           Expanded(
             child: GridView.builder(
-              padding:const EdgeInsets.only(left: 10, right: 10),
-              itemCount: 2,
+              padding: const EdgeInsets.only(left: 10, right: 10),
+              itemCount: data.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   mainAxisSpacing: 10,
@@ -56,7 +59,7 @@ class _AllViewScreenState extends State<AllViewScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const DetailPage(),
+                        builder: (context) => DetailPage(homeData: data ,index:index),
                       ),
                     );
                   },
@@ -79,7 +82,7 @@ class _AllViewScreenState extends State<AllViewScreen> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15),
                             image: DecorationImage(
-                                image: AssetImage(popularHome[index].image),
+                                image: AssetImage("${data[index].image}"),
                                 fit: BoxFit.fill),
                           ),
                           child: Row(
@@ -123,7 +126,7 @@ class _AllViewScreenState extends State<AllViewScreen> {
                           height: 6,
                         ),
                         Text(
-                          popularHome[index].villaName,
+                          "${data[index].villaName}",
                           style: GoogleFonts.poppins(
                               fontWeight: FontWeight.w600,
                               fontSize: 16,
@@ -133,7 +136,7 @@ class _AllViewScreenState extends State<AllViewScreen> {
                           height: 4,
                         ),
                         Text(
-                          popularHome[index].location,
+                          "${data[index].location}",
                           style: GoogleFonts.poppins(
                               fontWeight: FontWeight.w500,
                               fontSize: 12,

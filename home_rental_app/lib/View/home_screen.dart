@@ -101,7 +101,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(
                     builder: (context) {
-                      return AllViewScreen(places: "Most popular");
+                      return AllViewScreen(
+                          homeData: popularHome, pagename: "Most popular");
+                      // AllViewScreen(places: "Most popular");
                     },
                   ));
                 },
@@ -129,7 +131,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const DetailPage(),
+                          builder: (context) =>
+                              DetailPage(homeData: popularHome, index: index),
+                          // DetailPage(),
                         ),
                       );
                     },
@@ -152,7 +156,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(15),
                               image: DecorationImage(
-                                  image: AssetImage(popularHome[index].image),
+                                  image:
+                                      AssetImage("${popularHome[index].image}"),
                                   fit: BoxFit.fill),
                             ),
                             child: Row(
@@ -199,7 +204,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 6,
                           ),
                           Text(
-                            popularHome[index].villaName,
+                            "${popularHome[index].villaName}",
                             style: GoogleFonts.poppins(
                                 fontWeight: FontWeight.w600,
                                 fontSize: 16,
@@ -209,7 +214,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 4,
                           ),
                           Text(
-                            popularHome[index].location,
+                            "${popularHome[index].location}",
                             style: GoogleFonts.poppins(
                                 fontWeight: FontWeight.w500,
                                 fontSize: 12,
@@ -264,7 +269,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(
                     builder: (context) {
-                      return AllViewScreen(places: "Nearby your location");
+                      return AllViewScreen(
+                          homeData: popularHome,
+                          pagename: "Nearby your location");
                     },
                   ));
                 },
