@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:home_rental_app/Model/home_data_model.dart';
+import 'package:razorpay_flutter/razorpay_flutter.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class DetailPage extends StatefulWidget {
   final List<HomeModelClass> homeData;
@@ -12,6 +14,63 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
+  late Razorpay _razorpay;
+
+  void _handlePaymentSuccess(PaymentSuccessResponse response) {
+    Fluttertoast.showToast(
+        msg: "Payment Succesful${response.paymentId!}",
+        toastLength: Toast.LENGTH_SHORT);
+  }
+
+  void _handlePaymentError(PaymentFailureResponse response) {
+    Fluttertoast.showToast(
+        msg: "Payment Fail${response.message!}",
+        toastLength: Toast.LENGTH_SHORT);
+  }
+
+  void _handleExternalWallet(ExternalWalletResponse response) {
+    Fluttertoast.showToast(
+        msg: "External${response.walletName!}",
+        toastLength: Toast.LENGTH_SHORT);
+  }
+
+  void openCheckout(amount) {
+    amount = amount * 100;
+    var options = {
+      'key': 'rzp_test_SZCJlxQmd4mfim',
+      'amount': amount, //in paise.
+      'name': 'Abhishek Khinde',
+      // 'order_id':
+      //     'YDLWRDoMOAtVu0kBqgbSuZBO', // Generate order_id using Orders API
+      'timeout': 160, // in seconds
+      'prefill': {
+        'contact': '8806623075',
+        'email': 'abhisheknkhinde11@gmail.com'
+      }
+    };
+    try {
+      _razorpay.open(options);
+    } catch (e) {
+      debugPrint('Error: $e');
+      Fluttertoast.showToast(msg: "Error: $e");
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _razorpay = Razorpay();
+    _razorpay.on(Razorpay.EVENT_PAYMENT_SUCCESS, _handlePaymentSuccess);
+    _razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, _handlePaymentError);
+    _razorpay.on(Razorpay.EVENT_EXTERNAL_WALLET, _handleExternalWallet);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _razorpay.clear();
+  }
+
   @override
   Widget build(BuildContext context) {
     final data = widget.homeData[widget.index];
@@ -107,7 +166,7 @@ class _DetailPageState extends State<DetailPage> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text(
-                  "${data.ammout}",
+                  "\$${data.ammout}",
                   style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,
                       fontSize: 16,
@@ -282,7 +341,13 @@ class _DetailPageState extends State<DetailPage> {
                   // fixedSize: const Size(220, 55),
                   backgroundColor: const Color.fromRGBO(32, 169, 247, 1),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  setState(() {
+                    int amount =
+                        int.parse("${widget.homeData[widget.index].ammout}");
+                    openCheckout(amount);
+                  });
+                },
                 child: Text(
                   "Rent Now",
                   style: GoogleFonts.poppins(

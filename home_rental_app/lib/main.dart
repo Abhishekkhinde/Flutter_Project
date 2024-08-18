@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:home_rental_app/View/getStartedScreen.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MainApp());
 }
 
@@ -16,3 +17,8 @@ class MainApp extends StatelessWidget {
     );
   }
 }
+
+
+//OmMh7V1KpRWGRi
+// rzp_test_SZCJlxQmd4mfim
+// YDLWRDoMOAtVu0kBqgbSuZBO

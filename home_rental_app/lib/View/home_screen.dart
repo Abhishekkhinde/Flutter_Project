@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:home_rental_app/View/all_view_screen.dart';
 import 'package:home_rental_app/View/detail_page.dart';
 import 'package:home_rental_app/Model/home_data_model.dart';
+import 'package:home_rental_app/View/profile_page.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -37,15 +38,25 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               const Spacer(),
-              Container(
-                margin: const EdgeInsets.only(right: 22),
-                height: 48,
-                width: 48,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                      image: AssetImage("assets/profile.jpg"),
-                      fit: BoxFit.fill),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) {
+                      return const ProfileScreen();
+                    }),
+                  );
+                },
+                child: Container(
+                  margin: const EdgeInsets.only(right: 22),
+                  height: 50,
+                  width: 50,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                        image: AssetImage("assets/profile.jpg"),
+                        fit: BoxFit.fill),
+                  ),
                 ),
               ),
             ],
