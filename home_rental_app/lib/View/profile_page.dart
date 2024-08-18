@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:home_rental_app/View/about_page.dart';
-import 'package:home_rental_app/View/getStartedScreen.dart';
 import 'package:home_rental_app/View/history_page.dart';
 
 class ProfileScreen extends StatefulWidget {
