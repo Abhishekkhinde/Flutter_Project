@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:home_rental_app/Model/historymodel.dart';
 import 'package:home_rental_app/Model/home_data_model.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -15,17 +16,30 @@ class DetailPage extends StatefulWidget {
 
 class _DetailPageState extends State<DetailPage> {
   late Razorpay _razorpay;
-
   void _handlePaymentSuccess(PaymentSuccessResponse response) {
     Fluttertoast.showToast(
         msg: "Payment Succesful${response.paymentId!}",
         toastLength: Toast.LENGTH_SHORT);
+    historyData.add(Historymodel(
+        name: '${widget.homeData[widget.index].villaName}',
+        status: true,
+        ammount: '${widget.homeData[widget.index].ammout}',
+        location: '${widget.homeData[widget.index].location}',
+        image: '${widget.homeData[widget.index].image}'));
   }
 
   void _handlePaymentError(PaymentFailureResponse response) {
     Fluttertoast.showToast(
         msg: "Payment Fail${response.message!}",
         toastLength: Toast.LENGTH_SHORT);
+    historyData.add(
+      Historymodel(
+          name: '${widget.homeData[widget.index].villaName}',
+          status: false,
+          ammount: '${widget.homeData[widget.index].ammout}',
+          image: '${widget.homeData[widget.index].image}',
+          location: "'${widget.homeData[widget.index].location}'"),
+    );
   }
 
   void _handleExternalWallet(ExternalWalletResponse response) {
