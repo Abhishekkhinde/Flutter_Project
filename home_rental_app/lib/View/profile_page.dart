@@ -13,30 +13,26 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
+    // final height = MediaQuery.of(context).size.height;
     // final width = MediaQuery.of(context).size.width;
 
     return Scaffold(
         backgroundColor: const Color.fromRGBO(244, 243, 243, 1),
-
-        // backgroundColor: const Color.fromRGBO(24, 24, 24, 1),
+        appBar: AppBar(
+          backgroundColor: const Color.fromRGBO(244, 243, 243, 1),
+          centerTitle: true,
+          title: Text(
+            "Profile",
+            style: GoogleFonts.inter(
+              fontSize: 25,
+              fontWeight: FontWeight.w400,
+              color: const Color.fromRGBO(0, 0, 0, 1),
+            ),
+          ),
+        ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(
-              height: height * 0.03,
-            ),
-            Text(
-              "Profile",
-              style: GoogleFonts.inter(
-                fontSize: 25,
-                fontWeight: FontWeight.w400,
-                color: const Color.fromRGBO(0, 0, 0, 1),
-              ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -89,98 +85,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ),
             ),
-            // const SizedBox(
-            //   height: 30,
-            // ),
-            // Padding(
-            //   padding: const EdgeInsets.only(left: 20, right: 20),
-            //   child: Row(
-            //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //     children: [
-            //       Column(
-            //         crossAxisAlignment: CrossAxisAlignment.center,
-            //         children: [
-            //           Text(
-            //             "37",
-            //             style: GoogleFonts.inter(
-            //               fontSize: 14,
-            //               fontWeight: FontWeight.w400,
-            //               color: const Color.fromRGBO(0, 0, 0, 1),
-            //             ),
-            //           ),
-            //           Text(
-            //             "Saves",
-            //             style: GoogleFonts.inter(
-            //               fontSize: 14,
-            //               fontWeight: FontWeight.w400,
-            //               color: const Color.fromRGBO(0, 0, 0, 1),
-            //             ),
-            //           ),
-            //         ],
-            //       ),
-            //       Column(
-            //         children: [
-            //           Text(
-            //             "24",
-            //             style: GoogleFonts.inter(
-            //               fontSize: 14,
-            //               fontWeight: FontWeight.w400,
-            //               color: const Color.fromRGBO(0, 0, 0, 1),
-            //             ),
-            //           ),
-            //           Text(
-            //             "favourite",
-            //             style: GoogleFonts.inter(
-            //               fontSize: 14,
-            //               fontWeight: FontWeight.w400,
-            //               color: const Color.fromRGBO(0, 0, 0, 1),
-            //             ),
-            //           ),
-            //         ],
-            //       ),
-            //       Column(
-            //         children: [
-            //           Text(
-            //             "4206",
-            //             style: GoogleFonts.inter(
-            //               fontSize: 14,
-            //               fontWeight: FontWeight.w400,
-            //               color: const Color.fromRGBO(0, 0, 0, 1),
-            //             ),
-            //           ),
-            //           Text(
-            //             "Followers",
-            //             style: GoogleFonts.inter(
-            //               fontSize: 14,
-            //               fontWeight: FontWeight.w400,
-            //               color: const Color.fromRGBO(0, 0, 0, 1),
-            //             ),
-            //           ),
-            //         ],
-            //       ),
-            //       Column(
-            //         children: [
-            //           Text(
-            //             "150",
-            //             style: GoogleFonts.inter(
-            //               fontSize: 14,
-            //               fontWeight: FontWeight.w400,
-            //               color: const Color.fromRGBO(0, 0, 0, 1),
-            //             ),
-            //           ),
-            //           Text(
-            //             "Following",
-            //             style: GoogleFonts.inter(
-            //               fontSize: 14,
-            //               fontWeight: FontWeight.w400,
-            //               color: const Color.fromRGBO(0, 0, 0, 1),
-            //             ),
-            //           ),
-            //         ],
-            //       )
-            //     ],
-            //   ),
-            // ),
             const SizedBox(
               height: 20,
             ),
@@ -303,16 +207,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                       ),
                     ),
-                    // const SizedBox(
-                    //   height: 20,
-                    // ),
-                    // const Divider(
-                    //   height: 1,
-                    //   thickness: 1,
-                    // ),
-                    // const SizedBox(
-                    //   height: 20,
-                    // ),
                   ],
                 ))
           ],

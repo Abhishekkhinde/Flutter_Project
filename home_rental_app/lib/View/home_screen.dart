@@ -4,6 +4,7 @@ import 'package:home_rental_app/View/all_view_screen.dart';
 import 'package:home_rental_app/View/detail_page.dart';
 import 'package:home_rental_app/Model/home_data_model.dart';
 import 'package:home_rental_app/View/profile_page.dart';
+import 'package:home_rental_app/View/search_page.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -82,7 +83,18 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: Color.fromRGBO(255, 255, 255, 1),
                 borderRadius: BorderRadius.all(Radius.circular(15))),
             child: TextField(
+              keyboardType: TextInputType.none,
               textAlign: TextAlign.left,
+              enabled: true,
+              showCursor: false,
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) {
+                    return const SearchScreen();
+                  }),
+                );
+              },
               decoration: InputDecoration(
                   hintText: "Search your favourite paradise",
                   hintStyle: GoogleFonts.poppins(
